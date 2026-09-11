@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nexus | Tecnología y Servicios Técnicos</title>
+  <meta
+    name="description"
+    content="Nexus - Computadores, periféricos, gaming, accesorios, almacenamiento, impresoras, celulares y servicios técnicos."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+
+      <a href="#inicio" class="logo">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmElgXb6F-1FWqLMwjW1ZTBxnz4Hy00DoAKXUufe6e7w&s=10"
+          alt="Nexus"
+        >
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <button class="quote-button" onclick="openQuote()">
+        Cotización
+        <span id="quoteCount">0</span>
+      </button>
+
+      <button class="menu-button" onclick="toggleMenu()">
+        ☰
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+      <a href="#productos" onclick="toggleMenu()">Productos</a>
+      <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+      <a href="#contacto" onclick="toggleMenu()">Contacto</a>
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+          <span class="eyebrow">NEXUS TECHNOLOGY</span>
+
+          <h1>
+            Tecnología que
+            <span>conecta contigo.</span>
+          </h1>
+
+          <p>
+            Encuentra computadores, gaming, periféricos, accesorios,
+            almacenamiento, celulares y soluciones técnicas en un solo lugar.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#productos" class="btn btn-primary">
+              Ver catálogo
+            </a>
+
+            <button class="btn btn-secondary" onclick="openWhatsApp('Hola Nexus, quiero información sobre sus productos y servicios.')">
+              Hablar por WhatsApp
+            </button>
+          </div>
+
+          <div class="hero-features">
+            <div>
+              <strong>01</strong>
+              <span>Productos</span>
+            </div>
+
+            <div>
+              <strong>02</strong>
+              <span>Cotizaciones</span>
+            </div>
+
+            <div>
+              <strong>03</strong>
+              <span>Servicio técnico</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <img
+              src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=85"
+              alt="Tecnología Nexus"
+            >
+
+            <div class="hero-card-overlay">
+              <span>NEXUS</span>
+              <strong>Soluciones tecnológicas</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CATEGORÍAS -->
+    <section class="categories-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">CATÁLOGO</span>
+          <h2>Encuentra lo que necesitas</h2>
+          <p>
+            Explora nuestras categorías y selecciona los productos
+            que quieres incluir en tu cotización.
+          </p>
+        </div>
+
+        <div id="categoryGrid" class="category-grid"></div>
+
+      </div>
+    </section>
+
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="products-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">PRODUCTOS</span>
+          <h2>Catálogo Nexus</h2>
+          <p>
+            Selecciona un producto para agregarlo a tu cotización.
+          </p>
+        </div>
+
+        <div class="catalog-controls">
+
+          <div class="search-box">
+            <span>⌕</span>
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Buscar producto..."
+            >
+          </div>
+
+          <div id="categoryFilters" class="filters"></div>
+
+        </div>
+
+        <div id="subcategoryArea" class="subcategory-area"></div>
+
+        <div id="productGrid" class="product-grid"></div>
+
+      </div>
+    </section>
+
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="services-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">SERVICIOS</span>
+          <h2>Servicios técnicos</h2>
+          <p>
+            También te ayudamos a mantener, reparar y optimizar tus equipos.
+          </p>
+        </div>
+
+        <div id="serviceGrid" class="service-grid"></div>
+
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+
+        <div class="cta-card">
+
+          <div>
+            <span class="eyebrow">¿NECESITAS AYUDA?</span>
+            <h2>Cuéntanos qué necesitas.</h2>
+            <p>
+              Nuestro equipo puede ayudarte a encontrar el producto
+              o servicio adecuado.
+            </p>
+          </div>
+
+          <button
+            class="btn btn-light"
+            onclick="openWhatsApp('Hola Nexus, necesito asesoría para elegir un producto.')"
+          >
+            Solicitar asesoría
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer id="contacto" class="footer">
+
+    <div class="container footer-grid">
+
+      <div>
+        <img
+          class="footer-logo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmElgXb6F-1FWqLMwjW1ZTBxnz4Hy00DoAKXUufe6e7w&s=10"
+          alt="Nexus"
+        >
+
+        <p>
+          Tecnología, accesorios y soluciones técnicas
+          para tus necesidades digitales.
+        </p>
+      </div>
+
+      <div>
+        <h3>Navegación</h3>
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#servicios">Servicios</a>
+      </div>
+
+      <div>
+        <h3>Categorías</h3>
+        <a href="#productos">Computadores</a>
+        <a href="#productos">Gaming</a>
+        <a href="#productos">Periféricos</a>
+        <a href="#productos">Accesorios</a>
+      </div>
+
+      <div>
+        <h3>Contacto</h3>
+        <button onclick="openWhatsApp('Hola Nexus, quiero comunicarme con ustedes.')">
+          WhatsApp
+        </button>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        © 2026 Nexus. Todos los derechos reservados.
+      </div>
+    </div>
+
+  </footer>
+
+
+  <!-- WHATSAPP FLOTANTE -->
+  <button
+    class="whatsapp-float"
+    onclick="openWhatsApp('Hola Nexus, quiero información sobre sus productos.')"
+    aria-label="Contactar por WhatsApp"
+  >
+    <span>◉</span>
+  </button>
+
+
+  <!-- COTIZADOR -->
+  <div id="quoteOverlay" class="overlay" onclick="closeQuoteOutside(event)">
+
+    <aside class="quote-panel">
+
+      <div class="quote-header">
+        <div>
+          <span class="eyebrow">NEXUS</span>
+          <h2>Mi cotización</h2>
+        </div>
+
+        <button onclick="closeQuote()" class="close-button">
+          ×
+        </button>
+      </div>
+
+
+      <div id="quoteItems" class="quote-items"></div>
+
+
+      <div id="emptyQuote" class="empty-quote">
+        <div class="empty-icon">＋</div>
+        <h3>Tu cotización está vacía</h3>
+        <p>
+          Agrega productos del catálogo para comenzar.
+        </p>
+
+        <button
+          class="btn btn-primary"
+          onclick="closeQuote(); document.querySelector('#productos').scrollIntoView({behavior:'smooth'})"
+        >
+          Ver productos
+        </button>
+      </div>
+
+
+      <form id="quoteForm" class="quote-form">
+
+        <div class="form-title">
+          <h3>Datos de contacto</h3>
+          <p>Completa tus datos para enviar la solicitud.</p>
+        </div>
+
+        <label>
+          Nombre
+          <input type="text" id="clientName" required>
+        </label>
+
+        <label>
+          Correo electrónico
+          <input type="email" id="clientEmail">
+        </label>
+
+        <label>
+          Teléfono
+          <input type="tel" id="clientPhone">
+        </label>
+
+        <label>
+          Empresa
+          <input type="text" id="clientCompany">
+        </label>
+
+        <label>
+          Detalles
+          <textarea
+            id="clientDetails"
+            rows="4"
+            placeholder="Cuéntanos qué necesitas..."
+          ></textarea>
+        </label>
+
+        <button class="btn btn-primary quote-submit" type="submit">
+          Enviar cotización por WhatsApp
+        </button>
+
+      </form>
+
+    </aside>
+
+  </div>
+
+
+  <div id="toast" class="toast">
+    Producto agregado a tu cotización.
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
