@@ -1,296 +1,480 @@
+```javascript
 /* =========================================================
-   NEXUS
-   CATÁLOGO + COTIZADOR + WHATSAPP
+   NEXUS - SCRIPT
 ========================================================= */
 
 
 /* =========================================================
    WHATSAPP
-   60% -> 573228182311
-   40% -> 573117161043
 ========================================================= */
+
+/*
+    60% → 573228182311
+    40% → 573117161043
+
+    Se utiliza el formato internacional sin +, espacios
+    ni guiones, compatible con wa.me.
+*/
 
 const WHATSAPP_60 = "573228182311";
 const WHATSAPP_40 = "573117161043";
 
 
 function getWhatsAppNumber() {
-  return Math.random() < 0.60
-    ? WHATSAPP_60
-    : WHATSAPP_40;
+
+    return Math.random() < 0.60
+        ? WHATSAPP_60
+        : WHATSAPP_40;
 }
 
 
 function openWhatsApp(message) {
 
-  const number = getWhatsAppNumber();
+    const number = getWhatsAppNumber();
 
-  const url =
-    `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+    const url =
+        `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 
-  window.open(url, "_blank");
+    /*
+        location.href es intencional:
+        evita problemas de bloqueadores de ventanas emergentes
+        especialmente en algunos navegadores móviles.
+    */
+
+    window.location.href = url;
 }
 
 
 /* =========================================================
-   IMÁGENES
+   CATÁLOGO
 ========================================================= */
 
-const images = {
+const catalog = {
 
-  computer:
-    "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80",
+    "Computadores": {
 
-  monitor:
-    "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=900&q=80",
+        icon: "▣",
 
-  gaming:
-    "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=900&q=80",
+        image:
+            "https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=900&q=80",
 
-  keyboard:
-    "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=80",
+        description:
+            "Computadores para trabajo, estudio, productividad y gaming.",
 
-  mouse:
-    "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=80",
+        subcategories: {
 
-  headphones:
-    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80",
+            "PCs": {
+                product: "PC de escritorio",
+                description: "Computador de escritorio para uso diario, estudio y trabajo."
+            },
 
-  camera:
-    "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80",
+            "Torres": {
+                product: "Torre para computador",
+                description: "Torres para diferentes configuraciones y necesidades."
+            },
 
-  phone:
-    "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
+            "All in One": {
+                product: "Computador All in One",
+                description: "Equipo compacto con pantalla integrada."
+            },
 
-  printer:
-    "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=900&q=80",
+            "Corporativos": {
+                product: "Computador corporativo",
+                description: "Equipos orientados a empresas, oficinas y productividad."
+            },
 
-  storage:
-    "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80",
+            "Gaming": {
+                product: "PC Gaming",
+                description: "Computadores diseñados para videojuegos y alto rendimiento."
+            }
 
-  office:
-    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=900&q=80",
+        }
 
-  chair:
-    "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?auto=format&fit=crop&w=900&q=80",
+    },
 
-  accessories:
-    "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80",
 
-  power:
-    "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80"
+    "Monitores y TV": {
+
+        icon: "▤",
+
+        image:
+            "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=900&q=80",
+
+        description:
+            "Monitores y televisores para trabajo, entretenimiento y gaming.",
+
+        subcategories: {
+
+            "Monitores": {
+                product: "Monitor",
+                description: "Monitores para trabajo, estudio y entretenimiento."
+            },
+
+            "Monitores Gaming": {
+                product: "Monitor Gaming",
+                description: "Monitores orientados a videojuegos y experiencias fluidas."
+            },
+
+            "TV": {
+                product: "Televisor Smart TV",
+                description: "Televisores para entretenimiento y contenido multimedia."
+            }
+
+        }
+
+    },
+
+
+    "Gaming": {
+
+        icon: "◈",
+
+        image:
+            "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=900&q=80",
+
+        description:
+            "Consolas, controles y accesorios para gaming.",
+
+        subcategories: {
+
+            "Consolas": {
+                product: "Consola de videojuegos",
+                description: "Consolas para entretenimiento y videojuegos."
+            },
+
+            "Controles": {
+                product: "Control para consola",
+                description: "Controles para diferentes plataformas de videojuegos."
+            },
+
+            "Accesorios Gaming": {
+                product: "Accesorio Gaming",
+                description: "Accesorios para complementar tu experiencia gaming."
+            }
+
+        }
+
+    },
+
+
+    "Periféricos": {
+
+        icon: "⌨",
+
+        image:
+            "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=80",
+
+        description:
+            "Periféricos para computadores, gaming, audio y creación de contenido.",
+
+        groups: {
+
+            "Teclados": [
+                "Gaming",
+                "Cableados",
+                "Inalámbricos"
+            ],
+
+            "Mouse": [
+                "Gaming",
+                "Cableados",
+                "Inalámbricos"
+            ],
+
+            "Combos": [
+                "Teclado + Mouse",
+                "Combo Gaming",
+                "Combo Inalámbrico"
+            ],
+
+            "Audio": [
+                "Audífonos",
+                "Micrófonos",
+                "Parlantes"
+            ],
+
+            "Cámaras": [
+                "Cámaras web",
+                "Cámaras fotográficas",
+                "Trípodes"
+            ]
+
+        }
+
+    },
+
+
+    "Accesorios": {
+
+        icon: "⌁",
+
+        image:
+            "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80",
+
+        description:
+            "Accesorios para computadores, celulares, conectividad y organización.",
+
+        groups: {
+
+            "Cargadores": [
+                "Para PC / portátil",
+                "Para celular"
+            ],
+
+            "Cables": [
+                "Cables USB",
+                "HDMI",
+                "DisplayPort",
+                "Red",
+                "Audio",
+                "Para celular",
+                "Para computador"
+            ],
+
+            "Adaptadores": [
+                "USB",
+                "HDMI",
+                "DisplayPort",
+                "Video",
+                "Red"
+            ],
+
+            "Conectividad": [
+                "Hubs USB",
+                "Wi-Fi",
+                "Bluetooth"
+            ],
+
+            "Soportes": [
+                "Para monitor",
+                "Para portátil",
+                "Para celular"
+            ],
+
+            "Bases": [
+                "Para portátil",
+                "Bases refrigerantes con ventilador"
+            ],
+
+            "Accesorios para computadores": [
+                "Lectores",
+                "Ventiladores",
+                "Accesorios internos",
+                "Accesorios externos"
+            ],
+
+            "Accesorios para celulares": [
+                "Soportes",
+                "Cargadores",
+                "Cables"
+            ]
+
+        }
+
+    },
+
+
+    "Memorias y Almacenamiento": {
+
+        icon: "▥",
+
+        image:
+            "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80",
+
+        description:
+            "Memorias y almacenamiento para computadores y dispositivos.",
+
+        subcategories: {
+
+            "Memorias USB": {
+                product: "Memoria USB",
+                description: "Memorias USB para transportar y almacenar archivos."
+            },
+
+            "Memoria RAM": {
+                product: "Memoria RAM",
+                description: "Memoria para mejorar la capacidad y rendimiento del equipo."
+            },
+
+            "Discos HDD": {
+                product: "Disco duro HDD",
+                description: "Almacenamiento tradicional para computadores."
+            },
+
+            "Discos SSD": {
+                product: "Disco SSD",
+                description: "Almacenamiento de estado sólido para mayor velocidad."
+            },
+
+            "SSD M.2": {
+                product: "SSD M.2",
+                description: "Almacenamiento compacto y de alto rendimiento."
+            },
+
+            "Tarjetas MicroSD": {
+                product: "Tarjeta MicroSD",
+                description: "Memoria para celulares, cámaras y dispositivos compatibles."
+            },
+
+            "Tarjetas SD": {
+                product: "Tarjeta SD",
+                description: "Memorias SD para cámaras y dispositivos compatibles."
+            }
+
+        }
+
+    },
+
+
+    "Impresoras y Suministros": {
+
+        icon: "▣",
+
+        image:
+            "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=900&q=80",
+
+        description:
+            "Impresoras, suministros y accesorios para impresión.",
+
+        groups: {
+
+            "Impresoras": [
+                "Impresoras",
+                "Multifuncionales",
+                "Fotocopiadoras",
+                "Impresoras térmicas",
+                "Impresoras de tinta",
+                "Impresoras láser",
+                "Impresoras Wi-Fi"
+            ],
+
+            "Suministros": [
+                "Tintas",
+                "Tóner",
+                "Cartuchos",
+                "Papel"
+            ],
+
+            "Accesorios": [
+                "Accesorios para impresora"
+            ]
+
+        }
+
+    },
+
+
+    "Celulares y Accesorios": {
+
+        icon: "▯",
+
+        image:
+            "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
+
+        description:
+            "Celulares, accesorios, cables, cargadores y protección.",
+
+        subcategories: {
+
+            "Celulares": {
+                product: "Celular",
+                description: "Celulares de diferentes características y gamas."
+            },
+
+            "Cargadores": {
+                product: "Cargador para celular",
+                description: "Cargadores para diferentes dispositivos móviles."
+            },
+
+            "Cables": {
+                product: "Cable para celular",
+                description: "Cables para carga y transferencia de datos."
+            },
+
+            "Fundas": {
+                product: "Funda para celular",
+                description: "Fundas para proteger diferentes modelos de celulares."
+            },
+
+            "Vidrios templados": {
+                product: "Vidrio templado",
+                description: "Protección para la pantalla del celular."
+            },
+
+            "Audífonos": {
+                product: "Audífonos para celular",
+                description: "Audífonos para música, llamadas y entretenimiento."
+            },
+
+            "Soportes": {
+                product: "Soporte para celular",
+                description: "Soportes para escritorio, vehículo y diferentes espacios."
+            },
+
+            "Accesorios para teléfonos": {
+                product: "Accesorio para teléfono",
+                description: "Accesorios complementarios para dispositivos móviles."
+            }
+
+        }
+
+    },
+
+
+    "Sillas": {
+
+        icon: "▰",
+
+        image:
+            "https://images.unsplash.com/photo-1596162954151-cdcb4c0f70f0?auto=format&fit=crop&w=900&q=80",
+
+        description:
+            "Sillas para gaming, trabajo y oficina.",
+
+        subcategories: {
+
+            "Sillas Gaming": {
+                product: "Silla Gaming",
+                description: "Sillas diseñadas para largas sesiones de juego."
+            },
+
+            "Sillas de oficina": {
+                product: "Silla de oficina",
+                description: "Sillas para espacios de trabajo y oficina."
+            }
+
+        }
+
+    },
+
+
+    "Energía": {
+
+        icon: "⚡",
+
+        image:
+            "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80",
+
+        description:
+            "Soluciones para protección y respaldo eléctrico.",
+
+        subcategories: {
+
+            "UPS": {
+                product: "UPS",
+                description: "Sistemas de respaldo eléctrico para equipos tecnológicos."
+            },
+
+            "Reguladores de voltaje": {
+                product: "Regulador de voltaje",
+                description: "Protección y regulación para equipos electrónicos."
+            }
+
+        }
+
+    }
 
 };
-
-
-/* =========================================================
-   CATÁLOGO COMPLETO
-========================================================= */
-
-const catalog = [
-
-  {
-    name: "Computadores",
-    image: images.computer,
-    subcategories: [
-      "PCs",
-      "Torres",
-      "All in One",
-      "Corporativos",
-      "Gaming"
-    ]
-  },
-
-  {
-    name: "Monitores y TV",
-    image: images.monitor,
-    subcategories: [
-      "Monitores",
-      "Monitores Gaming",
-      "TV"
-    ]
-  },
-
-  {
-    name: "Gaming",
-    image: images.gaming,
-    subcategories: [
-      "Consolas",
-      "Controles",
-      "Accesorios Gaming"
-    ]
-  },
-
-  {
-    name: "Periféricos",
-    image: images.keyboard,
-    groups: {
-      "Teclados": [
-        "Gaming",
-        "Cableados",
-        "Inalámbricos"
-      ],
-      "Mouse": [
-        "Gaming",
-        "Cableados",
-        "Inalámbricos"
-      ],
-      "Combos": [
-        "Teclado + Mouse",
-        "Combo Gaming",
-        "Combo Inalámbrico"
-      ],
-      "Audio": [
-        "Audífonos",
-        "Micrófonos",
-        "Parlantes"
-      ],
-      "Cámaras": [
-        "Cámaras web",
-        "Cámaras fotográficas",
-        "Trípodes"
-      ]
-    }
-  },
-
-  {
-    name: "Accesorios",
-    image: images.accessories,
-    groups: {
-
-      "Cargadores": [
-        "Para PC / portátil",
-        "Para celular"
-      ],
-
-      "Cables": [
-        "Cables USB",
-        "HDMI",
-        "DisplayPort",
-        "Red",
-        "Audio",
-        "Para celular",
-        "Para computador"
-      ],
-
-      "Adaptadores": [
-        "USB",
-        "HDMI",
-        "DisplayPort",
-        "Video",
-        "Red"
-      ],
-
-      "Conectividad": [
-        "Hubs USB",
-        "Wi-Fi",
-        "Bluetooth"
-      ],
-
-      "Soportes": [
-        "Para monitor",
-        "Para portátil",
-        "Para celular"
-      ],
-
-      "Bases": [
-        "Para portátil",
-        "Bases refrigerantes con ventilador"
-      ],
-
-      "Accesorios para computadores": [
-        "Lectores",
-        "Ventiladores",
-        "Accesorios internos",
-        "Accesorios externos"
-      ],
-
-      "Accesorios para celulares": [
-        "Soportes",
-        "Cargadores",
-        "Cables"
-      ]
-
-    }
-  },
-
-  {
-    name: "Memorias y Almacenamiento",
-    image: images.storage,
-    subcategories: [
-      "Memorias USB",
-      "Memoria RAM",
-      "Discos HDD",
-      "Discos SSD",
-      "SSD M.2",
-      "Tarjetas MicroSD",
-      "Tarjetas SD"
-    ]
-  },
-
-  {
-    name: "Impresoras y Suministros",
-    image: images.printer,
-    groups: {
-
-      "Impresoras": [
-        "Impresoras",
-        "Multifuncionales",
-        "Fotocopiadoras",
-        "Impresoras térmicas",
-        "Impresoras de tinta",
-        "Impresoras láser",
-        "Impresoras Wi-Fi"
-      ],
-
-      "Suministros": [
-        "Tintas",
-        "Tóner",
-        "Cartuchos",
-        "Papel"
-      ],
-
-      "Accesorios": [
-        "Accesorios para impresora"
-      ]
-
-    }
-  },
-
-  {
-    name: "Celulares y Accesorios",
-    image: images.phone,
-    subcategories: [
-      "Celulares",
-      "Cargadores",
-      "Cables",
-      "Fundas",
-      "Vidrios templados",
-      "Audífonos",
-      "Soportes",
-      "Accesorios para teléfonos"
-    ]
-  },
-
-  {
-    name: "Sillas",
-    image: images.chair,
-    subcategories: [
-      "Sillas Gaming",
-      "Sillas de oficina"
-    ]
-  },
-
-  {
-    name: "Energía",
-    image: images.power,
-    subcategories: [
-      "UPS",
-      "Reguladores de voltaje"
-    ]
-  }
-
-];
 
 
 /* =========================================================
@@ -298,782 +482,1158 @@ const catalog = [
 ========================================================= */
 
 const services = [
-  {
-    name: "Mantenimiento",
-    description:
-      "Limpieza y mantenimiento preventivo para computadores y equipos."
-  },
 
-  {
-    name: "Reparación",
-    description:
-      "Diagnóstico y reparación de fallas de hardware y software."
-  },
+    {
+        id: "mantenimiento",
 
-  {
-    name: "Instalación de programas y configuración",
-    description:
-      "Instalación, configuración y puesta a punto de programas."
-  },
+        title: "Mantenimiento",
 
-  {
-    name: "Optimización de equipos",
-    description:
-      "Mejoramos el rendimiento y funcionamiento general de tu equipo."
-  },
+        icon: "⚙",
 
-  {
-    name: "Diagnóstico técnico",
-    description:
-      "Revisión técnica para identificar problemas y posibles soluciones."
-  },
+        short:
+            "Mantenimiento preventivo para conservar tus equipos en buenas condiciones.",
 
-  {
-    name: "Soporte técnico",
-    description:
-      "Asistencia técnica para resolver problemas y dudas tecnológicas."
-  }
+        description:
+            "Servicio orientado a revisar, limpiar y mantener el funcionamiento adecuado de computadores y equipos tecnológicos.",
+
+        includes: [
+            "Revisión general del equipo",
+            "Limpieza interna y externa",
+            "Revisión de componentes",
+            "Revisión de temperaturas",
+            "Verificación general de funcionamiento"
+        ],
+
+        audience:
+            "Personas, estudiantes, profesionales y empresas que desean mantener sus equipos en buenas condiciones.",
+
+        benefit:
+            "Ayuda a prevenir problemas, mantener el rendimiento y prolongar la vida útil del equipo."
+    },
+
+
+    {
+        id: "reparacion",
+
+        title: "Reparación",
+
+        icon: "🔧",
+
+        short:
+            "Atención de fallas y problemas en equipos tecnológicos.",
+
+        description:
+            "Servicio técnico para identificar y solucionar problemas relacionados con computadores y dispositivos tecnológicos.",
+
+        includes: [
+            "Recepción y revisión del equipo",
+            "Identificación de la falla",
+            "Diagnóstico técnico",
+            "Propuesta de solución",
+            "Reparación según el caso"
+        ],
+
+        audience:
+            "Usuarios y empresas que presentan fallas de funcionamiento en sus equipos.",
+
+        benefit:
+            "Permite identificar la causa del problema y establecer una solución técnica adecuada."
+    },
+
+
+    {
+        id: "instalacion",
+
+        title: "Instalación de programas y configuración",
+
+        icon: "▣",
+
+        short:
+            "Instalación, configuración y puesta a punto de software.",
+
+        description:
+            "Servicio para instalar y configurar programas, aplicaciones y diferentes herramientas necesarias para trabajar o estudiar.",
+
+        includes: [
+            "Instalación de programas",
+            "Configuración inicial",
+            "Configuración de periféricos",
+            "Configuración básica del sistema",
+            "Verificación de funcionamiento"
+        ],
+
+        audience:
+            "Usuarios que necesitan preparar un computador para estudio, trabajo o uso personal.",
+
+        benefit:
+            "Deja el equipo configurado para que puedas comenzar a utilizarlo correctamente."
+    },
+
+
+    {
+        id: "optimizacion",
+
+        title: "Optimización de equipos",
+
+        icon: "↗",
+
+        short:
+            "Mejora del rendimiento y funcionamiento general del equipo.",
+
+        description:
+            "Servicio enfocado en revisar configuraciones y posibles puntos de mejora para obtener un funcionamiento más eficiente.",
+
+        includes: [
+            "Revisión del rendimiento",
+            "Revisión del almacenamiento",
+            "Revisión de programas",
+            "Revisión de configuración",
+            "Recomendaciones de mejora"
+        ],
+
+        audience:
+            "Usuarios que sienten que su computador funciona lento o desean mejorar su experiencia.",
+
+        benefit:
+            "Ayuda a identificar oportunidades para mejorar el rendimiento del equipo."
+    },
+
+
+    {
+        id: "diagnostico",
+
+        title: "Diagnóstico técnico",
+
+        icon: "⌕",
+
+        short:
+            "Identificación de problemas y posibles causas.",
+
+        description:
+            "Servicio para revisar un equipo cuando presenta síntomas, errores o comportamientos que requieren una evaluación técnica.",
+
+        includes: [
+            "Inspección inicial",
+            "Pruebas de funcionamiento",
+            "Identificación de síntomas",
+            "Análisis de posibles causas",
+            "Recomendación técnica"
+        ],
+
+        audience:
+            "Usuarios que no saben exactamente qué problema presenta su equipo.",
+
+        benefit:
+            "Permite conocer mejor la situación antes de tomar una decisión de reparación o actualización."
+    },
+
+
+    {
+        id: "soporte",
+
+        title: "Soporte técnico",
+
+        icon: "◉",
+
+        short:
+            "Asistencia para resolver dudas y problemas tecnológicos.",
+
+        description:
+            "Servicio de acompañamiento para resolver diferentes necesidades relacionadas con equipos, programas, configuraciones y tecnología.",
+
+        includes: [
+            "Orientación técnica",
+            "Resolución de dudas",
+            "Configuración básica",
+            "Ayuda con periféricos",
+            "Recomendaciones tecnológicas"
+        ],
+
+        audience:
+            "Personas y empresas que necesitan orientación o ayuda con sus equipos tecnológicos.",
+
+        benefit:
+            "Recibe orientación para resolver problemas y utilizar mejor tus herramientas tecnológicas."
+    }
+
 ];
 
 
 /* =========================================================
-   PRODUCTOS GENERADOS
+   IMÁGENES GENÉRICAS PARA PRODUCTOS
 ========================================================= */
 
-let products = [];
+const productImages = {
 
-let productId = 1;
+    "Computadores":
+        "https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=900&q=80",
 
+    "Monitores y TV":
+        "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=900&q=80",
 
-const imageFor = (category, subcategory) => {
+    "Gaming":
+        "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=900&q=80",
 
-  const text =
-    `${category} ${subcategory}`.toLowerCase();
+    "Periféricos":
+        "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=80",
 
-  if (
-    text.includes("monitor") ||
-    text.includes("tv")
-  ) return images.monitor;
+    "Accesorios":
+        "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=900&q=80",
 
-  if (
-    text.includes("gaming") ||
-    text.includes("consola") ||
-    text.includes("control")
-  ) return images.gaming;
+    "Memorias y Almacenamiento":
+        "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=80",
 
-  if (
-    text.includes("teclado")
-  ) return images.keyboard;
+    "Impresoras y Suministros":
+        "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=900&q=80",
 
-  if (
-    text.includes("mouse")
-  ) return images.mouse;
+    "Celulares y Accesorios":
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
 
-  if (
-    text.includes("audífono") ||
-    text.includes("micro") ||
-    text.includes("parlante")
-  ) return images.headphones;
+    "Sillas":
+        "https://images.unsplash.com/photo-1596162954151-cdcb4c0f70f0?auto=format&fit=crop&w=900&q=80",
 
-  if (
-    text.includes("cámara") ||
-    text.includes("trípode")
-  ) return images.camera;
-
-  if (
-    text.includes("celular") ||
-    text.includes("teléfono") ||
-    text.includes("funda") ||
-    text.includes("vidrio")
-  ) return images.phone;
-
-  if (
-    text.includes("impres") ||
-    text.includes("tinta") ||
-    text.includes("tóner") ||
-    text.includes("cartucho") ||
-    text.includes("papel")
-  ) return images.printer;
-
-  if (
-    text.includes("memoria") ||
-    text.includes("disco") ||
-    text.includes("ssd") ||
-    text.includes("hdd") ||
-    text.includes("micro")
-  ) return images.storage;
-
-  if (
-    text.includes("silla")
-  ) return images.chair;
-
-  if (
-    text.includes("ups") ||
-    text.includes("regulador")
-  ) return images.power;
-
-  if (
-    category === "Accesorios"
-  ) return images.accessories;
-
-  return images.computer;
+    "Energía":
+        "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=80"
 };
-
-
-catalog.forEach(category => {
-
-  if (category.subcategories) {
-
-    category.subcategories.forEach(sub => {
-
-      products.push({
-        id: productId++,
-        name: `${sub}`,
-        category: category.name,
-        subcategory: sub,
-        group: "",
-        image: imageFor(category.name, sub),
-        description:
-          `Solución ${sub.toLowerCase()} disponible para cotización.`
-      });
-
-    });
-
-  }
-
-
-  if (category.groups) {
-
-    Object.entries(category.groups).forEach(
-      ([group, subs]) => {
-
-        subs.forEach(sub => {
-
-          products.push({
-            id: productId++,
-            name: `${sub}`,
-            category: category.name,
-            subcategory: sub,
-            group: group,
-            image: imageFor(category.name, sub),
-            description:
-              `${sub} dentro de ${group.toLowerCase()}.`
-          });
-
-        });
-
-      }
-    );
-
-  }
-
-});
 
 
 /* =========================================================
    ESTADO
 ========================================================= */
 
-let selectedCategory = "Todos";
-let selectedSubcategory = "Todos";
+let currentCategory = null;
+let currentSubcategory = null;
+let currentSearch = "";
 
-let quoteItems =
-  JSON.parse(localStorage.getItem("nexusQuote")) || [];
+let productList = [];
+
+
+/* =========================================================
+   CREAR PRODUCTOS
+========================================================= */
+
+function buildProducts() {
+
+    productList = [];
+
+    Object.entries(catalog).forEach(
+        ([categoryName, categoryData]) => {
+
+            /*
+                Categorías con subcategorías directas
+            */
+
+            if (categoryData.subcategories) {
+
+                Object.entries(categoryData.subcategories).forEach(
+                    ([subcategoryName, productData]) => {
+
+                        productList.push({
+                            id:
+                                slugify(
+                                    `${categoryName}-${subcategoryName}`
+                                ),
+
+                            name: productData.product,
+
+                            description: productData.description,
+
+                            category: categoryName,
+
+                            group: null,
+
+                            subcategory: subcategoryName,
+
+                            image:
+                                productImages[categoryName]
+                        });
+
+                    }
+                );
+
+            }
+
+
+            /*
+                Categorías con grupos
+            */
+
+            if (categoryData.groups) {
+
+                Object.entries(categoryData.groups).forEach(
+                    ([groupName, subcategories]) => {
+
+                        subcategories.forEach(
+                            subcategoryName => {
+
+                                const generatedName =
+                                    getGeneratedProductName(
+                                        categoryName,
+                                        groupName,
+                                        subcategoryName
+                                    );
+
+                                productList.push({
+
+                                    id:
+                                        slugify(
+                                            `${categoryName}-${groupName}-${subcategoryName}`
+                                        ),
+
+                                    name: generatedName,
+
+                                    description:
+                                        `Producto de ${subcategoryName.toLowerCase()} para ${categoryName.toLowerCase()}.`,
+
+                                    category: categoryName,
+
+                                    group: groupName,
+
+                                    subcategory: subcategoryName,
+
+                                    image:
+                                        productImages[categoryName]
+                                });
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   NOMBRES GENERADOS
+========================================================= */
+
+function getGeneratedProductName(
+    category,
+    group,
+    subcategory
+) {
+
+    if (category === "Periféricos") {
+
+        if (group === "Teclados") {
+            return `Teclado ${subcategory}`;
+        }
+
+        if (group === "Mouse") {
+            return `Mouse ${subcategory}`;
+        }
+
+        if (group === "Combos") {
+            return subcategory;
+        }
+
+        if (group === "Audio") {
+            return subcategory;
+        }
+
+        if (group === "Cámaras") {
+            return subcategory;
+        }
+
+    }
+
+
+    if (category === "Accesorios") {
+        return subcategory;
+    }
+
+
+    if (category === "Impresoras y Suministros") {
+
+        if (group === "Impresoras") {
+            return subcategory;
+        }
+
+        if (group === "Suministros") {
+            return subcategory;
+        }
+
+        if (group === "Accesorios") {
+            return subcategory;
+        }
+
+    }
+
+
+    return subcategory;
+}
+
+
+/* =========================================================
+   UTILIDADES
+========================================================= */
+
+function slugify(text) {
+
+    return text
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "");
+}
+
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
 
 
 /* =========================================================
    ELEMENTOS
 ========================================================= */
 
-const categoryGrid =
-  document.getElementById("categoryGrid");
+const categoriesGrid =
+    document.getElementById("categoriesGrid");
 
-const categoryFilters =
-  document.getElementById("categoryFilters");
+const productsGrid =
+    document.getElementById("productsGrid");
+
+const servicesGrid =
+    document.getElementById("servicesGrid");
 
 const subcategoryArea =
-  document.getElementById("subcategoryArea");
+    document.getElementById("subcategoryArea");
 
-const productGrid =
-  document.getElementById("productGrid");
+const subcategoryGrid =
+    document.getElementById("subcategoryGrid");
 
-const searchInput =
-  document.getElementById("searchInput");
+const subcategoryTitle =
+    document.getElementById("subcategoryTitle");
 
-const quoteCount =
-  document.getElementById("quoteCount");
+const catalogTitle =
+    document.getElementById("catalogTitle");
 
-const quoteOverlay =
-  document.getElementById("quoteOverlay");
+const catalogDescription =
+    document.getElementById("catalogDescription");
 
-const quoteItems =
-  document.getElementById("quoteItems");
+const catalogResultsInfo =
+    document.getElementById("catalogResultsInfo");
 
-const emptyQuote =
-  document.getElementById("emptyQuote");
+const breadcrumbCategory =
+    document.getElementById("breadcrumbCategory");
 
-const quoteForm =
-  document.getElementById("quoteForm");
+const breadcrumbSeparator =
+    document.getElementById("breadcrumbSeparator");
 
-const toast =
-  document.getElementById("toast");
+const breadcrumbSubcategory =
+    document.getElementById("breadcrumbSubcategory");
+
+const emptyState =
+    document.getElementById("emptyState");
+
+const heroSearch =
+    document.getElementById("heroSearch");
+
+const heroSearchButton =
+    document.getElementById("heroSearchButton");
+
+const clearSearchButton =
+    document.getElementById("clearSearchButton");
 
 
 /* =========================================================
-   CATEGORÍAS
+   RENDER CATEGORÍAS
 ========================================================= */
 
 function renderCategories() {
 
-  categoryGrid.innerHTML = catalog.map(category => {
+    categoriesGrid.innerHTML = "";
 
-    const count =
-      products.filter(
-        p => p.category === category.name
-      ).length;
+    Object.entries(catalog).forEach(
+        ([categoryName, categoryData]) => {
 
-    return `
-      <article
-        class="category-card"
-        onclick="selectCategory('${category.name}')"
-      >
+            const subcategoryCount =
+                categoryData.subcategories
+                    ? Object.keys(categoryData.subcategories).length
+                    : Object.values(categoryData.groups)
+                        .reduce(
+                            (total, items) =>
+                                total + items.length,
+                            0
+                        );
 
-        <img
-          src="${category.image}"
-          alt="${category.name}"
-          loading="lazy"
-        >
+            const button =
+                document.createElement("button");
 
-        <div class="category-content">
+            button.type = "button";
 
-          <h3>${category.name}</h3>
+            button.className = "category-card";
 
-          <span>
-            ${count} opciones para cotizar
-          </span>
+            button.innerHTML = `
 
-        </div>
+                <img
+                    class="category-card-image"
+                    src="${categoryData.image}"
+                    alt="${escapeHtml(categoryName)}"
+                    loading="lazy"
+                >
 
-      </article>
-    `;
+                <div class="category-content">
 
-  }).join("");
-}
+                    <div class="category-icon">
+                        ${categoryData.icon}
+                    </div>
 
+                    <h3>
+                        ${escapeHtml(categoryName)}
+                    </h3>
 
-/* =========================================================
-   FILTROS
-========================================================= */
+                    <p>
+                        ${subcategoryCount} opciones para explorar
+                    </p>
 
-function renderFilters() {
+                </div>
+            `;
 
-  const categories = [
-    "Todos",
-    ...catalog.map(c => c.name)
-  ];
+            button.addEventListener(
+                "click",
+                () => selectCategory(categoryName)
+            );
 
-  categoryFilters.innerHTML =
-    categories.map(category => `
-      <button
-        class="filter ${
-          selectedCategory === category
-            ? "active"
-            : ""
-        }"
-        onclick="selectCategory('${category}')"
-      >
-        ${category}
-      </button>
-    `).join("");
-}
+            categoriesGrid.appendChild(button);
 
-
-function selectCategory(category) {
-
-  selectedCategory = category;
-  selectedSubcategory = "Todos";
-
-  renderFilters();
-  renderSubcategories();
-  renderProducts();
-
-  document
-    .querySelector("#productos")
-    .scrollIntoView({
-      behavior: "smooth"
-    });
-}
-
-
-/* =========================================================
-   SUBCATEGORÍAS
-========================================================= */
-
-function renderSubcategories() {
-
-  if (selectedCategory === "Todos") {
-
-    subcategoryArea.innerHTML = "";
-
-    return;
-  }
-
-  const category =
-    catalog.find(
-      c => c.name === selectedCategory
+        }
     );
 
-  if (!category) return;
-
-  let subs = [];
-
-  if (category.subcategories) {
-    subs = category.subcategories;
-  }
-
-  if (category.groups) {
-
-    Object.values(category.groups)
-      .forEach(group => {
-        subs.push(...group);
-      });
-
-  }
-
-  subcategoryArea.innerHTML = `
-    <div class="subcategory-list">
-
-      <button
-        class="subcategory ${
-          selectedSubcategory === "Todos"
-            ? "active"
-            : ""
-        }"
-        onclick="selectSubcategory('Todos')"
-      >
-        Todos
-      </button>
-
-      ${subs.map(sub => `
-        <button
-          class="subcategory ${
-            selectedSubcategory === sub
-              ? "active"
-              : ""
-          }"
-          onclick="selectSubcategory('${sub.replace(/'/g, "\\'")}')"
-        >
-          ${sub}
-        </button>
-      `).join("")}
-
-    </div>
-  `;
-}
-
-
-function selectSubcategory(subcategory) {
-
-  selectedSubcategory = subcategory;
-
-  renderSubcategories();
-  renderProducts();
 }
 
 
 /* =========================================================
-   PRODUCTOS
+   SELECCIONAR CATEGORÍA
 ========================================================= */
 
-function renderProducts() {
+function selectCategory(categoryName) {
 
-  const search =
-    searchInput.value
-      .trim()
-      .toLowerCase();
+    currentCategory = categoryName;
+    currentSubcategory = null;
+    currentSearch = "";
 
+    heroSearch.value = "";
 
-  let filtered = products.filter(product => {
+    const category =
+        catalog[categoryName];
 
-    const categoryMatch =
-      selectedCategory === "Todos" ||
-      product.category === selectedCategory;
+    catalogTitle.textContent =
+        categoryName;
 
-    const subcategoryMatch =
-      selectedSubcategory === "Todos" ||
-      product.subcategory === selectedSubcategory;
+    catalogDescription.textContent =
+        category.description;
 
-    const searchMatch =
-      !search ||
-      product.name.toLowerCase().includes(search) ||
-      product.category.toLowerCase().includes(search) ||
-      product.subcategory.toLowerCase().includes(search) ||
-      product.group.toLowerCase().includes(search);
+    breadcrumbCategory.textContent =
+        categoryName;
 
-    return (
-      categoryMatch &&
-      subcategoryMatch &&
-      searchMatch
-    );
+    breadcrumbSeparator.classList.add("hidden");
 
-  });
+    breadcrumbSubcategory.textContent = "";
+    breadcrumbSubcategory.classList.add("hidden");
 
+    renderSubcategories(categoryName);
 
-  if (!filtered.length) {
+    renderProducts();
 
-    productGrid.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        padding:60px 20px;
-        text-align:center;
-      ">
-        <h3>No encontramos productos.</h3>
-        <p style="color:#6b7280">
-          Intenta con otra búsqueda o categoría.
-        </p>
-      </div>
-    `;
+    subcategoryArea.classList.remove("hidden");
 
-    return;
-  }
-
-
-  productGrid.innerHTML =
-    filtered.map(product => `
-
-      <article class="product-card">
-
-        <div class="product-image">
-
-          <img
-            src="${product.image}"
-            alt="${product.name}"
-            loading="lazy"
-            onerror="this.src='${images.computer}'"
-          >
-
-        </div>
-
-        <div class="product-info">
-
-          <span class="product-category">
-            ${product.category}
-          </span>
-
-          <h3>
-            ${product.name}
-          </h3>
-
-          <p>
-            ${product.description}
-          </p>
-
-          <button
-            class="product-button"
-            onclick="addToQuote(${product.id})"
-          >
-            Cotizar
-          </button>
-
-        </div>
-
-      </article>
-
-    `).join("");
-}
-
-
-/* =========================================================
-   COTIZACIÓN
-========================================================= */
-
-function addToQuote(id) {
-
-  const product =
-    products.find(p => p.id === id);
-
-  if (!product) return;
-
-
-  const existing =
-    quoteItems.find(
-      item => item.id === product.id
-    );
-
-
-  if (existing) {
-
-    existing.quantity += 1;
-
-  } else {
-
-    quoteItems.push({
-      ...product,
-      quantity: 1
-    });
-
-  }
-
-
-  saveQuote();
-  renderQuote();
-  showToast("Producto agregado a tu cotización.");
-
-}
-
-
-function removeFromQuote(id) {
-
-  quoteItems =
-    quoteItems.filter(
-      item => item.id !== id
-    );
-
-  saveQuote();
-  renderQuote();
-}
-
-
-function changeQuantity(id, amount) {
-
-  const item =
-    quoteItems.find(
-      item => item.id === id
-    );
-
-  if (!item) return;
-
-  item.quantity += amount;
-
-  if (item.quantity <= 0) {
-
-    quoteItems =
-      quoteItems.filter(
-        item => item.id !== id
-      );
-
-  }
-
-  saveQuote();
-  renderQuote();
-}
-
-
-function saveQuote() {
-
-  localStorage.setItem(
-    "nexusQuote",
-    JSON.stringify(quoteItems)
-  );
+    document
+        .getElementById("catalogo")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
 }
 
 
 /* =========================================================
-   RENDER COTIZADOR
+   RENDER SUBCATEGORÍAS
 ========================================================= */
 
-function renderQuote() {
+function renderSubcategories(categoryName) {
 
-  quoteCount.textContent =
-    quoteItems.reduce(
-      (total, item) =>
-        total + item.quantity,
-      0
-    );
+    const category =
+        catalog[categoryName];
 
+    subcategoryGrid.innerHTML = "";
 
-  if (!quoteItems.length) {
+    subcategoryTitle.textContent =
+        "Selecciona una categoría";
 
-    quoteItems.innerHTML = "";
+    /*
+        Subcategorías directas
+    */
 
-    emptyQuote.style.display = "block";
+    if (category.subcategories) {
 
-    quoteForm.classList.remove("active");
+        Object.keys(
+            category.subcategories
+        ).forEach(
+            subcategoryName => {
 
-    return;
-  }
+                const button =
+                    createSubcategoryButton(
+                        subcategoryName,
+                        subcategoryName
+                    );
 
+                subcategoryGrid.appendChild(button);
 
-  emptyQuote.style.display = "none";
+            }
+        );
 
-  quoteForm.classList.add("active");
-
-
-  quoteItems.innerHTML =
-    quoteItems.map(item => `
-
-      <div class="quote-item">
-
-        <img
-          src="${item.image}"
-          alt="${item.name}"
-        >
-
-        <div>
-
-          <h4>
-            ${item.name}
-          </h4>
-
-          <span>
-            ${item.category}
-          </span>
-
-          <div style="
-            margin-top:7px;
-            display:flex;
-            align-items:center;
-            gap:7px;
-          ">
-
-            <button
-              onclick="changeQuantity(${item.id}, -1)"
-              style="
-                width:25px;
-                height:25px;
-                border:1px solid #d1d5db;
-                border-radius:50%;
-                background:white;
-              "
-            >
-              −
-            </button>
-
-            <strong>
-              ${item.quantity}
-            </strong>
-
-            <button
-              onclick="changeQuantity(${item.id}, 1)"
-              style="
-                width:25px;
-                height:25px;
-                border:1px solid #d1d5db;
-                border-radius:50%;
-                background:white;
-              "
-            >
-              +
-            </button>
-
-          </div>
-
-        </div>
-
-        <button
-          class="remove-item"
-          onclick="removeFromQuote(${item.id})"
-        >
-          Eliminar
-        </button>
-
-      </div>
-
-    `).join("");
-}
-
-
-/* =========================================================
-   ABRIR / CERRAR COTIZADOR
-========================================================= */
-
-function openQuote() {
-
-  quoteOverlay.classList.add("active");
-
-  document.body.style.overflow = "hidden";
-
-  renderQuote();
-}
-
-
-function closeQuote() {
-
-  quoteOverlay.classList.remove("active");
-
-  document.body.style.overflow = "";
-
-}
-
-
-function closeQuoteOutside(event) {
-
-  if (event.target === quoteOverlay) {
-    closeQuote();
-  }
-
-}
-
-
-/* =========================================================
-   FORMULARIO
-========================================================= */
-
-document
-  .getElementById("quoteForm")
-  .addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-
-    if (!quoteItems.length) {
-      return;
+        return;
     }
 
 
-    const name =
-      document.getElementById("clientName").value.trim();
+    /*
+        Categorías con grupos
+    */
 
-    const email =
-      document.getElementById("clientEmail").value.trim();
+    Object.entries(category.groups)
+        .forEach(
+            ([groupName, subcategories]) => {
 
-    const phone =
-      document.getElementById("clientPhone").value.trim();
+                const groupWrapper =
+                    document.createElement("div");
 
-    const company =
-      document.getElementById("clientCompany").value.trim();
+                groupWrapper.className =
+                    "subcategory-group";
 
-    const details =
-      document.getElementById("clientDetails").value.trim();
+                const groupTitle =
+                    document.createElement("strong");
 
+                groupTitle.textContent =
+                    groupName;
 
-    let message =
-      `Hola Nexus, quiero solicitar una cotización.%0A%0A`;
+                groupTitle.style.width = "100%";
+                groupTitle.style.marginBottom = "2px";
+                groupTitle.style.color = "var(--ink-strong)";
+                groupTitle.style.fontSize = "0.8rem";
 
-
-    message =
-      `Hola Nexus, quiero solicitar una cotización:\n\n`;
-
-
-    quoteItems.forEach(item => {
-
-      message +=
-        `• ${item.name} — Cantidad: ${item.quantity}\n`;
-
-    });
+                groupWrapper.appendChild(
+                    groupTitle
+                );
 
 
-    message += `\nDatos del cliente:\n`;
+                subcategories.forEach(
+                    subcategoryName => {
 
-    message += `Nombre: ${name}\n`;
+                        const button =
+                            createSubcategoryButton(
+                                subcategoryName,
+                                subcategoryName,
+                                groupName
+                            );
 
-    if (email)
-      message += `Correo: ${email}\n`;
+                        groupWrapper.appendChild(
+                            button
+                        );
 
-    if (phone)
-      message += `Teléfono: ${phone}\n`;
-
-    if (company)
-      message += `Empresa: ${company}\n`;
-
-    if (details)
-      message += `\nDetalles:\n${details}\n`;
+                    }
+                );
 
 
-    openWhatsApp(message);
+                subcategoryGrid.appendChild(
+                    groupWrapper
+                );
 
-  });
+            }
+        );
+
+}
+
+
+/* =========================================================
+   BOTÓN SUBCATEGORÍA
+========================================================= */
+
+function createSubcategoryButton(
+    name,
+    subcategoryName,
+    groupName = null
+) {
+
+    const button =
+        document.createElement("button");
+
+    button.type = "button";
+
+    button.className =
+        "subcategory-button";
+
+    button.textContent =
+        name;
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            currentSubcategory =
+                subcategoryName;
+
+            renderProducts(
+                currentCategory,
+                currentSubcategory,
+                groupName
+            );
+
+            breadcrumbSeparator.classList.remove(
+                "hidden"
+            );
+
+            breadcrumbSubcategory.textContent =
+                subcategoryName;
+
+            breadcrumbSubcategory.classList.remove(
+                "hidden"
+            );
+
+            catalogTitle.textContent =
+                subcategoryName;
+
+            catalogDescription.textContent =
+                `Productos disponibles en ${subcategoryName}.`;
+
+            document
+                .querySelectorAll(
+                    ".subcategory-button"
+                )
+                .forEach(
+                    item =>
+                        item.classList.remove("active")
+                );
+
+            button.classList.add("active");
+
+        }
+    );
+
+    return button;
+}
+
+
+/* =========================================================
+   RENDER PRODUCTOS
+========================================================= */
+
+function renderProducts(
+    category = currentCategory,
+    subcategory = currentSubcategory,
+    group = null
+) {
+
+    let results =
+        [...productList];
+
+
+    /*
+        Búsqueda
+    */
+
+    if (currentSearch.trim()) {
+
+        const query =
+            currentSearch
+                .toLowerCase()
+                .trim();
+
+        results =
+            results.filter(
+                product => {
+
+                    const searchable =
+                        [
+                            product.name,
+                            product.description,
+                            product.category,
+                            product.group,
+                            product.subcategory
+                        ]
+                            .filter(Boolean)
+                            .join(" ")
+                            .toLowerCase();
+
+                    return searchable.includes(query);
+
+                }
+            );
+
+    }
+
+
+    /*
+        Categoría
+    */
+
+    if (category) {
+
+        results =
+            results.filter(
+                product =>
+                    product.category === category
+            );
+
+    }
+
+
+    /*
+        Grupo
+    */
+
+    if (group) {
+
+        results =
+            results.filter(
+                product =>
+                    product.group === group
+            );
+
+    }
+
+
+    /*
+        Subcategoría
+    */
+
+    if (subcategory) {
+
+        results =
+            results.filter(
+                product =>
+                    product.subcategory === subcategory
+            );
+
+    }
+
+
+    productsGrid.innerHTML = "";
+
+
+    if (!results.length) {
+
+        emptyState.classList.remove(
+            "hidden"
+        );
+
+        catalogResultsInfo.textContent =
+            "No se encontraron productos.";
+
+        return;
+
+    }
+
+
+    emptyState.classList.add(
+        "hidden"
+    );
+
+
+    catalogResultsInfo.textContent =
+        `${results.length} producto${results.length === 1 ? "" : "s"} encontrado${results.length === 1 ? "" : "s"}.`;
+
+
+    results.forEach(
+        product => {
+
+            const card =
+                document.createElement("article");
+
+            card.className =
+                "product-card";
+
+            card.innerHTML = `
+
+                <div class="product-image">
+
+                    <img
+                        src="${product.image}"
+                        alt="${escapeHtml(product.name)}"
+                        loading="lazy"
+                    >
+
+                    <span class="product-tag">
+                        Cotizar
+                    </span>
+
+                </div>
+
+
+                <div class="product-content">
+
+                    <span class="product-category">
+                        ${escapeHtml(product.category)}
+                    </span>
+
+                    <h3>
+                        ${escapeHtml(product.name)}
+                    </h3>
+
+                    <p>
+                        ${escapeHtml(product.description)}
+                    </p>
+
+
+                    <div class="product-button">
+
+                        <button
+                            type="button"
+                            class="product-whatsapp"
+                        >
+                            Cotizar por WhatsApp
+                        </button>
+
+                    </div>
+
+                </div>
+            `;
+
+
+            const button =
+                card.querySelector(
+                    ".product-whatsapp"
+                );
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const message =
+                        `Hola Nexus, estoy interesado en cotizar el siguiente producto:
+
+Producto: ${product.name}
+Categoría: ${product.category}
+${product.group ? `Grupo: ${product.group}\n` : ""}Subcategoría: ${product.subcategory}
+
+Quisiera conocer disponibilidad y opciones.`;
+
+                    openWhatsApp(message);
+
+                }
+            );
+
+
+            productsGrid.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   BÚSQUEDA
+========================================================= */
+
+function performSearch() {
+
+    currentSearch =
+        heroSearch.value.trim();
+
+    currentCategory = null;
+    currentSubcategory = null;
+
+    subcategoryArea.classList.add(
+        "hidden"
+    );
+
+    breadcrumbCategory.textContent =
+        currentSearch
+            ? `Búsqueda: "${currentSearch}"`
+            : "Catálogo";
+
+    breadcrumbSeparator.classList.add(
+        "hidden"
+    );
+
+    breadcrumbSubcategory.classList.add(
+        "hidden"
+    );
+
+    catalogTitle.textContent =
+        currentSearch
+            ? `Resultados para "${currentSearch}"`
+            : "Todos los productos";
+
+    catalogDescription.textContent =
+        currentSearch
+            ? "Productos relacionados con tu búsqueda."
+            : "Explora todo nuestro catálogo.";
+
+    renderProducts();
+
+    document
+        .getElementById("catalogo")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+}
+
+
+heroSearchButton.addEventListener(
+    "click",
+    performSearch
+);
+
+
+heroSearch.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "Enter") {
+            performSearch();
+        }
+
+    }
+);
+
+
+/* =========================================================
+   LIMPIAR BÚSQUEDA
+========================================================= */
+
+clearSearchButton.addEventListener(
+    "click",
+    () => {
+
+        currentSearch = "";
+        currentCategory = null;
+        currentSubcategory = null;
+
+        heroSearch.value = "";
+
+        subcategoryArea.classList.add(
+            "hidden"
+        );
+
+        breadcrumbCategory.textContent =
+            "Catálogo";
+
+        breadcrumbSeparator.classList.add(
+            "hidden"
+        );
+
+        breadcrumbSubcategory.classList.add(
+            "hidden"
+        );
+
+        catalogTitle.textContent =
+            "Todos los productos";
+
+        catalogDescription.textContent =
+            "Explora todo nuestro catálogo.";
+
+        renderProducts();
+
+    }
+);
+
+
+/* =========================================================
+   BOTÓN "TODOS"
+========================================================= */
+
+document
+    .querySelector(
+        '[data-action="all"]'
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            currentCategory = null;
+            currentSubcategory = null;
+            currentSearch = "";
+
+            heroSearch.value = "";
+
+            subcategoryArea.classList.add(
+                "hidden"
+            );
+
+            breadcrumbCategory.textContent =
+                "Catálogo";
+
+            breadcrumbSeparator.classList.add(
+                "hidden"
+            );
+
+            breadcrumbSubcategory.classList.add(
+                "hidden"
+            );
+
+            catalogTitle.textContent =
+                "Todos los productos";
+
+            catalogDescription.textContent =
+                "Explora todo nuestro catálogo.";
+
+            renderProducts();
+
+        }
+    );
+
+
+/* =========================================================
+   VOLVER DESDE SUBCATEGORÍA
+========================================================= */
+
+document
+    .getElementById(
+        "backCategoryButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            if (!currentCategory) {
+                return;
+            }
+
+            currentSubcategory = null;
+
+            breadcrumbSeparator.classList.add(
+                "hidden"
+            );
+
+            breadcrumbSubcategory.classList.add(
+                "hidden"
+            );
+
+            catalogTitle.textContent =
+                currentCategory;
+
+            catalogDescription.textContent =
+                catalog[currentCategory].description;
+
+            renderSubcategories(
+                currentCategory
+            );
+
+            renderProducts();
+
+        }
+    );
 
 
 /* =========================================================
@@ -1082,105 +1642,383 @@ document
 
 function renderServices() {
 
-  const serviceGrid =
-    document.getElementById("serviceGrid");
+    servicesGrid.innerHTML = "";
+
+    services.forEach(
+        service => {
+
+            const card =
+                document.createElement("button");
+
+            card.type = "button";
+
+            card.className =
+                "service-card";
+
+            card.innerHTML = `
+
+                <div class="service-icon">
+                    ${service.icon}
+                </div>
+
+                <h3>
+                    ${escapeHtml(service.title)}
+                </h3>
+
+                <p>
+                    ${escapeHtml(service.short)}
+                </p>
+
+                <span class="service-card-button">
+                    Ver información →
+                </span>
+
+            `;
 
 
-  serviceGrid.innerHTML =
-    services.map((service, index) => `
-
-      <article class="service-card">
-
-        <span class="service-number">
-          ${String(index + 1).padStart(2, "0")}
-        </span>
-
-        <h3>
-          ${service.name}
-        </h3>
-
-        <p>
-          ${service.description}
-        </p>
-
-        <button
-          onclick="requestService('${service.name.replace(/'/g, "\\'")}')"
-        >
-          Solicitar servicio →
-        </button>
-
-      </article>
-
-    `).join("");
-}
+            card.addEventListener(
+                "click",
+                () => openServiceModal(service)
+            );
 
 
-function requestService(service) {
+            servicesGrid.appendChild(
+                card
+            );
 
-  const message =
-    `Hola Nexus, quiero solicitar el servicio de ${service}.`;
+        }
+    );
 
-  openWhatsApp(message);
 }
 
 
 /* =========================================================
-   BUSCADOR
+   MODAL SERVICIOS
 ========================================================= */
 
-searchInput.addEventListener(
-  "input",
-  renderProducts
+const serviceModal =
+    document.getElementById(
+        "serviceModal"
+    );
+
+const serviceModalTitle =
+    document.getElementById(
+        "serviceModalTitle"
+    );
+
+const serviceModalIcon =
+    document.getElementById(
+        "serviceModalIcon"
+    );
+
+const serviceModalDescription =
+    document.getElementById(
+        "serviceModalDescription"
+    );
+
+const serviceModalIncludes =
+    document.getElementById(
+        "serviceModalIncludes"
+    );
+
+const serviceModalAudience =
+    document.getElementById(
+        "serviceModalAudience"
+    );
+
+const serviceModalBenefit =
+    document.getElementById(
+        "serviceModalBenefit"
+    );
+
+const serviceWhatsappButton =
+    document.getElementById(
+        "serviceWhatsappButton"
+    );
+
+let selectedService = null;
+
+
+function openServiceModal(service) {
+
+    selectedService = service;
+
+    serviceModalTitle.textContent =
+        service.title;
+
+    serviceModalIcon.textContent =
+        service.icon;
+
+    serviceModalDescription.textContent =
+        service.description;
+
+    serviceModalAudience.textContent =
+        service.audience;
+
+    serviceModalBenefit.textContent =
+        service.benefit;
+
+
+    serviceModalIncludes.innerHTML =
+        service.includes
+            .map(
+                item =>
+                    `<li>${escapeHtml(item)}</li>`
+            )
+            .join("");
+
+
+    serviceModal.classList.remove(
+        "hidden"
+    );
+
+    serviceModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.classList.add(
+        "modal-open"
+    );
+
+}
+
+
+function closeServiceModal() {
+
+    serviceModal.classList.add(
+        "hidden"
+    );
+
+    serviceModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.classList.remove(
+        "modal-open"
+    );
+
+    selectedService = null;
+
+}
+
+
+document
+    .getElementById(
+        "serviceModalClose"
+    )
+    .addEventListener(
+        "click",
+        closeServiceModal
+    );
+
+
+serviceModal.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target ===
+            serviceModal
+        ) {
+            closeServiceModal();
+        }
+
+    }
 );
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            !serviceModal.classList.contains("hidden")
+        ) {
+
+            closeServiceModal();
+
+        }
+
+    }
+);
+
+
+serviceWhatsappButton.addEventListener(
+    "click",
+    () => {
+
+        if (!selectedService) {
+            return;
+        }
+
+        const message =
+            `Hola Nexus, estoy interesado en solicitar el siguiente servicio:
+
+Servicio: ${selectedService.title}
+
+Quisiera conocer disponibilidad, proceso y opciones para realizarlo.`;
+
+        openWhatsApp(message);
+
+    }
+);
+
+
+/* =========================================================
+   WHATSAPP - ASESORÍA / GENERAL
+========================================================= */
+
+document
+    .querySelectorAll(
+        "[data-whatsapp]"
+    )
+    .forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const type =
+                        button.dataset.whatsapp;
+
+                    let message =
+                        "Hola Nexus, quiero comunicarme con un asesor.";
+
+                    if (type === "asesoria") {
+
+                        message =
+                            `Hola Nexus, quiero solicitar asesoría.
+
+Necesito ayuda para elegir una solución tecnológica y quisiera hablar con un asesor.`;
+
+                    }
+
+                    if (type === "general") {
+
+                        message =
+                            `Hola Nexus, quiero información sobre sus productos y servicios.`;
+
+                    }
+
+                    openWhatsApp(message);
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   FOOTER CATEGORÍAS
+========================================================= */
+
+document
+    .querySelectorAll(
+        "[data-footer-category]"
+    )
+    .forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    event.preventDefault();
+
+                    const category =
+                        link.dataset.footerCategory;
+
+                    selectCategory(category);
+
+                }
+            );
+
+        }
+    );
 
 
 /* =========================================================
    MENÚ MÓVIL
 ========================================================= */
 
-function toggleMenu() {
+const mobileMenuButton =
+    document.getElementById(
+        "mobileMenuButton"
+    );
 
-  document
-    .getElementById("mobileMenu")
-    .classList.toggle("active");
+const mainNav =
+    document.getElementById(
+        "mainNav"
+    );
 
-}
+
+mobileMenuButton.addEventListener(
+    "click",
+    () => {
+
+        const isOpen =
+            mainNav.classList.toggle(
+                "open"
+            );
+
+        mobileMenuButton.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+    }
+);
+
+
+mainNav
+    .querySelectorAll("a")
+    .forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    mainNav.classList.remove(
+                        "open"
+                    );
+
+                    mobileMenuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+            );
+
+        }
+    );
 
 
 /* =========================================================
-   TOAST
+   AÑO
 ========================================================= */
 
-let toastTimer;
-
-function showToast(message) {
-
-  toast.textContent = message;
-
-  toast.classList.add("show");
-
-  clearTimeout(toastTimer);
-
-  toastTimer =
-    setTimeout(() => {
-      toast.classList.remove("show");
-    }, 2200);
-
-}
+document.getElementById(
+    "currentYear"
+).textContent =
+    new Date().getFullYear();
 
 
 /* =========================================================
    INICIALIZACIÓN
 ========================================================= */
 
+buildProducts();
+
 renderCategories();
-
-renderFilters();
-
-renderSubcategories();
-
-renderProducts();
 
 renderServices();
 
-renderQuote();
+renderProducts();
+```
