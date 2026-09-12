@@ -1,816 +1,601 @@
-:root {
-  --bg: #f3f4f6;
-  --bg-soft: #e5e7eb;
-  --card: #f8fafc;
-  --card-strong: #ffffff;
-
-  --ink: #1f2937;
-  --ink-strong: #111827;
-  --muted: #6b7280;
-
-  --line: #d1d5db;
-
-  --accent: #8b5cf6;
-  --accent-dark: #7c3aed;
-  --accent-soft: rgba(139, 92, 246, 0.10);
-
-  --navy: #1e3a5f;
-  --navy-dark: #14253d;
-
-  --shadow-sm: 0 8px 20px rgba(15, 23, 42, 0.06);
-  --shadow-md: 0 18px 36px rgba(15, 23, 42, 0.09);
-  --shadow-lg: 0 24px 52px rgba(15, 23, 42, 0.12);
-
-  --radius-sm: 12px;
-  --radius-md: 18px;
-  --radius-lg: 24px;
-  --radius-pill: 999px;
-
-  --max-width: 1240px;
-}
-
-
-/* RESET */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-  background: var(--bg);
-  color: var(--ink);
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.5;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button,
-input {
-  font: inherit;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.container {
-  width: min(calc(100% - 40px), var(--max-width));
-  margin-inline: auto;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-
-/* HEADER */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(248, 250, 252, 0.96);
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(16px);
-}
-
-.header-container {
-  width: min(calc(100% - 40px), var(--max-width));
-  min-height: 82px;
-  margin-inline: auto;
-
-  display: flex;
-  align-items: center;
-  gap: 22px;
-}
-
-.brand {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-}
-
-.brand img {
-  width: 120px;
-  height: 48px;
-  object-fit: contain;
-}
-
-
-/* BUSCADOR */
-
-.header-search {
-  flex: 1;
-  max-width: 520px;
-}
-
-.header-search input {
-  width: 100%;
-  height: 46px;
-  padding: 0 18px;
-
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-
-  background: var(--card-strong);
-  color: var(--ink-strong);
-
-  outline: none;
-  transition: 0.2s ease;
-}
-
-.header-search input::placeholder {
-  color: var(--muted);
-}
-
-.header-search input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-soft);
-}
-
-
-/* NAV */
-
-.main-nav {
-  margin-left: auto;
-
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.main-nav a {
-  padding: 10px 14px;
-  border-radius: var(--radius-pill);
-
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 600;
-
-  transition: 0.2s ease;
-}
-
-.main-nav a:hover {
-  color: var(--ink-strong);
-  background: var(--accent-soft);
-}
-
-
-/* MOBILE MENU */
-
-.menu-toggle {
-  display: none;
-
-  width: 44px;
-  height: 44px;
-
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-
-  background: var(--card-strong);
-
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  margin: 4px auto;
-
-  background: var(--ink-strong);
-  border-radius: 4px;
-}
-
-
-/* HERO */
-
-.hero {
-  padding: 46px 0 20px;
-}
-
-.hero-card {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 32px;
-  align-items: stretch;
-
-  padding: 42px;
-
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.98),
-      rgba(248, 250, 252, 0.92)
-    );
-
-  box-shadow: var(--shadow-md);
-}
-
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.eyebrow,
-.section-kicker {
-  display: inline-block;
-  margin-bottom: 10px;
-
-  color: var(--accent-dark);
-
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-}
-
-.hero h1 {
-  margin-bottom: 14px;
-
-  color: var(--ink-strong);
-
-  font-size: clamp(30px, 4vw, 48px);
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-}
-
-.hero p {
-  max-width: 760px;
-
-  color: var(--muted);
-  font-size: 16px;
-}
-
-.hero p strong {
-  color: var(--ink-strong);
-}
-
-
-/* HORARIO */
-
-.schedule-card {
-  min-height: 170px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 28px;
-
-  border-radius: var(--radius-md);
-
-  background: var(--navy);
-  color: white;
-
-  box-shadow: var(--shadow-sm);
-}
-
-.schedule-card span {
-  margin-bottom: 10px;
-
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-
-  opacity: 0.75;
-}
-
-.schedule-card strong {
-  margin-bottom: 4px;
-  font-size: 18px;
-}
-
-.schedule-card b {
-  font-size: 17px;
-}
-
-
-/* UBICACIÓN */
-
-.location-section {
-  padding: 8px 0 28px;
-}
-
-.location-link {
-  min-height: 62px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-
-  padding: 0 22px;
-
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-
-  background: var(--card-strong);
-
-  box-shadow: var(--shadow-sm);
-
-  transition: 0.2s ease;
-}
-
-.location-link:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent);
-  box-shadow: var(--shadow-md);
-}
-
-.location-link span {
-  color: var(--ink-strong);
-  font-weight: 700;
-}
-
-.location-link strong {
-  color: var(--accent-dark);
-  font-size: 14px;
-}
-
-
-/* CATÁLOGO */
-
-.catalog-section {
-  padding: 32px 0 80px;
-}
-
-.catalog-heading {
-  margin-bottom: 34px;
-}
-
-.catalog-heading h2 {
-  color: var(--ink-strong);
-  font-size: clamp(25px, 3vw, 36px);
-  letter-spacing: -0.025em;
-}
-
-
-/* CATEGORÍAS */
-
-.catalog-category {
-  margin-bottom: 54px;
-}
-
-.category-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-
-  margin-bottom: 20px;
-}
-
-.category-header::before {
-  content: "";
-  width: 5px;
-  height: 30px;
-
-  flex: 0 0 auto;
-
-  border-radius: var(--radius-pill);
-  background: var(--accent);
-}
-
-.category-header h3 {
-  color: var(--ink-strong);
-  font-size: 22px;
-  line-height: 1.2;
-}
-
-
-/* SUBCATEGORÍAS */
-
-.subcategory-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-}
-
-
-/* TARJETA */
-
-.subcategory-card {
-  min-width: 0;
-
-  display: flex;
-  flex-direction: column;
-
-  overflow: hidden;
-
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-
-  background: var(--card-strong);
-
-  box-shadow: var(--shadow-sm);
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.subcategory-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(139, 92, 246, 0.35);
-  box-shadow: var(--shadow-md);
-}
-
-
-/* IMAGEN
-   Todas tienen exactamente el mismo espacio.
-   contain evita deformación y recorte.
-*/
-
-.subcategory-image-wrap {
-  width: 100%;
-  height: 190px;
-  min-height: 190px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 18px;
-
-  overflow: hidden;
-
-  background: #ffffff;
-}
-
-.subcategory-image-wrap img {
-  width: 100%;
-  height: 100%;
-
-  max-width: 100%;
-  max-height: 100%;
-
-  object-fit: contain;
-  object-position: center;
-}
-
-
-/* CONTENIDO */
-
-.subcategory-content {
-  flex: 1;
-
-  display: flex;
-  flex-direction: column;
-
-  padding: 20px;
-}
-
-.subcategory-content h4 {
-  min-height: 48px;
-
-  display: flex;
-  align-items: center;
-
-  margin-bottom: 16px;
-
-  color: var(--ink-strong);
-
-  font-size: 16px;
-  line-height: 1.35;
-}
-
-
-/* BOTÓN */
-
-.quote-button {
-  width: 100%;
-  min-height: 44px;
-
-  margin-top: auto;
-
-  border: 0;
-  border-radius: var(--radius-pill);
-
-  background: var(--navy);
-  color: white;
-
-  font-size: 14px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: 0.2s ease;
-}
-
-.quote-button:hover {
-  background: var(--navy-dark);
-  transform: translateY(-1px);
-}
-
-
-/* SIN RESULTADOS */
-
-.no-results {
-  padding: 50px 20px;
-
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-
-  background: var(--card-strong);
-  text-align: center;
-}
-
-.no-results h3 {
-  margin-bottom: 6px;
-  color: var(--ink-strong);
-}
-
-.no-results p {
-  color: var(--muted);
-}
-
-
-/* CONTACTO */
-
-.contact-section {
-  padding: 0 0 80px;
-}
-
-.contact-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-
-  padding: 36px;
-
-  border-radius: var(--radius-lg);
-
-  background: var(--navy);
-  color: white;
-
-  box-shadow: var(--shadow-md);
-}
-
-.contact-card .section-kicker {
-  color: rgba(255, 255, 255, 0.65);
-}
-
-.contact-card h2 {
-  margin-bottom: 8px;
-
-  font-size: clamp(22px, 3vw, 32px);
-}
-
-.contact-card p {
-  max-width: 650px;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.contact-button {
-  flex: 0 0 auto;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 48px;
-  padding: 0 22px;
-
-  border-radius: var(--radius-pill);
-
-  background: white;
-  color: var(--navy);
-
-  font-size: 14px;
-  font-weight: 800;
-
-  transition: 0.2s ease;
-}
-
-.contact-button:hover {
-  transform: translateY(-2px);
-}
-
-
-/* FOOTER */
-
-.site-footer {
-  border-top: 1px solid var(--line);
-  background: var(--card-strong);
-}
-
-.footer-content {
-  min-height: 120px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-}
-
-.footer-content strong {
-  display: block;
-  margin-bottom: 4px;
-
-  color: var(--ink-strong);
-  letter-spacing: 0.08em;
-}
-
-.footer-content p,
-.footer-content span {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.footer-content > div:last-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-
-/* TABLET */
-
-@media (max-width: 1100px) {
-
-  .subcategory-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+const catalogData = [
+  {
+    category: "Computadores",
+    items: [
+      {
+        name: "Portátil",
+        image: "https://refurbi.com.co/cdn/shop/files/nPeqtNAN7v.jpg?v=1760546728"
+      },
+      {
+        name: "Torres",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHmMUjEDTwLqjN4330uBSKSW7rmrbwM9qlSOX5GR441A&s=10"
+      },
+      {
+        name: "All in One",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbkPt9FQcNfcF363V3TvjX8PIYMlYFdgCOjdnGdGIUZA&s=10"
+      },
+      {
+        name: "Gaming",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLi1UqGDwIbmPSEtPn6HzNfC_Z3ICi0V2Xi6QT-dbq4Q&s=10"
+      }
+    ]
+  },
+
+  {
+    category: "Monitores y TV",
+    items: [
+      {
+        name: "Monitores",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7fPTNR6sij2ELmoKGaoUoqQP6jqx2-I69_bmimytgMQ&s=10"
+      },
+      {
+        name: "Monitores Gaming",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzO7pfeT08g32Xu0LkXKoL29--VTG2Q96nJSDSQLHZfA&s=10"
+      },
+      {
+        name: "TV",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU_dPbiIzR6yf6pwZpfFQhg8jhDH-A_J3X1I-uy_Wv2Q&s=10"
+      }
+    ]
+  },
+
+  {
+    category: "Gaming",
+    items: [
+      {
+        name: "Consolas",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK6R3BLZzudo6giL57G5gHbkEK3NUFcNQtJZ-8h0WQdsgyw5yeFKj8Brao&s=10"
+      },
+      {
+        name: "Controles",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHdMwv5kzu5FfCAKz72UXZRMup0tDqEkhwBz4fv_7nEQ&s=10"
+      },
+      {
+        name: "Accesorios Gaming",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-mC9fAccf4WurNG0Dbo5oiiaG3SZLkzWTeKITTvFaQ&s=10"
+      }
+    ]
+  },
+
+  {
+    category: "Periféricos",
+    items: [
+      {
+        name: "Teclados Gaming",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBgoiMfort3NKseaja6N5UK70hHCJFW_VIsBkUJCLN0Q&s=10"
+      },
+      {
+        name: "Teclados Cableados",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSLp_Ayt7kAwMA3X7c095gjhDQD1Z_w2RUyR-YoXMGvw&s=10"
+      },
+      {
+        name: "Teclados Inalámbricos",
+        image: "https://www.omega-store.co/wp-content/uploads/2025/03/KB6756BK_.png"
+      },
+      {
+        name: "Mouse Gaming",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAqn9VYEyesnUWKvO-3eHDxsBd70Bw8DWLcs_VgPH2zg&s=10"
+      },
+      {
+        name: "Mouse Cableados",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyPTNeq86JQ1So0SE_LiBQUEnGlpce-u1Cs-2Tkik9QQ&s=10"
+      },
+      {
+        name: "Mouse Inalámbricos",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa1mg9AAtS6Odj4ZrU89pZcZ2g8H3b-vqK2fmYIJzcKw&s=10"
+      },
+      {
+        name: "Teclado + Mouse",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdSfKhhmksMDEeGi6C_V4PTXLn6YBpifB0FisPrgkkJA&s=10"
+      },
+      {
+        name: "Combo Gaming",
+        image: "https://s3.pagegear.co/4/articulos/57988/37173_700x933.jpg?2133331"
+      },
+      {
+        name: "Combo Inalámbrico",
+        image: "https://jaltechsas.com/wp-content/uploads/2022/08/COMBO-BASIK-TECH-INALAMBRICO_80163_BSK-300C_1.png"
+      },
+      {
+        name: "Audífonos",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFnFbxiJ6hZizmizIVZgD3Q54wDHxNcaTuij-__WFwXQ&s=10"
+      },
+      {
+        name: "Micrófonos",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOZ70hgwXVXQHSGcZnoNBupWS-zUh_P2rfBHGDniZ9lA&s"
+      },
+      {
+        name: "Parlantes",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd1BkIZMe69uHbJ-vG99jQV2nh6Xx3ayHKlMw8LiRtvw&s=10"
+      },
+      {
+        name: "Cámaras web",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ7FEHnyc3WPjN0ZcAzHGQBztfg2GGO4pnJZvXrcIqxg&s=10"
+      },
+      {
+        name: "Cámaras fotográficas",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjH0ndUNv4KNUFDafDMAMe8OUr5YB-M5vbMmNRnWDXug&s=10"
+      },
+      {
+        name: "Trípodes",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9SoMWDyfPWCXRXhoNTVyGst_xFEg7GRO0fAJmHcaUFA&s=10"
+      }
+    ]
+  },
+
+  {
+    category: "Accesorios",
+    items: [
+      {
+        name: "Cargadores para PC / portátil",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBu1lqYdxe2BzaO3Cwg7fBEiA4OUTQpHwxFKgNsy7d5w&s=10"
+      },
+      {
+        name: "Cargadores para celular",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdTa6V9cX51V0KPLOaB2IeGG1LRT3pFji22pofxVkPOg&s=10"
+      },
+      {
+        name: "Cables USB",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpi-m3-tUKs1nkpcteyzTCszRZT9xzF2AtwzUnrN-PmA&s=10"
+      },
+      {
+        name: "HDMI",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLbBmf-ay8faUrPlGSXAwZ3HY6swAZHItvQqNbIU_fuw&s=10"
+      },
+      {
+        name: "Red",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx_xppnDa93OfcpMuMHiNeE7GS_oBUlFergGBhPV5huw&s=10"
+      },
+      {
+        name: "Audio",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzPcaoQVkN4mXKmbYhcdLGJwWeECCVvRRzTo8BCxmAg&s"
+      },
+      {
+        name: "Para celular",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjYLGu6opBd_A-95-yDztgy8l2sE94jNxqSNhqM7wTAA&s=10"
+      },
+      {
+        name: "Para computador",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnJPaLt43ahWCX63O4WgXR6mixoVyA9s9rEgQV-PTlEw&s=10"
+      },
+      {
+        name: "Adaptadores USB",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9sNX2Uz8xPczEZ7y02Rcr-HKhMcYFbzIJ_b0ZQCv47w&s=10"
+      },
+      {
+        name: "Adaptadores HDMI",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaeZj4cbEPjpK_odmQtZuQetpp9dQ6cA-FvIOCbFD5AA&s=10"
+      },
+      {
+        name: "Adaptadores de Video",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsa_WKhKspk8YjmRzADHXzp2bkT5x87oYPj8KG_FW1Bg&s=10"
+      },
+      {
+        name: "Adaptadores Red",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH2Y0gr9TbYqwxQdoJj_cOT3t_dqTIyMPlPwqCRj32tA&s=10"
+      },
+      {
+        name: "Hubs USB",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeudb2pl1vpEih3Q14h_eov2XyGg2-7QV8uEqX9eSI4A&s=10"
+      },
+      {
+        name: "Wi-Fi",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZn7EW_CNlsecd7qgXdeo5V6TpP3d2arQu7UOVzkfJyw&s=10"
+      },
+      {
+        name: "Soportes para monitor",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQicyTTniZLerv8Ihx_bYlR_cdm5d5N8As1G9TDLVea5Q&s=10"
+      },
+      {
+        name: "Soportes para portátil",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBNET5DusrZBnNjiUlmaGrVjfRrb0PD0Qib-8WLTE-yQ&s=10"
+      },
+      {
+        name: "Bases para portátil",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUTyVPrWSMn4FhD3gyOiKnviM8isiFpO00N_sxhBMsuQ&s=10"
+      },
+      {
+        name: "Bases refrigerantes con ventilador",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv68yEKtAT_3hdei3QXhALooRTqymZdFDrZfBaHbf6Ow&s=10"
+      },
+      {
+        name: "Lectores",
+        image: "https://exitocol.vtexassets.com/arquivos/ids/29590549/unidad-cd-dvd-externa-usb-30-alta-velocidad-portatil-lector.jpg?v=638902638595630000"
+      },
+      {
+        name: "Accesorios internos",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtR_OPgPASTwh5G1iJCsSCH6pql_RjciJ8BOAj75LUqA&s=10"
+      }
+    ]
+  },
+
+  {
+    category: "Memorias y Almacenamiento",
+    items: [
+      {
+        name: "Memorias USB",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIlID-0UCkmEZEx4IQYSB4l720vh5qlZgCkMRtkah_nA&s=10"
+      },
+      {
+        name: "Memoria RAM",
+        image: "https://cdnx.jumpseller.com/tienda-gamer-medellin/image/47773192/resize/300/300?1713402658"
+      },
+      {
+        name: "Discos HDD",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkvaPfRSmQwtD5vtNYpG3ifpA7GZ3kDmQQ3mZxTNc5iQ&s=10"
+      },
+      {
+        name: "Discos SSD",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDMP6n3awyzmgrqdQ1eu7ynxckwpn92NLZ4KJ-kFJSew&s=10"
+      },
+      {
+        name: "Tarjetas MicroSD",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcMkeFdwyH4dUIZsFeLAcuRBJbXrZBMxWDg5ij00ouyg&s=10"
+      },
+      {
+        name: "Tarjetas SD",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOIo9RkOxtQmPp9qQxoofwmDaVRzql1TuN299WzAtBA&s=10"
+      }
+    ]
+  },
+
+  {
+    category: "Impresoras y Suministros",
+    items: [
+      {
+        name: "Multifuncionales",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4_Iy-24jYfVPpU0Mi_93Jht59z5BeTgYLZxJisLc6pw&s=10"
+      },
+      {
+        name: "Fotocopiadoras",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvL1YK-beAtm--p_BzVO9Y_JPBwAkbGgEJzoHRFR30BA&s=10"
+      },
+      {
+        name: "Impresoras térmicas",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyYtOqC7wlL3p0JCKrVXYdGzPFn7zXf9-EQa23JNGH-Q&s=10"
+      },
+      {
+        name: "Impresoras de tinta",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ER522Vy-V9BHyETK5K04zZDToO3BEjrlRtz2c-NDNA&s=10"
+      },
+      {
+        name: "Impresoras láser",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7dq--y-C8cysoSPrGnJLRrkH6rFLm-w4WXPS_bESnnw&s=10"
+      },
+      {
+        name: "Impresoras Wi-Fi",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMHgQGOwCppd6wT8xfhvKXZNXEpt11C9Yks-V1es3oA&s=10"
+      },
+      {
+        name: "Tintas",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFvkdz6vCtz8ygvStG0jrBjvTy5Ganjzy6wPqDLLjYLw&s=10"
+      },
+      {
+        name: "Cartuchos",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuLxujWt_ZkGmGl07ZTER25Gb4AhnBpNK-UtmomGYngg&s=10"
+      }
+    ]
+  },
+
+  {
+    category: "Celulares y Accesorios",
+    items: [
+      {
+        name: "Celulares",
+        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        name: "Cargadores",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp7K94cb294GvIwR4FgrHCt06EanLJDuawelLHuS3-1g&s"
+      },
+      {
+        name: "Vidrios templados",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNiQQMPVAPUtLUoy_a9yQLUDBUeiuHVTMPnBJY-ooCwg&s=10"
+      },
+      {
+        name: "Fundas / Forros para celular",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOdu91HYOIpUT1Bn2ac4z413HT6qG2FWqa-enKOA207w&s=10"
+      },
+      {
+        name: "Audífonos",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnmrJ6EdwbyaRmY_ohdswNGos5D2FUt6tPUiQAaNwhXQ&s=10"
+      }
+    ]
+  },
+
+  {
+    category: "Sillas",
+    items: [
+      {
+        name: "Sillas Gaming",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJY2CwTpFDZxEIienFiA_CBLBtr87ZgFHOoZssYlqjOw&s=10"
+      },
+      {
+        name: "Sillas de oficina",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO5L6KExbFaqA4PDugyx1EZQiQhp4yrGnbjSZJv0Zw0Q&s=10"
+      }
+    ]
+  },
+
+  {
+    category: "Energía",
+    items: [
+      {
+        name: "UPS",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8NuJkjD66X3YLf2LHdT0mTDFDTXBjlLE92LLyfh4zzA&s=10"
+      },
+      {
+        name: "Reguladores de voltaje",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRII_MTif-i9fjBUspBT5phl5-ZkZpks2a9NdrEmiirjg&s=10"
+      }
+    ]
+  },
+
+  {
+    category: "Servicios Técnicos",
+    items: [
+      {
+        name: "Mantenimiento",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRv1NbZPj78y229SADhRen6c4pUgTxyzhBW9Gvr9wz_Q&s=10"
+      },
+      {
+        name: "Reparación",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST3q0-gKalMjD_N41oVeT5MZCHBDpEDxm9Xxf-sYKqHg&s=10"
+      },
+      {
+        name: "Instalación de programas y configuración",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgw_EnuaAW1w5ypl3bPWRhskOOpdGOZPwMNXyG-I0G8Q&s=10"
+      }
+    ]
   }
+];
 
-  .header-container {
-    flex-wrap: wrap;
-    padding: 14px 0;
-  }
 
-  .header-search {
-    order: 3;
-    flex-basis: 100%;
-    max-width: none;
-  }
+/* =========================
+   WHATSAPP
+========================= */
 
+function getWhatsAppNumber() {
+  return Math.random() < 0.60
+    ? "573228182311"
+    : "573117161043";
 }
 
 
-/* TABLET PEQUEÑA */
+function openWhatsApp(item) {
 
-@media (max-width: 800px) {
+  const message =
+    `Hola, equipo Nexus. Estoy interesado(a) en cotizar: ${item}. ` +
+    `Agradezco su asesoría y quedo atento(a) a opciones disponibles. ` +
+    `Muchas gracias.`;
 
-  .hero-card {
-    grid-template-columns: 1fr;
-    padding: 30px;
-  }
+  const number = getWhatsAppNumber();
 
-  .schedule-card {
-    min-height: auto;
-  }
-
-  .subcategory-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .contact-card {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .footer-content {
-    padding: 26px 0;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .footer-content > div:last-child {
-    align-items: flex-start;
-  }
-
+  window.location.href =
+    `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
 
 
-/* MÓVIL */
+/* =========================
+   RENDER
+========================= */
 
-@media (max-width: 620px) {
+function renderCatalog(searchTerm = "") {
 
-  .container,
-  .header-container {
-    width: min(calc(100% - 28px), var(--max-width));
-  }
+  const container =
+    document.getElementById("catalogContainer");
 
-  .site-header {
-    position: relative;
-  }
+  const noResults =
+    document.getElementById("noResults");
 
-  .header-container {
-    min-height: 72px;
-    gap: 12px;
-  }
+  container.innerHTML = "";
 
-  .brand img {
-    width: 105px;
-    height: 42px;
-  }
+  const term =
+    searchTerm.trim().toLowerCase();
 
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
+  let categoriesFound = 0;
 
-  .main-nav {
-    position: absolute;
-    top: 72px;
-    left: 14px;
-    right: 14px;
 
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
+  catalogData.forEach(category => {
 
-    padding: 10px;
+    const categoryMatch =
+      category.category.toLowerCase().includes(term);
 
-    border: 1px solid var(--line);
-    border-radius: var(--radius-md);
 
-    background: var(--card-strong);
-    box-shadow: var(--shadow-md);
-  }
+    const items = category.items.filter(item => {
 
-  .main-nav.open {
-    display: flex;
-  }
+      if (!term) return true;
 
-  .main-nav a {
-    padding: 13px 14px;
-  }
+      return (
+        categoryMatch ||
+        item.name.toLowerCase().includes(term)
+      );
+    });
 
-  .header-search {
-    order: 3;
-    flex-basis: 100%;
-    margin-bottom: 4px;
-  }
 
-  .hero {
-    padding-top: 24px;
-  }
+    if (!items.length) return;
 
-  .hero-card {
-    padding: 24px;
-    border-radius: var(--radius-md);
-  }
 
-  .hero h1 {
-    font-size: 31px;
-  }
+    categoriesFound++;
 
-  .hero p {
-    font-size: 15px;
-  }
 
-  .location-link {
-    padding: 0 16px;
-  }
+    /* TARJETA PRINCIPAL */
 
-  .catalog-section {
-    padding-bottom: 55px;
-  }
+    const categoryCard =
+      document.createElement("section");
 
-  .subcategory-grid {
-    grid-template-columns: 1fr;
-  }
+    categoryCard.className =
+      "catalog-category";
 
-  .subcategory-image-wrap {
-    height: 210px;
-    min-height: 210px;
-  }
 
-  .subcategory-content h4 {
-    min-height: auto;
-  }
+    /* CABECERA */
 
-  .contact-card {
-    padding: 26px;
-  }
+    const header =
+      document.createElement("div");
 
-  .contact-button {
-    width: 100%;
-  }
+    header.className =
+      "category-header";
 
+
+    const title =
+      document.createElement("h3");
+
+    title.textContent =
+      category.category;
+
+
+    const count =
+      document.createElement("span");
+
+    count.textContent =
+      `${items.length} opciones`;
+
+
+    header.appendChild(title);
+    header.appendChild(count);
+
+
+    /* GRID */
+
+    const grid =
+      document.createElement("div");
+
+    grid.className =
+      "subcategory-grid";
+
+
+    items.forEach(item => {
+
+      const card =
+        document.createElement("article");
+
+      card.className =
+        "subcategory-card";
+
+
+      const imageWrap =
+        document.createElement("div");
+
+      imageWrap.className =
+        "subcategory-image-wrap";
+
+
+      const image =
+        document.createElement("img");
+
+      image.src = item.image;
+      image.alt = item.name;
+      image.loading = "lazy";
+
+
+      imageWrap.appendChild(image);
+
+
+      const content =
+        document.createElement("div");
+
+      content.className =
+        "subcategory-content";
+
+
+      const itemTitle =
+        document.createElement("h4");
+
+      itemTitle.textContent =
+        item.name;
+
+
+      const button =
+        document.createElement("button");
+
+      button.className =
+        "quote-button";
+
+      button.type =
+        "button";
+
+      button.textContent =
+        "Cotizar";
+
+
+      button.addEventListener("click", () => {
+        openWhatsApp(item.name);
+      });
+
+
+      content.appendChild(itemTitle);
+      content.appendChild(button);
+
+
+      card.appendChild(imageWrap);
+      card.appendChild(content);
+
+
+      grid.appendChild(card);
+    });
+
+
+    categoryCard.appendChild(header);
+    categoryCard.appendChild(grid);
+
+    container.appendChild(categoryCard);
+  });
+
+
+  noResults.hidden =
+    categoriesFound !== 0;
 }
+
+
+/* =========================
+   BUSCADOR
+========================= */
+
+document
+  .getElementById("searchInput")
+  .addEventListener("input", event => {
+
+    renderCatalog(event.target.value);
+
+  });
+
+
+/* =========================
+   MENÚ
+========================= */
+
+const menuToggle =
+  document.getElementById("menuToggle");
+
+const mainNav =
+  document.getElementById("mainNav");
+
+
+menuToggle.addEventListener("click", () => {
+
+  const active =
+    mainNav.classList.toggle("active");
+
+  menuToggle.setAttribute(
+    "aria-expanded",
+    active ? "true" : "false"
+  );
+});
+
+
+mainNav.querySelectorAll("a").forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    mainNav.classList.remove("active");
+
+  });
+
+});
+
+
+/* =========================
+   INICIAR
+========================= */
+
+renderCatalog();
