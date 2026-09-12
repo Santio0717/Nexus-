@@ -1,5 +1,3 @@
-// js/script.js
-
 const WHATSAPP_NUMBERS = [
   {
     number: "573228182311",
@@ -12,25 +10,11 @@ const WHATSAPP_NUMBERS = [
 ];
 
 
-/*
-  CATÁLOGO NEXUS
-
-  IMPORTANTE:
-  Se mantienen las imágenes que ya tenía el catálogo.
-
-  Solo se agregan las nuevas imágenes
-  correspondientes a los componentes que
-  ahora estarán dentro de "Computadores".
-
-  RAM, SSD y HDD NO se agregan a Computadores
-  porque ya existen en "Memorias y Almacenamiento".
-*/
-
 const catalog = [
 
-  /* =====================================================
+  /* =========================================================
      COMPUTADORES
-  ===================================================== */
+     ========================================================= */
 
   {
     id: "computadores",
@@ -70,15 +54,15 @@ const catalog = [
         ]
       },
 
+      /*
+       * NUEVAS PARTES PARA ARMAR PC
+       * Se agregan aquí sin tocar las demás categorías.
+       */
 
       {
         title: "Componentes",
 
         items: [
-
-          /*
-            NUEVO
-          */
 
           [
             "Procesadores",
@@ -117,9 +101,9 @@ const catalog = [
   },
 
 
-  /* =====================================================
+  /* =========================================================
      MONITORES Y TV
-  ===================================================== */
+     ========================================================= */
 
   {
     id: "monitores-tv",
@@ -158,9 +142,9 @@ const catalog = [
   },
 
 
-  /* =====================================================
+  /* =========================================================
      GAMING
-  ===================================================== */
+     ========================================================= */
 
   {
     id: "gaming",
@@ -199,9 +183,9 @@ const catalog = [
   },
 
 
-  /* =====================================================
+  /* =========================================================
      PERIFÉRICOS
-  ===================================================== */
+     ========================================================= */
 
   {
     id: "perifericos",
@@ -336,9 +320,9 @@ const catalog = [
   },
 
 
-  /* =====================================================
+  /* =========================================================
      ACCESORIOS
-  ===================================================== */
+     ========================================================= */
 
   {
     id: "accesorios",
@@ -516,10 +500,9 @@ const catalog = [
   },
 
 
-  /* =====================================================
+  /* =========================================================
      MEMORIAS Y ALMACENAMIENTO
-     RAM, SSD Y HDD SE QUEDAN AQUÍ.
-  ===================================================== */
+     ========================================================= */
 
   {
     id: "almacenamiento",
@@ -573,9 +556,9 @@ const catalog = [
   },
 
 
-  /* =====================================================
+  /* =========================================================
      IMPRESORAS
-  ===================================================== */
+     ========================================================= */
 
   {
     id: "impresoras",
@@ -639,9 +622,9 @@ const catalog = [
   },
 
 
-  /* =====================================================
+  /* =========================================================
      CELULARES
-  ===================================================== */
+     ========================================================= */
 
   {
     id: "celulares",
@@ -665,7 +648,7 @@ const catalog = [
 
           [
             "Cargadores",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp7K94cb294GvIwR4FgrHCt06EanLJDuawelLHuS3-1g&s"
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp7K94cb294GvIwR4FgrHCt06EanLJDuawelLHuS3-1g&s=10"
           ],
 
           [
@@ -690,9 +673,9 @@ const catalog = [
   },
 
 
-  /* =====================================================
+  /* =========================================================
      SILLAS
-  ===================================================== */
+     ========================================================= */
 
   {
     id: "sillas",
@@ -726,9 +709,9 @@ const catalog = [
   },
 
 
-  /* =====================================================
+  /* =========================================================
      ENERGÍA
-  ===================================================== */
+     ========================================================= */
 
   {
     id: "energia",
@@ -762,9 +745,9 @@ const catalog = [
   },
 
 
-  /* =====================================================
+  /* =========================================================
      SERVICIOS TÉCNICOS
-  ===================================================== */
+     ========================================================= */
 
   {
     id: "servicios-tecnicos",
@@ -805,9 +788,9 @@ const catalog = [
 ];
 
 
-/* =====================================================
+/* =========================================================
    ELEMENTOS
-===================================================== */
+   ========================================================= */
 
 const catalogElement =
   document.getElementById("catalog");
@@ -825,9 +808,9 @@ const floatingWhatsapp =
   document.getElementById("floatingWhatsapp");
 
 
-/* =====================================================
+/* =========================================================
    SEGURIDAD HTML
-===================================================== */
+   ========================================================= */
 
 function escapeHtml(value){
 
@@ -846,22 +829,22 @@ function escapeHtml(value){
 }
 
 
-/* =====================================================
-   FILTRADO
-===================================================== */
+/* =========================================================
+   FILTRAR CATÁLOGO
+   ========================================================= */
 
 function filteredCatalog(){
 
   const query =
-    searchInput.value.trim().toLowerCase();
-
+    searchInput.value
+      .trim()
+      .toLowerCase();
 
   if(!query){
 
     return catalog;
 
   }
-
 
   return catalog
 
@@ -870,7 +853,6 @@ function filteredCatalog(){
       ...category,
 
       groups:
-
         category.groups
 
           .map(group => ({
@@ -878,37 +860,38 @@ function filteredCatalog(){
             ...group,
 
             items:
-
-              group.items.filter(([name]) => {
-
-                const searchableText =
+              group.items.filter(
+                ([name]) =>
                   `${category.title} ${group.title} ${name}`
-                    .toLowerCase();
-
-                return searchableText.includes(query);
-
-              })
+                    .toLowerCase()
+                    .includes(query)
+              )
 
           }))
 
-          .filter(group => group.items.length)
+          .filter(
+            group =>
+              group.items.length
+          )
 
     }))
 
-    .filter(category => category.groups.length);
+    .filter(
+      category =>
+        category.groups.length
+    );
 
 }
 
 
-/* =====================================================
-   RENDERIZAR
-===================================================== */
+/* =========================================================
+   RENDERIZAR CATÁLOGO
+   ========================================================= */
 
 function renderCatalog(){
 
   const filtered =
     filteredCatalog();
-
 
   const total =
     filtered.reduce(
@@ -916,7 +899,6 @@ function renderCatalog(){
       (sum, category) =>
 
         sum +
-
         category.groups.reduce(
 
           (groupSum, group) =>
@@ -929,7 +911,6 @@ function renderCatalog(){
       0
 
     );
-
 
   const query =
     searchInput.value.trim();
@@ -967,7 +948,8 @@ function renderCatalog(){
         </h3>
 
         <p>
-          Prueba con otra palabra o solicita asesoría directamente por WhatsApp.
+          Prueba con otra palabra o solicita
+          asesoría directamente por WhatsApp.
         </p>
 
       </div>
@@ -981,136 +963,140 @@ function renderCatalog(){
 
   catalogElement.innerHTML =
 
-    filtered.map(category => {
+    filtered
 
-      const categoryTotal =
+      .map(category => {
 
-        category.groups.reduce(
+        const categoryTotal =
+          category.groups.reduce(
 
-          (sum, group) =>
-            sum + group.items.length,
+            (sum, group) =>
+              sum + group.items.length,
 
-          0
+            0
 
-        );
-
-
-      return `
-
-        <section
-          class="catalog-category"
-          data-category="${escapeHtml(category.id)}"
-        >
-
-          <div class="category-header">
-
-            <div>
-
-              <h3>
-                ${escapeHtml(category.title)}
-              </h3>
-
-              <p>
-                ${escapeHtml(category.description)}
-              </p>
-
-            </div>
-
-            <span class="category-count">
-              ${categoryTotal} opciones
-            </span>
-
-          </div>
+          );
 
 
-          ${category.groups.map(group => `
+        return `
 
-            <div class="subcategory-group">
+          <section
+            class="catalog-category"
+            data-category="${escapeHtml(category.id)}"
+          >
 
-              ${
-                category.groups.length > 1
+            <div class="category-header">
 
-                  ? `
-                    <h4 class="subcategory-group-title">
-                      ${escapeHtml(group.title)}
-                    </h4>
-                  `
+              <div>
 
-                  : ""
-              }
+                <h3>
+                  ${escapeHtml(category.title)}
+                </h3>
 
-
-              <div class="subcategory-grid">
-
-                ${group.items.map(([name, image]) => `
-
-                  <article
-                    class="subcategory-card"
-                    data-item="${escapeHtml(name.toLowerCase())}"
-                  >
-
-                    <div class="subcategory-image-wrap">
-
-                      <img
-                        src="${image}"
-                        alt="${escapeHtml(name)}"
-                        loading="lazy"
-                        onerror="
-                          this.closest('.subcategory-image-wrap')
-                            .classList.add('image-error');
-                          this.style.display='none';
-                        "
-                      >
-
-                    </div>
-
-
-                    <div class="subcategory-body">
-
-                      <h4>
-                        ${escapeHtml(name)}
-                      </h4>
-
-                      <button
-                        class="quote-button"
-                        type="button"
-                        data-quote-item="${escapeHtml(name)}"
-                      >
-                        Cotizar
-                      </button>
-
-                    </div>
-
-                  </article>
-
-                `).join("")}
+                <p>
+                  ${escapeHtml(category.description)}
+                </p>
 
               </div>
 
+              <span class="category-count">
+                ${categoryTotal} opciones
+              </span>
+
             </div>
 
-          `).join("")}
 
-        </section>
+            ${category.groups.map(group => `
 
-      `;
+              <div class="subcategory-group">
 
-    }).join("");
+                ${
+                  category.groups.length > 1
+
+                    ? `
+                      <h4 class="subcategory-group-title">
+                        ${escapeHtml(group.title)}
+                      </h4>
+                    `
+
+                    : ""
+                }
+
+
+                <div class="subcategory-grid">
+
+                  ${group.items.map(
+                    ([name, image]) => `
+
+                    <article
+                      class="subcategory-card"
+                      data-item="${escapeHtml(name.toLowerCase())}"
+                    >
+
+                      <div class="subcategory-image-wrap">
+
+                        <img
+                          src="${image}"
+                          alt="${escapeHtml(name)}"
+                          loading="lazy"
+                          onerror="
+                            this.closest('.subcategory-image-wrap')
+                            .classList.add('image-error');
+                            this.style.display='none';
+                          "
+                        >
+
+                      </div>
+
+
+                      <div class="subcategory-body">
+
+                        <h4>
+                          ${escapeHtml(name)}
+                        </h4>
+
+                        <button
+                          class="quote-button"
+                          type="button"
+                          data-quote-item="${escapeHtml(name)}"
+                        >
+                          Cotizar
+                        </button>
+
+                      </div>
+
+                    </article>
+
+                  `).join("")}
+
+                </div>
+
+              </div>
+
+            `).join("")}
+
+          </section>
+
+        `;
+
+      })
+
+      .join("");
 
 }
 
 
-/* =====================================================
-   WHATSAPP 60% / 40%
-===================================================== */
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
 
 function getWhatsAppNumber(){
 
   const random =
     Math.random();
 
-
-  return random < WHATSAPP_NUMBERS[0].weight
+  return random <
+    WHATSAPP_NUMBERS[0].weight
 
     ? WHATSAPP_NUMBERS[0].number
 
@@ -1119,19 +1105,13 @@ function getWhatsAppNumber(){
 }
 
 
-/* =====================================================
-   COTIZAR
-===================================================== */
-
 function openWhatsApp(item){
 
   const message =
     `Hola, equipo Nexus. Estoy interesado(a) en cotizar: ${item}. Agradezco su asesoría y quedo atento(a) a opciones disponibles. Muchas gracias.`;
 
-
   const number =
     getWhatsAppNumber();
-
 
   window.location.href =
     `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
@@ -1139,24 +1119,22 @@ function openWhatsApp(item){
 }
 
 
-/* =====================================================
-   EVENTOS
-===================================================== */
+/* =========================================================
+   BOTONES COTIZAR
+   ========================================================= */
 
 catalogElement.addEventListener(
   "click",
   event => {
 
     const button =
-      event.target.closest("[data-quote-item]");
-
+      event.target.closest(
+        "[data-quote-item]"
+      );
 
     if(!button){
-
       return;
-
     }
-
 
     openWhatsApp(
       button.dataset.quoteItem
@@ -1166,11 +1144,19 @@ catalogElement.addEventListener(
 );
 
 
+/* =========================================================
+   BUSCADOR
+   ========================================================= */
+
 searchInput.addEventListener(
   "input",
   renderCatalog
 );
 
+
+/* =========================================================
+   WHATSAPP FLOTANTE
+   ========================================================= */
 
 floatingWhatsapp.addEventListener(
   "click",
@@ -1186,8 +1172,8 @@ floatingWhatsapp.addEventListener(
 );
 
 
-/* =====================================================
-   INICIO
-===================================================== */
+/* =========================================================
+   INICIAR
+   ========================================================= */
 
 renderCatalog();
