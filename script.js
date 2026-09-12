@@ -25,7 +25,7 @@ const catalog = [
           ["Tarjetas madre", "https://upload.wikimedia.org/wikipedia/commons/a/ac/Motherboard_computer.jpg"],
           ["Tarjetas gráficas", "https://pcmastersbogota.com.co/wp-content/uploads/2022/03/Radeon-RX-6600-Challenger-D-8GBL1-768x640.png"],
           ["Fuentes de poder", "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6492/6492464_sd.jpg"],
-          ["Gabinetes", "https://storage-asset.msi.com/global/picture/news/2026/case/case-20260720-4.jpg"],
+          ["Chasis", "https://www.esgamingpc.com/lifisher-m5725/1735301825196-roke-02-tg/png80-t1-scale100.webp"],
           ["Refrigeración", "https://m.media-amazon.com/images/I/718f527QL0L._AC_SL1500_.jpg"]
         ]
       }
@@ -36,28 +36,32 @@ const catalog = [
     id: "monitores-tv",
     title: "Monitores y TV",
     description: "Pantallas para oficina, estudio, entretenimiento y gaming.",
-    groups: [{
-      title: "Pantallas",
-      items: [
-        ["Monitores", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7fPTNR6sij2ELmoKGaoUoqQP6jqx2-I69_bmimytgMQ&s=10"],
-        ["Monitores Gaming", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzO7pfeT08g32Xu0LkXKoL29--VTG2Q96nJSDSQLHZfA&s=10"],
-        ["TV", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU_dPbiIzR6yf6pwZpfFQhg8jhDH-A_J3X1I-uy_Wv2Q&s=10"]
-      ]
-    }]
+    groups: [
+      {
+        title: "Pantallas",
+        items: [
+          ["Monitores", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7fPTNR6sij2ELmoKGaoUoqQP6jqx2-I69_bmimytgMQ&s=10"],
+          ["Monitores Gaming", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzO7pfeT08g32Xu0LkXKoL29--VTG2Q96nJSDSQLHZfA&s=10"],
+          ["TV", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU_dPbiIzR6yf6pwZpfFQhg8jhDH-A_J3X1I-uy_Wv2Q&s=10"]
+        ]
+      }
+    ]
   },
 
   {
     id: "gaming",
     title: "Gaming",
     description: "Consolas, controles y accesorios para tu experiencia de juego.",
-    groups: [{
-      title: "Gaming",
-      items: [
-        ["Consolas", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK6R3BLZzudo6giL57G5gHbkEK3NUFcNQtJZ-8h0WQdsgyw5yeFKj8Brao&s=10"],
-        ["Controles", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHdMwv5kzu5FfCAKz72UXZRMup0tDqEkhwBz4fv_7nEQ&s=10"],
-        ["Accesorios Gaming", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-mC9fAccf4WurNG0Dbo5oiiaG3SZLkzWTeKITTvFaQ&s=10"]
-      ]
-    }]
+    groups: [
+      {
+        title: "Gaming",
+        items: [
+          ["Consolas", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK6R3BLZzudo6giL57G5gHbkEK3NUFcNQtJZ-8h0WQdsgyw5yeFKj8Brao&s=10"],
+          ["Controles", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHdMwv5kzu5FfCAKz72UXZRMup0tDqEkhwBz4fv_7nEQ&s=10"],
+          ["Accesorios Gaming", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-mC9fAccf4WurNG0Dbo5oiiaG3SZLkzWTeKITTvFaQ&s=10"]
+        ]
+      }
+    ]
   },
 
   {
@@ -185,92 +189,104 @@ const catalog = [
     id: "almacenamiento",
     title: "Memorias y Almacenamiento",
     description: "Opciones para ampliar, actualizar y transportar tus datos.",
-    groups: [{
-      title: "Almacenamiento",
-      items: [
-        ["Memorias USB", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIlID-0UCkmEZEx4IQYSB4l720vh5qlZgCkMRtkah_nA&s=10"],
-        ["Memoria RAM", "https://cdnx.jumpseller.com/tienda-gamer-medellin/image/47773192/resize/300/300?1713402658"],
-        ["Discos HDD", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkvaPfRSmQwtD5vtNYpG3ifpA7GZ3kDmQQ3mZxTNc5iQ&s=10"],
-        ["Discos SSD", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDMP6n3awyzmgrqdQ1eu7ynxckwpn92NLZ4KJ-kFJSew&s=10"],
-        ["Tarjetas MicroSD", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcMkeFdwyH4dUIZsFeLAcuRBJbXrZBMxWDg5ij00ouyg&s=10"],
-        ["Tarjetas SD", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOIo9RkOxtQmPp9qQxoofwmDaVRzql1TuN299WzAtBA&s=10"]
-      ]
-    }]
+    groups: [
+      {
+        title: "Almacenamiento",
+        items: [
+          ["Memorias USB", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIlID-0UCkmEZEx4IQYSB4l720vh5qlZgCkMRtkah_nA&s=10"],
+          ["Memoria RAM", "https://cdnx.jumpseller.com/tienda-gamer-medellin/image/47773192/resize/300/300?1713402658"],
+          ["Discos HDD", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkvaPfRSmQwtD5vtNYpG3ifpA7GZ3kDmQQ3mZxTNc5iQ&s=10"],
+          ["Discos SSD", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDMP6n3awyzmgrqdQ1eu7ynxckwpn92NLZ4KJ-kFJSew&s=10"],
+          ["Tarjetas MicroSD", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcMkeFdwyH4dUIZsFeLAcuRBJbXrZBMxWDg5ij00ouyg&s=10"],
+          ["Tarjetas SD", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOIo9RkOxtQmPp9qQxoofwmDaVRzql1TuN299WzAtBA&s=10"]
+        ]
+      }
+    ]
   },
 
   {
     id: "impresoras",
     title: "Impresoras y Suministros",
     description: "Impresión para hogar, oficina, negocio y punto de venta.",
-    groups: [{
-      title: "Impresión",
-      items: [
-        ["Multifuncionales", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4_Iy-24jYfVPpU0Mi_93Jht59z5BeTgYLZxJisLc6pw&s=10"],
-        ["Fotocopiadoras", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvL1YK-beAtm--p_BzVO9Y_JPBwAkbGgEJzoHRFR30BA&s=10"],
-        ["Impresoras térmicas", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyYtOqC7wlL3p0JCKrVXYdGzPFn7zXf9-EQa23JNGH-Q&s=10"],
-        ["Impresoras de tinta", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ER522Vy-V9BHyETK5K04zZDToO3BEjrlRtz2c-NDNA&s=10"],
-        ["Impresoras láser", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7dq--y-C8cysoSPrGnJLRrkH6rFLm-w4WXPS_bESnnw&s=10"],
-        ["Impresoras Wi-Fi", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMHgQGOwCppd6wT8xfhvKXZNXEpt11C9Yks-V1es3oA&s=10"],
-        ["Tintas", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFvkdz6vCtz8ygvStG0jrBjvTy5Ganjzy6wPqDLLjYLw&s=10"],
-        ["Cartuchos", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuLxujWt_ZkGmGl07ZTER25Gb4AhnBpNK-UtmomGYngg&s=10"]
-      ]
-    }]
+    groups: [
+      {
+        title: "Impresión",
+        items: [
+          ["Multifuncionales", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4_Iy-24jYfVPpU0Mi_93Jht59z5BeTgYLZxJisLc6pw&s=10"],
+          ["Fotocopiadoras", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvL1YK-beAtm--p_BzVO9Y_JPBwAkbGgEJzoHRFR30BA&s=10"],
+          ["Impresoras térmicas", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyYtOqC7wlL3p0JCKrVXYdGzPFn7zXf9-EQa23JNGH-Q&s=10"],
+          ["Impresoras de tinta", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ER522Vy-V9BHyETK5K04zZDToO3BEjrlRtz2c-NDNA&s=10"],
+          ["Impresoras láser", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7dq--y-C8cysoSPrGnJLRrkH6rFLm-w4WXPS_bESnnw&s=10"],
+          ["Impresoras Wi-Fi", "https://exitocol.vteximg.com.br/arquivos/ids/29903003/impresora-multifuncional-epson-l3250-wifi.jpg?v=638920995810070000"],
+          ["Tintas", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFvkdz6vCtz8ygvStG0jrBjvTy5Ganjzy6wPqDLLjYLw&s=10"],
+          ["Cartuchos", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuLxujWt_ZkGmGl07ZTER25Gb4AhnBpNK-UtmomGYngg&s=10"]
+        ]
+      }
+    ]
   },
 
   {
     id: "celulares",
     title: "Celulares y Accesorios",
     description: "Celulares y accesorios esenciales para dispositivos móviles.",
-    groups: [{
-      title: "Tecnología móvil",
-      items: [
-        ["Celulares", "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80"],
-        ["Cargadores", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp7K94cb294GvIwR4FgrHCt06EanLJDuawelLHuS3-1g&s=10"],
-        ["Vidrios templados", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNiQQMPVAPUtLUoy_a9yQLUDBUeiuHVTMPnBJY-ooCwg&s=10"],
-        ["Fundas / Forros para celular", "https://i.ebayimg.com/images/g/FaYAAOSwX-pkRsF5/s-l1200.webp"],
-        ["Audífonos", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnmrJ6EdwbyaRmY_ohdswNGos5D2FUt6tPUiQAaNwhXQ&s=10"]
-      ]
-    }]
+    groups: [
+      {
+        title: "Tecnología móvil",
+        items: [
+          ["Celulares", "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80"],
+          ["Cargadores", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp7K94cb294GvIwR4FgrHCt06EanLJDuawelLHuS3-1g&s"],
+          ["Vidrios templados", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNiQQMPVAPUtLUoy_a9yQLUDBUeiuHVTMPnBJY-ooCwg&s=10"],
+          ["Fundas / Forros para celular", "https://i.ebayimg.com/images/g/FaYAAOSwX-pkRsF5/s-l1200.webp"],
+          ["Audífonos", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnmrJ6EdwbyaRmY_ohdswNGos5D2FUt6tPUiQAaNwhXQ&s=10"]
+        ]
+      }
+    ]
   },
 
   {
     id: "sillas",
     title: "Sillas",
     description: "Opciones para gaming, estudio y espacios de trabajo.",
-    groups: [{
-      title: "Sillas",
-      items: [
-        ["Sillas Gaming", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJY2CwTpFDZxEIienFiA_CBLBtr87ZgFHOoZssYlqjOw&s=10"],
-        ["Sillas de oficina", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO5L6KExbFaqA4PDugyx1EZQiQhp4yrGnbjSZJv0Zw0Q&s=10"]
-      ]
-    }]
+    groups: [
+      {
+        title: "Sillas",
+        items: [
+          ["Sillas Gaming", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJY2CwTpFDZxEIienFiA_CBLBtr87ZgFHOoZssYlqjOw&s=10"],
+          ["Sillas de oficina", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO5L6KExbFaqA4PDugyx1EZQiQhp4yrGnbjSZJv0Zw0Q&s=10"]
+        ]
+      }
+    ]
   },
 
   {
     id: "energia",
     title: "Energía",
     description: "Protección y respaldo eléctrico para tus equipos.",
-    groups: [{
-      title: "Energía",
-      items: [
-        ["UPS", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8NuJkjD66X3YLf2LHdT0mTDFDTXBjlLE92LLyfh4zzA&s=10"],
-        ["Reguladores de voltaje", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRII_MTif-i9fjBUspBT5phl5-ZkZpks2a9NdrEmiirjg&s=10"]
-      ]
-    }]
+    groups: [
+      {
+        title: "Energía",
+        items: [
+          ["UPS", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8NuJkjD66X3YLf2LHdT0mTDFDTXBjlLE92LLyfh4zzA&s=10"],
+          ["Reguladores de voltaje", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRII_MTif-i9fjBUspBT5phl5-ZkZpks2a9NdrEmiirjg&s=10"]
+        ]
+      }
+    ]
   },
 
   {
     id: "servicios-tecnicos",
     title: "Servicios Técnicos",
     description: "Soluciones técnicas para mantenimiento, reparación y configuración.",
-    groups: [{
-      title: "Servicios",
-      items: [
-        ["Mantenimiento", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRv1NbZPj78y229SADhRen6c4pUgTxyzhBW9Gvr9wz_Q&s=10"],
-        ["Reparación", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST3q0-gKalMjD_N41oVeT5MZCHBDpEDxm9Xxf-sYKqHg&s=10"],
-        ["Instalación de programas y configuración", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgw_EnuaAW1w5ypl3bPWRhskOOpdGOZPwMNXyG-I0G8Q&s=10"]
-      ]
-    }]
+    groups: [
+      {
+        title: "Servicios",
+        items: [
+          ["Mantenimiento", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRv1NbZPj78y229SADhRen6c4pUgTxyzhBW9Gvr9wz_Q&s=10"],
+          ["Reparación", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST3q0-gKalMjD_N41oVeT5MZCHBDpEDxm9Xxf-sYKqHg&s=10"],
+          ["Instalación de programas y configuración", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgw_EnuaAW1w5ypl3bPWRhskOOpdGOZPwMNXyG-I0G8Q&s=10"]
+        ]
+      }
+    ]
   }
 ];
 
