@@ -12,17 +12,14 @@ const WHATSAPP_NUMBERS = [
 
 const catalog = [
 
-  /* =========================================================
+  /* =========================
      COMPUTADORES
-     ========================================================= */
+  ========================= */
 
   {
     id: "computadores",
-
     title: "Computadores",
-
-    description:
-      "Equipos completos y componentes para armar o actualizar tu computador.",
+    description: "Equipos completos y componentes para armar o actualizar tu computador.",
 
     groups: [
 
@@ -30,7 +27,6 @@ const catalog = [
         title: "Equipos",
 
         items: [
-
           [
             "Portátil",
             "https://refurbi.com.co/cdn/shop/files/nPeqtNAN7v.jpg?v=1760546728"
@@ -50,20 +46,13 @@ const catalog = [
             "Gaming",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLi1UqGDwIbmPSEtPn6HzNfC_Z3ICi0V2Xi6QT-dbq4Q&s=10"
           ]
-
         ]
       },
-
-      /*
-       * NUEVAS PARTES PARA ARMAR PC
-       * Se agregan aquí sin tocar las demás categorías.
-       */
 
       {
         title: "Componentes",
 
         items: [
-
           [
             "Procesadores",
             "https://americanas.vtexassets.com/arquivos/ids/18858668-768-auto/7508705827_1_xlarge.webp?quality=9&v=638754899508270000"
@@ -93,7 +82,6 @@ const catalog = [
             "Refrigeración",
             "https://m.media-amazon.com/images/I/718f527QL0L._AC_SL1500_.jpg"
           ]
-
         ]
       }
 
@@ -101,17 +89,14 @@ const catalog = [
   },
 
 
-  /* =========================================================
+  /* =========================
      MONITORES Y TV
-     ========================================================= */
+  ========================= */
 
   {
     id: "monitores-tv",
-
     title: "Monitores y TV",
-
-    description:
-      "Pantallas para oficina, estudio, entretenimiento y gaming.",
+    description: "Pantallas para oficina, estudio, entretenimiento y gaming.",
 
     groups: [
 
@@ -119,7 +104,6 @@ const catalog = [
         title: "Pantallas",
 
         items: [
-
           [
             "Monitores",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7fPTNR6sij2ELmoKGaoUoqQP6jqx2-I69_bmimytgMQ&s=10"
@@ -134,7 +118,6 @@ const catalog = [
             "TV",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU_dPbiIzR6yf6pwZpfFQhg8jhDH-A_J3X1I-uy_Wv2Q&s=10"
           ]
-
         ]
       }
 
@@ -142,17 +125,14 @@ const catalog = [
   },
 
 
-  /* =========================================================
+  /* =========================
      GAMING
-     ========================================================= */
+  ========================= */
 
   {
     id: "gaming",
-
     title: "Gaming",
-
-    description:
-      "Consolas, controles y accesorios para tu experiencia de juego.",
+    description: "Consolas, controles y accesorios para tu experiencia de juego.",
 
     groups: [
 
@@ -160,7 +140,6 @@ const catalog = [
         title: "Gaming",
 
         items: [
-
           [
             "Consolas",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK6R3BLZzudo6giL57G5gHbkEK3NUFcNQtJZ-8h0WQdsgyw5yeFKj8Brao&s=10"
@@ -175,7 +154,6 @@ const catalog = [
             "Accesorios Gaming",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA-mC9fAccf4WurNG0Dbo5oiiaG3SZLkzWTeKITTvFaQ&s=10"
           ]
-
         ]
       }
 
@@ -183,17 +161,14 @@ const catalog = [
   },
 
 
-  /* =========================================================
+  /* =========================
      PERIFÉRICOS
-     ========================================================= */
+  ========================= */
 
   {
     id: "perifericos",
-
     title: "Periféricos",
-
-    description:
-      "Teclados, mouse, combos, audio y cámaras para completar tu estación.",
+    description: "Teclados, mouse, combos, audio y cámaras para completar tu estación.",
 
     groups: [
 
@@ -201,7 +176,6 @@ const catalog = [
         title: "Teclados",
 
         items: [
-
           [
             "Gaming",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBgoiMfort3NKseaja6N5UK70hHCJFW_VIsBkUJCLN0Q&s=10"
@@ -216,16 +190,13 @@ const catalog = [
             "Inalámbricos",
             "https://www.omega-store.co/wp-content/uploads/2025/03/KB6756BK_.png"
           ]
-
         ]
       },
-
 
       {
         title: "Mouse",
 
         items: [
-
           [
             "Gaming",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAqn9VYEyesnUWKvO-3eHDxsBd70Bw8DWLcs_VgPH2zg&s=10"
@@ -240,16 +211,13 @@ const catalog = [
             "Inalámbricos",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa1mg9AAtS6Odj4ZrU89pZcZ2g8H3b-vqK2fmYIJzcKw&s=10"
           ]
-
         ]
       },
-
 
       {
         title: "Combos",
 
         items: [
-
           [
             "Teclado + Mouse",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdSfKhhmksMDEeGi6C_V4PTXLn6YBpifB0FisPrgkkJA&s=10"
@@ -264,16 +232,13 @@ const catalog = [
             "Combo Inalámbrico",
             "https://jaltechsas.com/wp-content/uploads/2022/08/COMBO-BASIK-TECH-INALAMBRICO_80163_BSK-300C_1.png"
           ]
-
         ]
       },
-
 
       {
         title: "Audio",
 
         items: [
-
           [
             "Audífonos",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFnFbxiJ6hZizmizIVZgD3Q54wDHxNcaTuij-__WFwXQ&s=10"
@@ -288,16 +253,13 @@ const catalog = [
             "Parlantes",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd1BkIZMe69uHbJ-vG99jQV2nh6Xx3ayHKlMw8LiRtvw&s=10"
           ]
-
         ]
       },
-
 
       {
         title: "Cámaras",
 
         items: [
-
           [
             "Cámaras web",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ7FEHnyc3WPjN0ZcAzHGQBztfg2GGO4pnJZvXrcIqxg&s=10"
@@ -312,7 +274,6 @@ const catalog = [
             "Trípodes",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9SoMWDyfPWCXRXhoNTVyGst_xFEg7GRO0fAJmHcaUFA&s=10"
           ]
-
         ]
       }
 
@@ -320,17 +281,14 @@ const catalog = [
   },
 
 
-  /* =========================================================
+  /* =========================
      ACCESORIOS
-     ========================================================= */
+  ========================= */
 
   {
     id: "accesorios",
-
     title: "Accesorios",
-
-    description:
-      "Cargadores, cables, adaptadores, conectividad, soportes y accesorios para computadores.",
+    description: "Cargadores, cables, adaptadores, conectividad, soportes y accesorios para computadores.",
 
     groups: [
 
@@ -338,7 +296,6 @@ const catalog = [
         title: "Cargadores",
 
         items: [
-
           [
             "Para PC / portátil",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBu1lqYdxe2BzaO3Cwg7fBEiA4OUTQpHwxFKgNsy7d5w&s=10"
@@ -348,16 +305,13 @@ const catalog = [
             "Para celular",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdTa6V9cX51V0KPLOaB2IeGG1LRT3pFji22pofxVkPOg&s=10"
           ]
-
         ]
       },
-
 
       {
         title: "Cables",
 
         items: [
-
           [
             "Cables USB",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpi-m3-tUKs1nkpcteyzTCszRZT9xzF2AtwzUnrN-PmA&s=10"
@@ -387,16 +341,13 @@ const catalog = [
             "Para computador",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnJPaLt43ahWCX63O4WgXR6mixoVyA9s9rEgQV-PTlEw&s=10"
           ]
-
         ]
       },
-
 
       {
         title: "Adaptadores",
 
         items: [
-
           [
             "USB",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9sNX2Uz8xPczEZ7y02Rcr-HKhMcYFbzIJ_b0ZQCv47w&s=10"
@@ -416,16 +367,13 @@ const catalog = [
             "Red",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH2Y0gr9TbYqwxQdoJj_cOT3t_dqTIyMPlPwqCRj32tA&s=10"
           ]
-
         ]
       },
-
 
       {
         title: "Conectividad",
 
         items: [
-
           [
             "Hubs USB",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeudb2pl1vpEih3Q14h_eov2XyGg2-7QV8uEqX9eSI4A&s=10"
@@ -435,16 +383,13 @@ const catalog = [
             "Wi-Fi",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZn7EW_CNlsecd7qgXdeo5V6TpP3d2arQu7UOVzkfJyw&s=10"
           ]
-
         ]
       },
-
 
       {
         title: "Soportes",
 
         items: [
-
           [
             "Para monitor",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQicyTTniZLerv8Ihx_bYlR_cdm5d5N8As1G9TDLVea5Q&s=10"
@@ -454,16 +399,13 @@ const catalog = [
             "Para portátil",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBNET5DusrZBnNjiUlmaGrVjfRrb0PD0Qib-8WLTE-yQ&s=10"
           ]
-
         ]
       },
-
 
       {
         title: "Bases",
 
         items: [
-
           [
             "Para portátil",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUTyVPrWSMn4FhD3gyOiKnviM8isiFpO00N_sxhBMsuQ&s=10"
@@ -473,16 +415,13 @@ const catalog = [
             "Bases refrigerantes con ventilador",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv68yEKtAT_3hdei3QXhALooRTqymZdFDrZfBaHbf6Ow&s=10"
           ]
-
         ]
       },
-
 
       {
         title: "Accesorios para computadores",
 
         items: [
-
           [
             "Lectores",
             "https://exitocol.vtexassets.com/arquivos/ids/29590549/unidad-cd-dvd-externa-usb-30-alta-velocidad-portatil-lector.jpg?v=638902638595630000"
@@ -492,7 +431,6 @@ const catalog = [
             "Accesorios internos",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtR_OPgPASTwh5G1iJCsSCH6pql_RjciJ8BOAj75LUqA&s=10"
           ]
-
         ]
       }
 
@@ -500,17 +438,14 @@ const catalog = [
   },
 
 
-  /* =========================================================
-     MEMORIAS Y ALMACENAMIENTO
-     ========================================================= */
+  /* =========================
+     MEMORIAS
+  ========================= */
 
   {
     id: "almacenamiento",
-
     title: "Memorias y Almacenamiento",
-
-    description:
-      "Opciones para ampliar, actualizar y transportar tus datos.",
+    description: "Opciones para ampliar, actualizar y transportar tus datos.",
 
     groups: [
 
@@ -518,7 +453,6 @@ const catalog = [
         title: "Almacenamiento",
 
         items: [
-
           [
             "Memorias USB",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIlID-0UCkmEZEx4IQYSB4l720vh5qlZgCkMRtkah_nA&s=10"
@@ -548,7 +482,6 @@ const catalog = [
             "Tarjetas SD",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOIo9RkOxtQmPp9qQxoofwmDaVRzql1TuN299WzAtBA&s=10"
           ]
-
         ]
       }
 
@@ -556,17 +489,14 @@ const catalog = [
   },
 
 
-  /* =========================================================
+  /* =========================
      IMPRESORAS
-     ========================================================= */
+  ========================= */
 
   {
     id: "impresoras",
-
     title: "Impresoras y Suministros",
-
-    description:
-      "Impresión para hogar, oficina, negocio y punto de venta.",
+    description: "Impresión para hogar, oficina, negocio y punto de venta.",
 
     groups: [
 
@@ -574,7 +504,6 @@ const catalog = [
         title: "Impresión",
 
         items: [
-
           [
             "Multifuncionales",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4_Iy-24jYfVPpU0Mi_93Jht59z5BeTgYLZxJisLc6pw&s=10"
@@ -614,7 +543,6 @@ const catalog = [
             "Cartuchos",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuLxujWt_ZkGmGl07ZTER25Gb4AhnBpNK-UtmomGYngg&s=10"
           ]
-
         ]
       }
 
@@ -622,17 +550,14 @@ const catalog = [
   },
 
 
-  /* =========================================================
+  /* =========================
      CELULARES
-     ========================================================= */
+  ========================= */
 
   {
     id: "celulares",
-
     title: "Celulares y Accesorios",
-
-    description:
-      "Celulares y accesorios esenciales para dispositivos móviles.",
+    description: "Celulares y accesorios esenciales para dispositivos móviles.",
 
     groups: [
 
@@ -640,7 +565,6 @@ const catalog = [
         title: "Tecnología móvil",
 
         items: [
-
           [
             "Celulares",
             "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80"
@@ -665,7 +589,6 @@ const catalog = [
             "Audífonos",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnmrJ6EdwbyaRmY_ohdswNGos5D2FUt6tPUiQAaNwhXQ&s=10"
           ]
-
         ]
       }
 
@@ -673,17 +596,14 @@ const catalog = [
   },
 
 
-  /* =========================================================
+  /* =========================
      SILLAS
-     ========================================================= */
+  ========================= */
 
   {
     id: "sillas",
-
     title: "Sillas",
-
-    description:
-      "Opciones para gaming, estudio y espacios de trabajo.",
+    description: "Opciones para gaming, estudio y espacios de trabajo.",
 
     groups: [
 
@@ -691,7 +611,6 @@ const catalog = [
         title: "Sillas",
 
         items: [
-
           [
             "Sillas Gaming",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJY2CwTpFDZxEIienFiA_CBLBtr87ZgFHOoZssYlqjOw&s=10"
@@ -701,7 +620,6 @@ const catalog = [
             "Sillas de oficina",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO5L6KExbFaqA4PDugyx1EZQiQhp4yrGnbjSZJv0Zw0Q&s=10"
           ]
-
         ]
       }
 
@@ -709,17 +627,14 @@ const catalog = [
   },
 
 
-  /* =========================================================
+  /* =========================
      ENERGÍA
-     ========================================================= */
+  ========================= */
 
   {
     id: "energia",
-
     title: "Energía",
-
-    description:
-      "Protección y respaldo eléctrico para tus equipos.",
+    description: "Protección y respaldo eléctrico para tus equipos.",
 
     groups: [
 
@@ -727,7 +642,6 @@ const catalog = [
         title: "Energía",
 
         items: [
-
           [
             "UPS",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8NuJkjD66X3YLf2LHdT0mTDFDTXBjlLE92LLyfh4zzA&s=10"
@@ -737,7 +651,6 @@ const catalog = [
             "Reguladores de voltaje",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRII_MTif-i9fjBUspBT5phl5-ZkZpks2a9NdrEmiirjg&s=10"
           ]
-
         ]
       }
 
@@ -745,17 +658,14 @@ const catalog = [
   },
 
 
-  /* =========================================================
+  /* =========================
      SERVICIOS TÉCNICOS
-     ========================================================= */
+  ========================= */
 
   {
     id: "servicios-tecnicos",
-
     title: "Servicios Técnicos",
-
-    description:
-      "Soluciones técnicas para mantenimiento, reparación y configuración.",
+    description: "Soluciones técnicas para mantenimiento, reparación y configuración.",
 
     groups: [
 
@@ -763,7 +673,6 @@ const catalog = [
         title: "Servicios",
 
         items: [
-
           [
             "Mantenimiento",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRv1NbZPj78y229SADhRen6c4pUgTxyzhBW9Gvr9wz_Q&s=10"
@@ -778,7 +687,6 @@ const catalog = [
             "Instalación de programas y configuración",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgw_EnuaAW1w5ypl3bPWRhskOOpdGOZPwMNXyG-I0G8Q&s=10"
           ]
-
         ]
       }
 
@@ -788,62 +696,43 @@ const catalog = [
 ];
 
 
-/* =========================================================
+/* =========================
    ELEMENTOS
-   ========================================================= */
+========================= */
 
-const catalogElement =
-  document.getElementById("catalog");
-
-const searchInput =
-  document.getElementById("searchInput");
-
-const resultCount =
-  document.getElementById("resultCount");
-
-const catalogStatus =
-  document.getElementById("catalogStatus");
-
-const floatingWhatsapp =
-  document.getElementById("floatingWhatsapp");
+const catalogElement = document.getElementById("catalog");
+const searchInput = document.getElementById("searchInput");
+const resultCount = document.getElementById("resultCount");
+const catalogStatus = document.getElementById("catalogStatus");
+const floatingWhatsapp = document.getElementById("floatingWhatsapp");
 
 
-/* =========================================================
+/* =========================
    SEGURIDAD HTML
-   ========================================================= */
+========================= */
 
 function escapeHtml(value){
 
   return String(value)
-
     .replaceAll("&", "&amp;")
-
     .replaceAll("<", "&lt;")
-
     .replaceAll(">", "&gt;")
-
     .replaceAll('"', "&quot;")
-
     .replaceAll("'", "&#039;");
 
 }
 
 
-/* =========================================================
-   FILTRAR CATÁLOGO
-   ========================================================= */
+/* =========================
+   FILTRO
+========================= */
 
 function filteredCatalog(){
 
-  const query =
-    searchInput.value
-      .trim()
-      .toLowerCase();
+  const query = searchInput.value.trim().toLowerCase();
 
   if(!query){
-
     return catalog;
-
   }
 
   return catalog
@@ -852,80 +741,63 @@ function filteredCatalog(){
 
       ...category,
 
-      groups:
-        category.groups
+      groups: category.groups
 
-          .map(group => ({
+        .map(group => ({
 
-            ...group,
+          ...group,
 
-            items:
-              group.items.filter(
-                ([name]) =>
-                  `${category.title} ${group.title} ${name}`
-                    .toLowerCase()
-                    .includes(query)
-              )
+          items: group.items.filter(([name]) => {
 
-          }))
+            return `${category.title} ${group.title} ${name}`
+              .toLowerCase()
+              .includes(query);
 
-          .filter(
-            group =>
-              group.items.length
-          )
+          })
+
+        }))
+
+        .filter(group => group.items.length)
 
     }))
 
-    .filter(
-      category =>
-        category.groups.length
-    );
+    .filter(category => category.groups.length);
 
 }
 
 
-/* =========================================================
-   RENDERIZAR CATÁLOGO
-   ========================================================= */
+/* =========================
+   RENDER CATÁLOGO
+========================= */
 
 function renderCatalog(){
 
-  const filtered =
-    filteredCatalog();
+  const filtered = filteredCatalog();
 
-  const total =
-    filtered.reduce(
+  const total = filtered.reduce(
+    (sum, category) =>
+      sum +
+      category.groups.reduce(
+        (groupSum, group) =>
+          groupSum + group.items.length,
+        0
+      ),
+    0
+  );
 
-      (sum, category) =>
-
-        sum +
-        category.groups.reduce(
-
-          (groupSum, group) =>
-            groupSum + group.items.length,
-
-          0
-
-        ),
-
-      0
-
-    );
-
-  const query =
-    searchInput.value.trim();
+  const query = searchInput.value.trim();
 
 
   resultCount.textContent =
     `${total} opción${total === 1 ? "" : "es"}`;
 
 
+  /* Mensaje de búsqueda */
+
   if(query){
 
     catalogStatus.textContent = total
-
       ? `Mostrando resultados para: “${query}”`
-
       : `No encontramos resultados para “${query}”. Prueba con otra palabra.`;
 
     catalogStatus.classList.remove("hidden");
@@ -937,19 +809,19 @@ function renderCatalog(){
   }
 
 
+  /* Sin resultados */
+
   if(!total){
 
     catalogElement.innerHTML = `
 
       <div class="no-results">
 
-        <h3>
-          No encontramos esa opción
-        </h3>
+        <h3>No encontramos esa opción</h3>
 
         <p>
-          Prueba con otra palabra o solicita
-          asesoría directamente por WhatsApp.
+          Prueba con otra palabra o solicita asesoría
+          directamente por WhatsApp.
         </p>
 
       </div>
@@ -961,145 +833,134 @@ function renderCatalog(){
   }
 
 
-  catalogElement.innerHTML =
+  /* Construcción del catálogo */
 
-    filtered
+  catalogElement.innerHTML = filtered
 
-      .map(category => {
+    .map(category => {
 
-        const categoryTotal =
-          category.groups.reduce(
-
-            (sum, group) =>
-              sum + group.items.length,
-
-            0
-
-          );
+      const categoryTotal =
+        category.groups.reduce(
+          (sum, group) =>
+            sum + group.items.length,
+          0
+        );
 
 
-        return `
+      return `
 
-          <section
-            class="catalog-category"
-            data-category="${escapeHtml(category.id)}"
-          >
+        <section
+          class="catalog-category"
+          data-category="${escapeHtml(category.id)}"
+        >
 
-            <div class="category-header">
+          <div class="category-header">
 
-              <div>
+            <div>
 
-                <h3>
-                  ${escapeHtml(category.title)}
-                </h3>
+              <h3>
+                ${escapeHtml(category.title)}
+              </h3>
 
-                <p>
-                  ${escapeHtml(category.description)}
-                </p>
-
-              </div>
-
-              <span class="category-count">
-                ${categoryTotal} opciones
-              </span>
+              <p>
+                ${escapeHtml(category.description)}
+              </p>
 
             </div>
 
+            <span class="category-count">
+              ${categoryTotal} opciones
+            </span>
 
-            ${category.groups.map(group => `
-
-              <div class="subcategory-group">
-
-                ${
-                  category.groups.length > 1
-
-                    ? `
-                      <h4 class="subcategory-group-title">
-                        ${escapeHtml(group.title)}
-                      </h4>
-                    `
-
-                    : ""
-                }
+          </div>
 
 
-                <div class="subcategory-grid">
+          ${category.groups.map(group => `
 
-                  ${group.items.map(
-                    ([name, image]) => `
+            <div class="subcategory-group">
 
-                    <article
-                      class="subcategory-card"
-                      data-item="${escapeHtml(name.toLowerCase())}"
-                    >
+              <!--
+                IMPORTANTE:
+                La etiqueta del grupo SIEMPRE aparece.
+              -->
 
-                      <div class="subcategory-image-wrap">
+              <h4 class="subcategory-group-title">
+                ${escapeHtml(group.title)}
+              </h4>
 
-                        <img
-                          src="${image}"
-                          alt="${escapeHtml(name)}"
-                          loading="lazy"
-                          onerror="
-                            this.closest('.subcategory-image-wrap')
+
+              <div class="subcategory-grid">
+
+                ${group.items.map(([name, image]) => `
+
+                  <article
+                    class="subcategory-card"
+                    data-item="${escapeHtml(name.toLowerCase())}"
+                  >
+
+                    <div class="subcategory-image-wrap">
+
+                      <img
+                        src="${image}"
+                        alt="${escapeHtml(name)}"
+                        loading="lazy"
+                        onerror="
+                          this.closest('.subcategory-image-wrap')
                             .classList.add('image-error');
-                            this.style.display='none';
-                          "
-                        >
+                          this.style.display='none';
+                        "
+                      >
 
-                      </div>
+                    </div>
 
 
-                      <div class="subcategory-body">
+                    <div class="subcategory-body">
 
-                        <h4>
-                          ${escapeHtml(name)}
-                        </h4>
+                      <h4>
+                        ${escapeHtml(name)}
+                      </h4>
 
-                        <button
-                          class="quote-button"
-                          type="button"
-                          data-quote-item="${escapeHtml(name)}"
-                        >
-                          Cotizar
-                        </button>
+                      <button
+                        class="quote-button"
+                        type="button"
+                        data-quote-item="${escapeHtml(name)}"
+                      >
+                        Cotizar
+                      </button>
 
-                      </div>
+                    </div>
 
-                    </article>
+                  </article>
 
-                  `).join("")}
-
-                </div>
+                `).join("")}
 
               </div>
 
-            `).join("")}
+            </div>
 
-          </section>
+          `).join("")}
 
-        `;
+        </section>
 
-      })
+      `;
 
-      .join("");
+    })
+
+    .join("");
 
 }
 
 
-/* =========================================================
+/* =========================
    WHATSAPP
-   ========================================================= */
+========================= */
 
 function getWhatsAppNumber(){
 
-  const random =
-    Math.random();
+  const random = Math.random();
 
-  return random <
-    WHATSAPP_NUMBERS[0].weight
-
+  return random < WHATSAPP_NUMBERS[0].weight
     ? WHATSAPP_NUMBERS[0].number
-
     : WHATSAPP_NUMBERS[1].number;
 
 }
@@ -1110,8 +971,7 @@ function openWhatsApp(item){
   const message =
     `Hola, equipo Nexus. Estoy interesado(a) en cotizar: ${item}. Agradezco su asesoría y quedo atento(a) a opciones disponibles. Muchas gracias.`;
 
-  const number =
-    getWhatsAppNumber();
+  const number = getWhatsAppNumber();
 
   window.location.href =
     `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
@@ -1119,34 +979,29 @@ function openWhatsApp(item){
 }
 
 
-/* =========================================================
+/* =========================
    BOTONES COTIZAR
-   ========================================================= */
+========================= */
 
-catalogElement.addEventListener(
-  "click",
-  event => {
+catalogElement.addEventListener("click", event => {
 
-    const button =
-      event.target.closest(
-        "[data-quote-item]"
-      );
+  const button =
+    event.target.closest("[data-quote-item]");
 
-    if(!button){
-      return;
-    }
-
-    openWhatsApp(
-      button.dataset.quoteItem
-    );
-
+  if(!button){
+    return;
   }
-);
+
+  openWhatsApp(
+    button.dataset.quoteItem
+  );
+
+});
 
 
-/* =========================================================
+/* =========================
    BUSCADOR
-   ========================================================= */
+========================= */
 
 searchInput.addEventListener(
   "input",
@@ -1154,9 +1009,9 @@ searchInput.addEventListener(
 );
 
 
-/* =========================================================
+/* =========================
    WHATSAPP FLOTANTE
-   ========================================================= */
+========================= */
 
 floatingWhatsapp.addEventListener(
   "click",
@@ -1172,8 +1027,8 @@ floatingWhatsapp.addEventListener(
 );
 
 
-/* =========================================================
-   INICIAR
-   ========================================================= */
+/* =========================
+   INICIO
+========================= */
 
 renderCatalog();
