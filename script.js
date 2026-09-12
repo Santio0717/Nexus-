@@ -1,55 +1,6 @@
 /* =========================================================
-   NEXUS
-   Catálogo + búsqueda + WhatsApp
-   ========================================================= */
-
-
-/* =========================================================
-   WHATSAPP
-   ========================================================= */
-
-const WHATSAPP_60 = "573228182311";
-const WHATSAPP_40 = "573117161043";
-
-
-function getWhatsAppNumber() {
-  return Math.random() < 0.60
-    ? WHATSAPP_60
-    : WHATSAPP_40;
-}
-
-
-function openWhatsApp(category, group, item) {
-
-  const parts = [
-    category,
-    group,
-    item
-  ].filter(Boolean);
-
-  const productName = parts.join(" - ");
-
-  const message =
-    `Hola, equipo Nexus. Estoy interesado(a) en cotizar: ${productName}. ` +
-    `Agradezco su asesoría y quedo atento(a) a la disponibilidad y opciones disponibles. ` +
-    `Muchas gracias.`;
-
-  const number = getWhatsAppNumber();
-
-  const url =
-    `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
-
-  /*
-    window.location.href funciona correctamente tanto
-    en teléfonos como en WhatsApp Web.
-  */
-  window.location.href = url;
-}
-
-
-/* =========================================================
-   IMÁGENES
-   ========================================================= */
+   NEXUS - CATÁLOGO
+========================================================= */
 
 const FALLBACK_IMAGE =
   "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80";
@@ -59,14 +10,40 @@ const PHONE_FALLBACK =
 
 
 /* =========================================================
+   WHATSAPP
+   60% -> 573228182311
+   40% -> 573117161043
+========================================================= */
+
+const WHATSAPP_60 = "573228182311";
+const WHATSAPP_40 = "573117161043";
+
+function getWhatsAppNumber() {
+  return Math.random() < 0.60
+    ? WHATSAPP_60
+    : WHATSAPP_40;
+}
+
+function openWhatsApp(item) {
+
+  const message =
+    `Hola, equipo Nexus. Estoy interesado(a) en cotizar: ${item}. ` +
+    `Agradezco su asesoría y quedo atento(a) a opciones disponibles. Muchas gracias.`;
+
+  const number = getWhatsAppNumber();
+
+  const url =
+    `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+
+  window.location.href = url;
+}
+
+
+/* =========================================================
    CATÁLOGO
-   ========================================================= */
+========================================================= */
 
-const catalogData = [
-
-  /* =======================================================
-     COMPUTADORES
-     ======================================================= */
+const catalog = [
 
   {
     category: "Computadores",
@@ -96,10 +73,6 @@ const catalogData = [
   },
 
 
-  /* =======================================================
-     MONITORES Y TV
-     ======================================================= */
-
   {
     category: "Monitores y TV",
     groups: [
@@ -124,10 +97,6 @@ const catalogData = [
   },
 
 
-  /* =======================================================
-     GAMING
-     ======================================================= */
-
   {
     category: "Gaming",
     groups: [
@@ -151,10 +120,6 @@ const catalogData = [
     ]
   },
 
-
-  /* =======================================================
-     PERIFÉRICOS
-     ======================================================= */
 
   {
     category: "Periféricos",
@@ -254,10 +219,6 @@ const catalogData = [
   },
 
 
-  /* =======================================================
-     ACCESORIOS
-     ======================================================= */
-
   {
     category: "Accesorios",
     groups: [
@@ -285,11 +246,11 @@ const catalogData = [
           },
           {
             name: "HDMI",
-            image: "https://www.google.com/aclk?sa=L&ai=DChsSEwim0bOW-OeWAxU8m1oFHfGZCPsYACICCAEQLxoCdnU&co=1&gclid=Cj0KCQjwzY7VBhDwARIsAFtPvBQI7u9w-2npDhTDQJv-m-uVzx1aaIMUU7kVUR4LpQ5W8l97l2KIivUaArebEALw_wcB&cid=CAASWuRoSaMyemn_plFjE4QqoGmCitF9S2Rae1KFL4RxLu8tRHIFvdZyc6FPcMGPMZiMs3ZLVGERn-3tyyuDKpMjUilDZ0x5V68osuhIZEWqj_fXxii4E-W5iI--6w&cce=2&sig=AOD64_2bvJYfchGHc69opJbAkg33PwV3Rg&ctype=5&q=&ved=2ahUKEwj8x6-W-OeWAxUgTDABHQbSPOoQ8w4oAHoECC8QAQ&adurl="
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLbBmf-ay8faUrPlGSXAwZ3HY6swAZHItvQqNbIU_fuw&s=10"
           },
           {
             name: "DisplayPort",
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa3Z2ka-vlfekIcy4FlBwidSbnXjhqJogsAZl-V8jh-Q&s=10"
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxos8Xk9etY-CQOKPFDOqiXp3hm4tXr8f6c4xFo9t1Eg&s=10"
           },
           {
             name: "Red",
@@ -341,7 +302,7 @@ const catalogData = [
         items: [
           {
             name: "Hubs USB",
-            image: "https://www.google.com/aclk?sa=L&ai=DChsSEwiH4prz--eWAxUvhloFHbbTIEUYACICCAEQDhoCdnU&co=1&gclid=Cj0KCQjwzY7VBhDwARIsAFtPvBSBpnC2DyFZfkcpMa9g4wVvtFULOSRYTe4sTmduVZDiRF768bltqQYaAq2REALw_wcB&sph=&cid=CAASWuRo4T0TmWGHZQZpfT6zEyBDlB4lq_YVH_dJOIXnwRWXGHsLhef73ovmudkhgAAEEmqOINN_YnVfTfHWe0-7UmOUFeESlb5iLyBFOnyUvb_t5ruHKfxYQRAdPA&cce=2&sig=AOD64_3skXMXMhXxv7piZimRiUxc_Hs6fw&ctype=5&q=&ved=2ahUKEwj0kZXz--eWAxXPSTABHaPPJvwQwg8oAHoECA0QDA&adurl="
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeudb2pl1vpEih3Q14h_eov2XyGg2-7QV8uEqX9eSI4A&s=10"
           },
           {
             name: "Wi-Fi",
@@ -363,7 +324,7 @@ const catalogData = [
           },
           {
             name: "Para celular",
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqQ9t7f9Yw2L9lJ5W3m4v6b8N2z7r1c0X5&s=10"
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8Q8k9gW8WJ7YQW8cF8v7V9ZqYwJ7f8XQ&s=10"
           }
         ]
       },
@@ -400,10 +361,6 @@ const catalogData = [
   },
 
 
-  /* =======================================================
-     MEMORIAS Y ALMACENAMIENTO
-     ======================================================= */
-
   {
     category: "Memorias y Almacenamiento",
     groups: [
@@ -427,10 +384,6 @@ const catalogData = [
             image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDMP6n3awyzmgrqdQ1eu7ynxckwpn92NLZ4KJ-kFJSew&s=10"
           },
           {
-            name: "SSD M.2",
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDMP6n3awyzmgrqdQ1eu7ynxckwpn92NLZ4KJ-kFJSew&s=10"
-          },
-          {
             name: "Tarjetas MicroSD",
             image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcMkeFdwyH4dUIZsFeLAcuRBJbXrZBMxWDg5ij00ouyg&s=10"
           },
@@ -443,10 +396,6 @@ const catalogData = [
     ]
   },
 
-
-  /* =======================================================
-     IMPRESORAS Y SUMINISTROS
-     ======================================================= */
 
   {
     category: "Impresoras y Suministros",
@@ -492,10 +441,6 @@ const catalogData = [
   },
 
 
-  /* =======================================================
-     CELULARES Y ACCESORIOS
-     ======================================================= */
-
   {
     category: "Celulares y Accesorios",
     groups: [
@@ -528,10 +473,6 @@ const catalogData = [
   },
 
 
-  /* =======================================================
-     SILLAS
-     ======================================================= */
-
   {
     category: "Sillas",
     groups: [
@@ -552,10 +493,6 @@ const catalogData = [
   },
 
 
-  /* =======================================================
-     ENERGÍA
-     ======================================================= */
-
   {
     category: "Energía",
     groups: [
@@ -564,7 +501,7 @@ const catalogData = [
         items: [
           {
             name: "UPS",
-            image: "https://www.google.com/aclk?sa=L&ai=DChsSEwiX3pfaiOiWAxVLlFoFHd4XAPkYACICCAEQNRoCdnU&co=1&gclid=Cj0KCQjwzY7VBhDwARIsAFtPvBQcuCEWK4tlFv_2wgfxL2S7UZi5GGKN52kBPkPgDOPqMiSADbLN9qYaApVeEALw_wcB&cid=CAASWuRo62EGd_GYgdL7avCJgVUFYePQxq3_D7MXEAoLgFIoDLMPJgnT934KT3hfBIoPWvFQpAz9Ywo7--mCRaRH5_rxiu0_bGlgnxwAYMKOHvsStdUvOk47zYiNsw&cce=2&sig=AOD64_3VqNWi6HGRysQp9nnEC9GroOehMA&ctype=5&q=&ved=2ahUKEwiOkJTaiOiWAxUQSzABHW0CL1wQ8w4oAHoECGoQAQ&adurl="
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8NuJkjD66X3YLf2LHdT0mTDFDTXBjlLE92LLyfh4zzA&s=10"
           },
           {
             name: "Reguladores de voltaje",
@@ -575,10 +512,6 @@ const catalogData = [
     ]
   },
 
-
-  /* =======================================================
-     SERVICIOS TÉCNICOS
-     ======================================================= */
 
   {
     category: "Servicios Técnicos",
@@ -607,250 +540,213 @@ const catalogData = [
 
 
 /* =========================================================
-   UTILIDADES
-   ========================================================= */
+   NORMALIZAR TEXTO
+========================================================= */
 
 function normalizeText(text) {
+
   return String(text)
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\p{Diacritic}/gu, "")
     .trim();
+
 }
 
 
+/* =========================================================
+   ESCAPAR HTML
+========================================================= */
+
 function escapeHTML(value) {
+
   return String(value)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
-}
 
-
-/* =========================================================
-   FALLBACK DE IMÁGENES
-   ========================================================= */
-
-function createImage(src, alt) {
-
-  const safeSrc = escapeHTML(src);
-  const safeAlt = escapeHTML(alt);
-
-  return `
-    <img
-      class="subcategory-image"
-      src="${safeSrc}"
-      alt="${safeAlt}"
-      loading="lazy"
-      onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
-    >
-  `;
 }
 
 
 /* =========================================================
    RENDERIZAR CATÁLOGO
-   ========================================================= */
+========================================================= */
 
 function renderCatalog(searchTerm = "") {
 
-  const catalog = document.getElementById("catalog");
+  const catalogContainer =
+    document.getElementById("catalog");
 
-  if (!catalog) {
-    return;
-  }
+  if (!catalogContainer) return;
 
   const query = normalizeText(searchTerm);
 
   let html = "";
-  let totalResults = 0;
 
+  catalog.forEach(category => {
 
-  catalogData.forEach(category => {
+    const categoryText =
+      normalizeText(category.category);
 
-    const categoryMatch =
+    const categoryMatches =
       !query ||
-      normalizeText(category.category).includes(query);
+      categoryText.includes(query);
 
-
-    const filteredGroups = [];
+    let categoryGroupsHTML = "";
 
     category.groups.forEach(group => {
 
-      const groupMatch =
-        !query ||
-        normalizeText(group.name).includes(query);
+      const groupText =
+        normalizeText(group.name);
 
-      const filteredItems = group.items.filter(item => {
+      const groupMatches =
+        categoryMatches ||
+        groupText.includes(query);
 
-        const itemMatch =
-          !query ||
-          normalizeText(item.name).includes(query);
-
-        return categoryMatch || groupMatch || itemMatch;
-      });
-
-      if (filteredItems.length > 0) {
-        filteredGroups.push({
-          ...group,
-          items: filteredItems
-        });
-      }
-
-    });
-
-
-    if (filteredGroups.length === 0) {
-      return;
-    }
-
-
-    const categoryItems = filteredGroups.reduce(
-      (total, group) => total + group.items.length,
-      0
-    );
-
-    totalResults += categoryItems;
-
-
-    html += `
-      <section class="category">
-
-        <div class="category-header">
-          <h3>${escapeHTML(category.category)}</h3>
-          <span class="category-count">
-            ${categoryItems} ${categoryItems === 1 ? "opción" : "opciones"}
-          </span>
-        </div>
-    `;
-
-
-    filteredGroups.forEach(group => {
-
-      html += `
-        <div class="catalog-group">
-      `;
-
-
-      if (group.name) {
-        html += `
-          <h4 class="group-title">
-            ${escapeHTML(group.name)}
-          </h4>
-        `;
-      }
-
-
-      html += `
-        <div class="subcategory-grid">
-      `;
-
+      let matchingItems = [];
 
       group.items.forEach(item => {
 
-        html += `
-          <article class="subcategory-card">
+        const itemText =
+          normalizeText(item.name);
 
-            ${createImage(item.image, item.name)}
+        const itemMatches =
+          !query ||
+          categoryMatches ||
+          groupText.includes(query) ||
+          itemText.includes(query);
 
-            <div class="subcategory-content">
+        if (itemMatches) {
+          matchingItems.push(item);
+        }
 
-              <h4>
-                ${escapeHTML(item.name)}
-              </h4>
-
-              <button
-                type="button"
-                class="quote-btn"
-                data-category="${escapeHTML(category.category)}"
-                data-group="${escapeHTML(group.name)}"
-                data-item="${escapeHTML(item.name)}"
-              >
-                Cotizar
-              </button>
-
-            </div>
-
-          </article>
-        `;
       });
 
+      if (
+        matchingItems.length === 0 &&
+        !groupMatches
+      ) {
+        return;
+      }
 
-      html += `
-        </div>
+      const groupTitle = group.name
+        ? `<h3 class="group-title">${escapeHTML(group.name)}</h3>`
+        : "";
+
+      categoryGroupsHTML += `
+        <div class="category-group">
+          ${groupTitle}
+
+          <div class="subcategory-grid">
+
+            ${matchingItems.map(item => {
+
+              return `
+                <article class="subcategory-card">
+
+                  <div class="subcategory-image-wrap">
+
+                    <img
+                      src="${escapeHTML(item.image)}"
+                      alt="${escapeHTML(item.name)}"
+                      loading="lazy"
+                      onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
+                    >
+
+                  </div>
+
+                  <div class="subcategory-content">
+
+                    <h4>
+                      ${escapeHTML(item.name)}
+                    </h4>
+
+                    <button
+                      type="button"
+                      class="quote-btn"
+                      data-item="${escapeHTML(item.name)}"
+                    >
+                      Cotizar
+                    </button>
+
+                  </div>
+
+                </article>
+              `;
+
+            }).join("")}
+
+          </div>
         </div>
       `;
+
     });
 
 
-    html += `
-      </section>
-    `;
+    if (categoryGroupsHTML) {
+
+      html += `
+        <section class="category-section">
+
+          <h2 class="category-heading">
+            ${escapeHTML(category.category)}
+          </h2>
+
+          ${categoryGroupsHTML}
+
+        </section>
+      `;
+
+    }
 
   });
 
 
-  if (totalResults === 0) {
+  if (!html) {
 
-    catalog.innerHTML = `
-      <div class="no-results">
-        <h3>No encontramos coincidencias</h3>
-        <p>
-          Prueba con otro producto, categoría o servicio.
-        </p>
+    html = `
+      <div class="empty-state">
+
+        <strong>No encontramos coincidencias</strong>
+
+        Prueba con otro término de búsqueda.
+
       </div>
     `;
 
-    return;
   }
 
-
-  catalog.innerHTML = html;
-
-
-  /* =======================================================
-     BOTONES COTIZAR
-     ======================================================= */
-
-  const quoteButtons =
-    document.querySelectorAll(".quote-btn");
+  catalogContainer.innerHTML = html;
 
 
-  quoteButtons.forEach(button => {
+  /* BOTONES COTIZAR */
 
-    button.addEventListener("click", () => {
+  document
+    .querySelectorAll(".quote-btn")
+    .forEach(button => {
 
-      const category =
-        button.dataset.category || "";
+      button.addEventListener("click", () => {
 
-      const group =
-        button.dataset.group || "";
+        const item =
+          button.dataset.item;
 
-      const item =
-        button.dataset.item || "";
+        openWhatsApp(item);
 
-      openWhatsApp(
-        category,
-        group,
-        item
-      );
+      });
 
     });
-
-  });
 
 }
 
 
 /* =========================================================
-   BÚSQUEDA
-   ========================================================= */
+   BUSCADOR
+========================================================= */
 
 const searchInput =
   document.getElementById("catalogSearch");
-
 
 if (searchInput) {
 
@@ -870,14 +766,13 @@ if (searchInput) {
 
 /* =========================================================
    MENÚ MÓVIL
-   ========================================================= */
+========================================================= */
 
 const menuToggle =
   document.getElementById("menuToggle");
 
 const mainNav =
   document.getElementById("mainNav");
-
 
 if (menuToggle && mainNav) {
 
@@ -886,7 +781,7 @@ if (menuToggle && mainNav) {
     () => {
 
       const isOpen =
-        mainNav.classList.toggle("active");
+        mainNav.classList.toggle("is-open");
 
       menuToggle.setAttribute(
         "aria-expanded",
@@ -897,49 +792,33 @@ if (menuToggle && mainNav) {
   );
 
 
-  mainNav.querySelectorAll("a").forEach(link => {
+  mainNav
+    .querySelectorAll("a")
+    .forEach(link => {
 
-    link.addEventListener(
-      "click",
-      () => {
+      link.addEventListener(
+        "click",
+        () => {
 
-        mainNav.classList.remove("active");
+          mainNav.classList.remove(
+            "is-open"
+          );
 
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+          menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
-      }
-    );
+        }
+      );
 
-  });
+    });
 
-}
-
-
-/* =========================================================
-   AÑO
-   ========================================================= */
-
-const currentYear =
-  document.getElementById("currentYear");
-
-if (currentYear) {
-  currentYear.textContent =
-    new Date().getFullYear();
 }
 
 
 /* =========================================================
    INICIAR
-   ========================================================= */
+========================================================= */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-
-    renderCatalog();
-
-  }
-);
+renderCatalog();
