@@ -9,7 +9,6 @@ const WHATSAPP_NUMBERS = [
   }
 ];
 
-
 const catalog = [
 
   /* =========================
@@ -65,7 +64,7 @@ const catalog = [
 
           [
             "Tarjetas gráficas",
-            "https://m.media-amazon.com/images/I/71M9QxYqZTL._AC_SL1500_.jpg"
+            "https://i.blogs.es/5a8f2b/tarjetasgraficasap/1366_2000.jpg"
           ],
 
           [
@@ -75,7 +74,7 @@ const catalog = [
 
           [
             "Chasis",
-            "https://m.media-amazon.com/images/I/71qK8w5xW-L._AC_SL1500_.jpg"
+            "https://clonesyperifericos.com/wp-content/uploads/2026/01/STARKER_AIR_BTF_1.jpg"
           ],
 
           [
@@ -439,7 +438,7 @@ const catalog = [
 
 
   /* =========================
-     MEMORIAS
+     MEMORIAS Y ALMACENAMIENTO
   ========================= */
 
   {
@@ -490,7 +489,7 @@ const catalog = [
 
 
   /* =========================
-     IMPRESORAS
+     IMPRESORAS Y SUMINISTROS
   ========================= */
 
   {
@@ -551,7 +550,7 @@ const catalog = [
 
 
   /* =========================
-     CELULARES
+     CELULARES Y ACCESORIOS
   ========================= */
 
   {
@@ -572,7 +571,7 @@ const catalog = [
 
           [
             "Cargadores",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp7K94cb294GvIwR4FgrHCt06EanLJDuawelLHuS3-1g&s=10"
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp7K94cb294GvIwR4FgrHCt06EanLJDuawelLHuS3-1g&s"
           ],
 
           [
@@ -582,7 +581,7 @@ const catalog = [
 
           [
             "Fundas / Forros para celular",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOdu91HYOIpUT1Bn2ac4z413HT6qG2FWqa-enKOA207w&s=10"
+            "https://i.ebayimg.com/images/g/FaYAAOSwX-pkRsF5/s-l1200.webp"
           ],
 
           [
@@ -711,7 +710,7 @@ const floatingWhatsapp = document.getElementById("floatingWhatsapp");
    SEGURIDAD HTML
 ========================= */
 
-function escapeHtml(value){
+function escapeHtml(value) {
 
   return String(value)
     .replaceAll("&", "&amp;")
@@ -727,11 +726,11 @@ function escapeHtml(value){
    FILTRO
 ========================= */
 
-function filteredCatalog(){
+function filteredCatalog() {
 
   const query = searchInput.value.trim().toLowerCase();
 
-  if(!query){
+  if (!query) {
     return catalog;
   }
 
@@ -770,7 +769,7 @@ function filteredCatalog(){
    RENDER CATÁLOGO
 ========================= */
 
-function renderCatalog(){
+function renderCatalog() {
 
   const filtered = filteredCatalog();
 
@@ -787,12 +786,11 @@ function renderCatalog(){
 
   const query = searchInput.value.trim();
 
-
   resultCount.textContent =
     `${total} opción${total === 1 ? "" : "es"}`;
 
 
-  if(query){
+  if (query) {
 
     catalogStatus.textContent = total
       ? `Mostrando resultados para: "${query}"`
@@ -800,14 +798,14 @@ function renderCatalog(){
 
     catalogStatus.classList.remove("hidden");
 
-  }else{
+  } else {
 
     catalogStatus.classList.add("hidden");
 
   }
 
 
-  if(!total){
+  if (!total) {
 
     catalogElement.innerHTML = `
 
@@ -944,7 +942,7 @@ function renderCatalog(){
    WHATSAPP
 ========================= */
 
-function getWhatsAppNumber(){
+function getWhatsAppNumber() {
 
   const random = Math.random();
 
@@ -955,7 +953,7 @@ function getWhatsAppNumber(){
 }
 
 
-function openWhatsApp(item){
+function openWhatsApp(item) {
 
   const message =
     `Hola, equipo Nexus. Estoy interesado(a) en cotizar: ${item}. Agradezco su asesoría y quedo atento(a) a opciones disponibles. Muchas gracias.`;
@@ -977,7 +975,7 @@ catalogElement.addEventListener("click", event => {
   const button =
     event.target.closest("[data-quote-item]");
 
-  if(!button){
+  if (!button) {
     return;
   }
 
