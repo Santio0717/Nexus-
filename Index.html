@@ -3,39 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta
-    name="description"
-    content="Nexus Cali - Tecnología, computadores, periféricos, accesorios, gaming, impresoras y servicios técnicos."
-  >
-
+  <meta name="description" content="Nexus - Tecnología, computadores, periféricos, gaming, accesorios, almacenamiento, impresoras y servicios técnicos.">
   <title>Nexus | Tecnología y soluciones</title>
-
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <!-- ================= HEADER ================= -->
+  <!-- HEADER -->
   <header class="site-header">
-    <div class="header-container">
+    <div class="container header-inner">
 
-      <a href="#inicio" class="brand">
+      <a href="#inicio" class="logo-link">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmElgXb6F-1FWqLMwjW1ZTBxnz4Hy00DoAKXUufe6e7w&s=10"
           alt="Nexus"
-          class="brand-logo"
         >
       </a>
 
       <div class="header-search">
-        <span class="search-icon">⌕</span>
         <input
           type="search"
           id="catalogSearch"
-          placeholder="Buscar productos o categorías"
+          placeholder="Buscar en el catálogo..."
           autocomplete="off"
-          aria-label="Buscar productos o categorías"
         >
       </div>
 
@@ -52,9 +43,7 @@
         aria-label="Abrir menú"
         aria-expanded="false"
       >
-        <span></span>
-        <span></span>
-        <span></span>
+        ☰
       </button>
 
     </div>
@@ -63,90 +52,91 @@
 
   <main>
 
-    <!-- ================= INICIO ================= -->
+    <!-- BANNER ESTÁTICO -->
     <section class="hero" id="inicio">
-      <div class="hero-container">
+      <div class="container">
 
-        <div class="hero-badge">
-          TECNOLOGÍA · ACCESORIOS · SERVICIOS
-        </div>
+        <div class="hero-label">NEXUS</div>
 
-        <h1>
-          Tecnología para<br>
-          lo que <span>necesitas.</span>
-        </h1>
+        <h1>¿Necesitas <span>orientación?</span></h1>
 
         <p class="hero-description">
-          Selecciona la categoría que más se ajuste a tu necesidad.
-          A través de WhatsApp, un asesor de Nexus te acompañará con tu
-          solicitud y te brindará la orientación correspondiente lo antes posible.
-          Nuestro horario de atención es de lunes a sábado, de 9:00 a. m. a 6:00 p. m.
-          Las solicitudes se atienden en orden de llegada.
-          ¡Gracias por confiar en Nexus!
+          Selecciona la categoría que más se acerque a lo que estás buscando
+          y utiliza el botón Cotizar. Un asesor de Nexus atenderá tu solicitud
+          por WhatsApp.
         </p>
 
-      </div>
-    </section>
+        <div class="business-hours">
 
+          <div>
+            <span class="hours-title">HORARIO DE ATENCIÓN</span>
+            <strong>Lunes a sábado</strong>
+            <span>9:00 a. m. — 6:00 p. m.</span>
+          </div>
 
-    <!-- ================= CATÁLOGO ================= -->
-    <section class="catalog-section" id="catalogo">
+          <a
+            class="location-button"
+            href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x8e30a7f29313e393:0xdeb926ad2f00177e?entry=s&sa=X&ved=2ahUKEwjLg_Pmj-iWAxXNibAFHYdBCqYQ4kB6BAgVEAA&hl=es"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver ubicación
+          </a>
 
-      <div class="section-heading">
-        <div>
-          <span class="section-label">NUESTRO CATÁLOGO</span>
-          <h2>Encuentra lo que necesitas</h2>
         </div>
 
-        <p>
-          Explora nuestras categorías y solicita asesoría directamente con Nexus.
-        </p>
       </div>
-
-      <div id="catalog" class="catalog"></div>
-
     </section>
 
 
-    <!-- ================= CONTACTO ================= -->
+    <!-- CATÁLOGO -->
+    <section class="catalog-section" id="catalogo">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <h2>Catálogo Nexus</h2>
+            <p>
+              Explora nuestras categorías y encuentra la solución que necesitas.
+            </p>
+          </div>
+        </div>
+
+        <div id="catalog"></div>
+
+      </div>
+    </section>
+
+
+    <!-- CONTACTO -->
     <section class="contact-section" id="contacto">
-      <div class="contact-card">
-        <div>
-          <span class="section-label">NEXUS</span>
-          <h2>¿Necesitas orientación?</h2>
+      <div class="container">
+
+        <div class="contact-card">
+          <h2>Estamos para ayudarte</h2>
           <p>
-            Selecciona la categoría que más se acerque a lo que estás buscando
-            y utiliza el botón <strong>Cotizar</strong>. Un asesor de Nexus
-            atenderá tu solicitud por WhatsApp.
+            Si no encuentras exactamente lo que estás buscando,
+            selecciona la categoría que más se acerque a tu necesidad
+            y utiliza el botón Cotizar. Nuestro equipo te orientará.
           </p>
         </div>
 
-        <div class="contact-hours">
-          <span>HORARIO DE ATENCIÓN</span>
-          <strong>Lunes a sábado</strong>
-          <strong>9:00 a. m. — 6:00 p. m.</strong>
-        </div>
       </div>
     </section>
 
   </main>
 
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-container">
-      <div>
-        <strong>Nexus</strong>
-        <span>Tecnología, accesorios y servicios.</span>
-      </div>
-
-      <span>
-        © <span id="currentYear"></span> Nexus. Todos los derechos reservados.
-      </span>
+    <div class="container footer-inner">
+      <p>© 2026 Nexus. Todos los derechos reservados.</p>
+      <p>Lunes a sábado · 9:00 a. m. — 6:00 p. m.</p>
     </div>
   </footer>
 
 
   <script src="script.js"></script>
+
 </body>
 </html>
