@@ -22,10 +22,15 @@ const catalog = [
         title: "Componentes",
         items: [
           ["Procesadores", "https://americanas.vtexassets.com/arquivos/ids/18858668-768-auto/7508705827_1_xlarge.webp?quality=9&v=638754899508270000"],
-          ["Tarjetas madre", "https://upload.wikimedia.org/wikipedia/commons/a/ac/Motherboard_computer.jpg"],
+
+          ["Tarjetas madre", "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEakxJ-gKEsCVDCidynb0svId8C92v6p12z4yRxO4NwtTiLnGWuwPvo_LnXhnEloifnXMpAGnLIYb2PFNvt0GAEh_yP0wT4A5m1BPzQAOH5w9g_C6_jJUXzYv5jusXqh9gmJa5_vm9qEA/s640/Tarjeta+Madre.png"],
+
           ["Tarjetas gráficas", "https://pcmastersbogota.com.co/wp-content/uploads/2022/03/Radeon-RX-6600-Challenger-D-8GBL1-768x640.png"],
+
           ["Fuentes de poder", "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6492/6492464_sd.jpg"],
+
           ["Chasis", "https://www.esgamingpc.com/lifisher-m5725/1735301825196-roke-02-tg/png80-t1-scale100.webp"],
+
           ["Refrigeración", "https://m.media-amazon.com/images/I/718f527QL0L._AC_SL1500_.jpg"]
         ]
       }
@@ -41,7 +46,9 @@ const catalog = [
         title: "Pantallas",
         items: [
           ["Monitores", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7fPTNR6sij2ELmoKGaoUoqQP6jqx2-I69_bmimytgMQ&s=10"],
-          ["Monitores Gaming", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzO7pfeT08g32Xu0LxKKoL29--VTG2Q96nJSDSQLHZfA&s=10"],
+
+          ["Monitores Gaming", "https://jyrtechnology.com.co/wp-content/uploads/2023/01/MTJR-003-1-scaled.jpg"],
+
           ["TV", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU_dPbiIzR6yf6pwZpfFQhg8jhDH-A_J3X1I-uy_Wv2Q&s=10"]
         ]
       }
@@ -77,6 +84,7 @@ const catalog = [
           ["Inalámbricos", "https://www.omega-store.co/wp-content/uploads/2025/03/KB6756BK_.png"]
         ]
       },
+
       {
         title: "Mouse",
         items: [
@@ -85,6 +93,7 @@ const catalog = [
           ["Inalámbricos", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa1mg9AAtS6Odj4ZrU89pZcZ2g8H3b-vqK2fmYIJzcKw&s=10"]
         ]
       },
+
       {
         title: "Combos",
         items: [
@@ -93,6 +102,7 @@ const catalog = [
           ["Combo Inalámbrico", "https://jaltechsas.com/wp-content/uploads/2022/08/COMBO-BASIK-TECH-INALAMBRICO_80163_BSK-300C_1.png"]
         ]
       },
+
       {
         title: "Audio",
         items: [
@@ -101,6 +111,7 @@ const catalog = [
           ["Parlantes", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd1BkIZMe69uHbJ-vG99jQV2nh6Xx3ayHKlMw8LiRtvw&s=10"]
         ]
       },
+
       {
         title: "Cámaras",
         items: [
@@ -124,6 +135,7 @@ const catalog = [
           ["Para celular", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdTa6V9cX51V0KPLOaB2IeGG1LRT3pFji22pofxVkPOg&s=10"]
         ]
       },
+
       {
         title: "Cables",
         items: [
@@ -135,6 +147,7 @@ const catalog = [
           ["Para computador", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnJPaLt43ahWCX63O4WgXR6mixoVyA9s9rEgQV-PTlEw&s=10"]
         ]
       },
+
       {
         title: "Adaptadores",
         items: [
@@ -144,6 +157,7 @@ const catalog = [
           ["Red", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH2Y0gr9TbYqwxQdoJj_cOT3t_dqTIyMPlPwqCRj32tA&s=10"]
         ]
       },
+
       {
         title: "Conectividad",
         items: [
@@ -151,6 +165,7 @@ const catalog = [
           ["Wi-Fi", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZn7EW_CNlsecd7qgXdeo5V6TpP3d2arQu7UOVzkfJyw&s=10"]
         ]
       },
+
       {
         title: "Soportes",
         items: [
@@ -158,6 +173,7 @@ const catalog = [
           ["Para portátil", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBNET5DusrZBnNjiUlmaGrVjfRrb0PD0Qib-8WLTE-yQ&s=10"]
         ]
       },
+
       {
         title: "Bases",
         items: [
@@ -165,6 +181,7 @@ const catalog = [
           ["Bases refrigerantes con ventilador", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv68yEKtAT_3hdei3QXhALooRTqymZdFDrZfBaHbf6Ow&s=10"]
         ]
       },
+
       {
         title: "Accesorios para computadores",
         items: [
@@ -272,9 +289,12 @@ const catalog = [
       {
         title: "Servicios",
         items: [
+
           ["Mantenimiento", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRv1NbZPj78y229SADhRen6c4pUgTxyzhBW9Gvr9wz_Q&s=10"],
-          ["Reparación", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST3q0-gKalMjD_N41oVeT5MZCHBDpEDxm9Xxf-sYKqHg&s=10"],
-          ["Instalación de programas y configuración", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgw_EnuaAW1w5ypl3bPWRhskOOpdGOZPwMNXyG-I0G8Q&s=10"]
+
+          ["Reparación", "https://www.computronixco.com/wp-content/uploads/2020/02/mantenimiento-de-computadores-cali-reparacion-computadores-06.jpg"],
+
+          ["Instalación de programas y configuración", "https://www.appvizer.com/media/application/26556/logo/26556.png"]
         ]
       }
     ]
@@ -345,7 +365,8 @@ function renderCatalog() {
 
   const query = searchInput.value.trim();
 
-  resultCount.textContent = `${total} opción${total === 1 ? "" : "es"}`;
+  resultCount.textContent =
+    `${total} opción${total === 1 ? "" : "es"}`;
 
   if (query) {
     catalogStatus.textContent = total
@@ -361,8 +382,13 @@ function renderCatalog() {
     catalogElement.innerHTML = `
       <div class="no-results">
         <h3>No encontramos esa opción</h3>
-        <p>Prueba con otra palabra o solicita asesoría directamente por WhatsApp.</p>
-      </div>`;
+        <p>
+          Prueba con otra palabra o solicita asesoría
+          directamente por WhatsApp.
+        </p>
+      </div>
+    `;
+
     return;
   }
 
@@ -374,40 +400,66 @@ function renderCatalog() {
       );
 
       return `
-        <section class="catalog-category" data-category="${escapeHtml(category.id)}">
+        <section
+          class="catalog-category"
+          data-category="${escapeHtml(category.id)}"
+        >
+
           <div class="category-header">
             <div>
               <h3>${escapeHtml(category.title)}</h3>
               <p>${escapeHtml(category.description)}</p>
             </div>
-            <span class="category-count">${categoryTotal} opciones</span>
+
+            <span class="category-count">
+              ${categoryTotal} opciones
+            </span>
           </div>
 
           ${category.groups
             .map(
               group => `
                 <div class="subcategory-group">
-                  <h4 class="subcategory-group-title">${escapeHtml(group.title)}</h4>
+
+                  <h4 class="subcategory-group-title">
+                    ${escapeHtml(group.title)}
+                  </h4>
 
                   <div class="subcategory-grid">
+
                     ${group.items
                       .map(
                         ([name, image]) => `
                           <article
                             class="subcategory-card"
-                            data-item="${escapeHtml(name.toLowerCase())}"
+                            data-item="${escapeHtml(
+                              name.toLowerCase()
+                            )}"
                           >
+
                             <div class="subcategory-image-wrap">
+
                               <img
                                 src="${image}"
                                 alt="${escapeHtml(name)}"
                                 loading="lazy"
-                                onerror="this.closest('.subcategory-image-wrap').classList.add('image-error'); this.style.display='none';"
+                                onerror="
+                                  this.closest(
+                                    '.subcategory-image-wrap'
+                                  ).classList.add(
+                                    'image-error'
+                                  );
+                                  this.style.display='none';
+                                "
                               >
+
                             </div>
 
                             <div class="subcategory-body">
-                              <h4>${escapeHtml(name)}</h4>
+
+                              <h4>
+                                ${escapeHtml(name)}
+                              </h4>
 
                               <button
                                 class="quote-button"
@@ -416,39 +468,57 @@ function renderCatalog() {
                               >
                                 Cotizar
                               </button>
+
                             </div>
+
                           </article>
                         `
                       )
                       .join("")}
+
                   </div>
                 </div>
               `
             )
             .join("")}
+
         </section>
       `;
     })
     .join("");
 }
 
+
 /* =========================================================
    WHATSAPP
-   Cada bloque de 10 solicitudes tiene:
-   - 6 para 573228182311
-   - 4 para 573117161043
+   =========================================================
 
-   El orden de esos 10 números se mezcla aleatoriamente.
-   Se guarda en localStorage para mantener la secuencia.
+   Cada bloque de 10 solicitudes contiene:
+
+   6 → 573228182311
+   4 → 573117161043
+
+   Los 10 números se mezclan aleatoriamente.
+
+   La secuencia se guarda en localStorage para que
+   el orden permanezca durante ese bloque de 10.
    ========================================================= */
 
 function shuffleArray(array) {
   const shuffled = [...array];
 
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const randomIndex = Math.floor(Math.random() * (i + 1));
+  for (
+    let i = shuffled.length - 1;
+    i > 0;
+    i--
+  ) {
+    const randomIndex =
+      Math.floor(Math.random() * (i + 1));
 
-    [shuffled[i], shuffled[randomIndex]] = [
+    [
+      shuffled[i],
+      shuffled[randomIndex]
+    ] = [
       shuffled[randomIndex],
       shuffled[i]
     ];
@@ -459,6 +529,7 @@ function shuffleArray(array) {
 
 function createWhatsAppSequence() {
   const sequence = [
+
     WHATSAPP_NUMBERS[0].number,
     WHATSAPP_NUMBERS[0].number,
     WHATSAPP_NUMBERS[0].number,
@@ -470,14 +541,18 @@ function createWhatsAppSequence() {
     WHATSAPP_NUMBERS[1].number,
     WHATSAPP_NUMBERS[1].number,
     WHATSAPP_NUMBERS[1].number
+
   ];
 
   return shuffleArray(sequence);
 }
 
 function getWhatsAppNumber() {
-  const sequenceKey = "nexusWhatsAppSequence";
-  const positionKey = "nexusWhatsAppPosition";
+  const sequenceKey =
+    "nexusWhatsAppSequence";
+
+  const positionKey =
+    "nexusWhatsAppPosition";
 
   let sequence;
 
@@ -499,6 +574,7 @@ function getWhatsAppNumber() {
     position >= 10
   ) {
     sequence = createWhatsAppSequence();
+
     position = 0;
 
     localStorage.setItem(
@@ -507,7 +583,8 @@ function getWhatsAppNumber() {
     );
   }
 
-  const selectedNumber = sequence[position];
+  const selectedNumber =
+    sequence[position];
 
   localStorage.setItem(
     positionKey,
@@ -520,30 +597,60 @@ function getWhatsAppNumber() {
 function openWhatsApp(item) {
   const message =
     `Hola, equipo Nexus. Estoy interesado(a) en cotizar: ${item}. ` +
-    `Agradezco su asesoría y quedo atento(a) a opciones disponibles. Muchas gracias.`;
+    `Agradezco su asesoría y quedo atento(a) a opciones disponibles. ` +
+    `Muchas gracias.`;
 
-  const number = getWhatsAppNumber();
+  const number =
+    getWhatsAppNumber();
 
   window.location.href =
-    `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+    `https://wa.me/${number}?text=${encodeURIComponent(
+      message
+    )}`;
 }
 
-catalogElement.addEventListener("click", event => {
-  const button = event.target.closest("[data-quote-item]");
 
-  if (!button) return;
+/* =========================================================
+   EVENTOS
+   ========================================================= */
 
-  openWhatsApp(button.dataset.quoteItem);
-});
+catalogElement.addEventListener(
+  "click",
+  event => {
 
-searchInput.addEventListener("input", renderCatalog);
+    const button =
+      event.target.closest(
+        "[data-quote-item]"
+      );
 
-floatingWhatsapp.addEventListener("click", event => {
-  event.preventDefault();
+    if (!button) return;
 
-  openWhatsApp(
-    "información general sobre productos y servicios"
-  );
-});
+    openWhatsApp(
+      button.dataset.quoteItem
+    );
+  }
+);
+
+searchInput.addEventListener(
+  "input",
+  renderCatalog
+);
+
+floatingWhatsapp.addEventListener(
+  "click",
+  event => {
+
+    event.preventDefault();
+
+    openWhatsApp(
+      "información general sobre productos y servicios"
+    );
+  }
+);
+
+
+/* =========================================================
+   INICIALIZAR CATÁLOGO
+   ========================================================= */
 
 renderCatalog();
