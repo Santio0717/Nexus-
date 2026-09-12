@@ -74,10 +74,9 @@ const catalog = [
           ],
 
           [
-             "Chasis",
-             "http://www.mipcparquecentral.com/cdn/shop/files/Pc_Gamer_Ryzen_7_8700_0a21e7a5-d550-4532-8306-71f071ecdeff.jpg?v=1765022633"
-          ],
-            "https://www.tecsidecolombia.com/561-large_default/chasis-para-pc-gamer-atx-con-3-ventiladores-h3-negro.jpg"
+            "Chasis",
+            "https://cambiosystem.com/wp-content/uploads/2025/04/Chasis-para-PC-ATX-tipo-torre-con-cristal-templado-iCUE-7000X-RGB-1.png",
+            "https://www.esgamingpc.com/lifisher-m5725/1735301825196-roke-02-tg/png80-t1-scale100.webp"
           ],
 
           [
@@ -713,7 +712,7 @@ const floatingWhatsapp = document.getElementById("floatingWhatsapp");
    SEGURIDAD HTML
 ========================= */
 
-function escapeHtml(value){
+function escapeHtml(value) {
 
   return String(value)
     .replaceAll("&", "&amp;")
@@ -729,11 +728,11 @@ function escapeHtml(value){
    FILTRO
 ========================= */
 
-function filteredCatalog(){
+function filteredCatalog() {
 
   const query = searchInput.value.trim().toLowerCase();
 
-  if(!query){
+  if (!query) {
     return catalog;
   }
 
@@ -772,7 +771,7 @@ function filteredCatalog(){
    RENDER CATÁLOGO
 ========================= */
 
-function renderCatalog(){
+function renderCatalog() {
 
   const filtered = filteredCatalog();
 
@@ -796,7 +795,7 @@ function renderCatalog(){
 
   /* Mensaje de búsqueda */
 
-  if(query){
+  if (query) {
 
     catalogStatus.textContent = total
       ? `Mostrando resultados para: "${query}"`
@@ -804,7 +803,7 @@ function renderCatalog(){
 
     catalogStatus.classList.remove("hidden");
 
-  }else{
+  } else {
 
     catalogStatus.classList.add("hidden");
 
@@ -813,7 +812,7 @@ function renderCatalog(){
 
   /* Sin resultados */
 
-  if(!total){
+  if (!total) {
 
     catalogElement.innerHTML = `
 
@@ -881,11 +880,6 @@ function renderCatalog(){
 
             <div class="subcategory-group">
 
-              <!--
-                IMPORTANTE:
-                La etiqueta del grupo SIEMPRE aparece.
-              -->
-
               <h4 class="subcategory-group-title">
                 ${escapeHtml(group.title)}
               </h4>
@@ -893,7 +887,7 @@ function renderCatalog(){
 
               <div class="subcategory-grid">
 
-                ${group.items.map(([name, image]) => `
+                ${group.items.map(([name, image, fallbackImage]) => `
 
                   <article
                     class="subcategory-card"
@@ -906,10 +900,19 @@ function renderCatalog(){
                         src="${image}"
                         alt="${escapeHtml(name)}"
                         loading="lazy"
+                        data-fallback="${fallbackImage ? escapeHtml(fallbackImage) : ""}"
                         onerror="
-                          this.closest('.subcategory-image-wrap')
-                            .classList.add('image-error');
-                          this.style.display='none';
+                          const fallback = this.dataset.fallback;
+
+                          if (fallback && !this.dataset.fallbackUsed) {
+                            this.dataset.fallbackUsed = 'true';
+                            this.src = fallback;
+                          } else {
+                            this.closest('.subcategory-image-wrap')
+                              .classList.add('image-error');
+
+                            this.style.display = 'none';
+                          }
                         "
                       >
 
@@ -957,7 +960,7 @@ function renderCatalog(){
    WHATSAPP
 ========================= */
 
-function getWhatsAppNumber(){
+function getWhatsAppNumber() {
 
   const random = Math.random();
 
@@ -968,7 +971,7 @@ function getWhatsAppNumber(){
 }
 
 
-function openWhatsApp(item){
+function openWhatsApp(item) {
 
   const message =
     `Hola, equipo Nexus. Estoy interesado(a) en cotizar: ${item}. Agradezco su asesoría y quedo atento(a) a opciones disponibles. Muchas gracias.`;
@@ -990,7 +993,7 @@ catalogElement.addEventListener("click", event => {
   const button =
     event.target.closest("[data-quote-item]");
 
-  if(!button){
+  if (!button) {
     return;
   }
 
