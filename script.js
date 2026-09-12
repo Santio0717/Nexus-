@@ -531,7 +531,7 @@ const catalog = [
 
           [
             "Impresoras Wi-Fi",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMHgQGOwCppd6wT8xfhvKXZNXEpt11C9Yks-V1es3oA&s=10"
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMHgQCppd6wT8xfhvKXZNXEpt11C9Yks-V1es3oA&s=10"
           ],
 
           [
@@ -797,8 +797,8 @@ function renderCatalog(){
   if(query){
 
     catalogStatus.textContent = total
-      ? `Mostrando resultados para: “${query}”`
-      : `No encontramos resultados para “${query}”. Prueba con otra palabra.`;
+      ? `Mostrando resultados para: "${query}"`
+      : `No encontramos resultados para "${query}". Prueba con otra palabra.`;
 
     catalogStatus.classList.remove("hidden");
 
