@@ -65,7 +65,7 @@ const catalog = [
 
           [
             "Tarjetas gráficas",
-            "https://www.profesionalreview.com/wp-content/uploads/2017/04/Como-entender-las-especificaciones-de-la-tarjeta-grafica-3.jpg"
+            "https://m.media-amazon.com/images/I/71M9QxYqZTL._AC_SL1500_.jpg"
           ],
 
           [
@@ -75,7 +75,7 @@ const catalog = [
 
           [
             "Chasis",
-            "https://www.tecsidecolombia.com/561-large_default/chasis-para-pc-gamer-atx-con-3-ventiladores-h3-negro.jpg"
+            "https://m.media-amazon.com/images/I/71qK8w5xW-L._AC_SL1500_.jpg"
           ],
 
           [
@@ -792,8 +792,6 @@ function renderCatalog(){
     `${total} opción${total === 1 ? "" : "es"}`;
 
 
-  /* Mensaje de búsqueda */
-
   if(query){
 
     catalogStatus.textContent = total
@@ -808,8 +806,6 @@ function renderCatalog(){
 
   }
 
-
-  /* Sin resultados */
 
   if(!total){
 
@@ -832,8 +828,6 @@ function renderCatalog(){
 
   }
 
-
-  /* Construcción del catálogo */
 
   catalogElement.innerHTML = filtered
 
@@ -878,11 +872,6 @@ function renderCatalog(){
           ${category.groups.map(group => `
 
             <div class="subcategory-group">
-
-              <!--
-                IMPORTANTE:
-                La etiqueta del grupo SIEMPRE aparece.
-              -->
 
               <h4 class="subcategory-group-title">
                 ${escapeHtml(group.title)}
