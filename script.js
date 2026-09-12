@@ -60,12 +60,12 @@ const catalog = [
 
           [
             "Tarjetas madre",
-            "https://upload.wikimedia.org/wikipedia/commons/a/ac/Motherboard_computer.jpg"
+            "https://unimarq.mx/media/wysiwyg/TARJETA_MADRE_INTEL_2.jpg"
           ],
 
           [
             "Tarjetas gráficas",
-            "https://noahsartt.com/wp-content/uploads/2023/10/pc-parts2.png"
+            "https://www.profesionalreview.com/wp-content/uploads/2017/04/Como-entender-las-especificaciones-de-la-tarjeta-grafica-3.jpg"
           ],
 
           [
@@ -74,8 +74,8 @@ const catalog = [
           ],
 
           [
-            "Gabinetes",
-            "https://storage-asset.msi.com/global/picture/news/2026/case/case-20260720-4.jpg"
+            "Chasis",
+            "https://www.tecsidecolombia.com/561-large_default/chasis-para-pc-gamer-atx-con-3-ventiladores-h3-negro.jpg"
           ],
 
           [
@@ -531,7 +531,7 @@ const catalog = [
 
           [
             "Impresoras Wi-Fi",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMHgQCppd6wT8xfhvKXZNXEpt11C9Yks-V1es3oA&s=10"
+            "https://exitocol.vteximg.com.br/arquivos/ids/29903003/impresora-multifuncional-epson-l3250-wifi.jpg?v=638920995810070000"
           ],
 
           [
