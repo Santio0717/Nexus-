@@ -74,7 +74,9 @@ const catalog = [
           ],
 
           [
-            "Chasis",
+             "Chasis",
+             "http://www.mipcparquecentral.com/cdn/shop/files/Pc_Gamer_Ryzen_7_8700_0a21e7a5-d550-4532-8306-71f071ecdeff.jpg?v=1765022633"
+          ],
             "https://www.tecsidecolombia.com/561-large_default/chasis-para-pc-gamer-atx-con-3-ventiladores-h3-negro.jpg"
           ],
 
