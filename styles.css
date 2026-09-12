@@ -361,7 +361,7 @@ button{
 
 
 /* =========================
-   ETIQUETAS DE GRUPO
+   GRUPOS
 ========================= */
 
 .subcategory-group{
@@ -437,10 +437,10 @@ button{
 
 
 /* =========================
-   TEXTO DE LAS TARJETAS
+   CONTENIDO DE TODAS LAS TARJETAS
 ========================= */
 
-.subcategory-body{
+.subcategory-content{
   padding:15px;
   display:flex;
   flex-direction:column;
@@ -448,7 +448,8 @@ button{
   text-align:center;
 }
 
-.subcategory-body h4{
+.subcategory-content h4{
+  width:100%;
   margin:0 0 11px;
   color:var(--ink-strong);
   font-size:.98rem;
@@ -466,6 +467,7 @@ button{
   color:#fff;
   font-weight:850;
   transition:.2s ease;
+  text-align:center;
 }
 
 .quote-button:hover{
@@ -692,6 +694,14 @@ footer{
   .subcategory-image-wrap{
     height:210px;
     min-height:210px;
+  }
+
+  .subcategory-content{
+    text-align:center;
+  }
+
+  .subcategory-content h4{
+    text-align:center;
   }
 
   .footer-inner{
