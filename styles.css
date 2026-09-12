@@ -36,6 +36,7 @@
 
 html{
   scroll-behavior:smooth;
+  scroll-padding-top:90px;
 }
 
 body{
@@ -85,6 +86,7 @@ a{
   z-index:50;
   background:rgba(248,250,252,.94);
   backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(209,213,219,.85);
 }
 
@@ -155,6 +157,7 @@ a{
 ========================= */
 
 .intro-banner{
+  position:relative;
   padding:58px 0;
   background:linear-gradient(
     135deg,
@@ -443,15 +446,6 @@ a{
    TÍTULO ARRIBA DE LA IMAGEN
 ========================= */
 
-/*
-  El JavaScript mantiene .subcategory-content
-  como contenedor del título y botón.
-
-  Con display:contents hacemos que el título
-  y el botón puedan ordenarse directamente
-  dentro de la tarjeta.
-*/
-
 .subcategory-content{
   display:contents;
 }
@@ -721,12 +715,28 @@ footer{
 
 @media(max-width:560px){
 
+  /*
+    El header mide aproximadamente 64px.
+    Dejamos espacio suficiente para que el
+    contenido inicial nunca quede debajo de él.
+  */
+
+  html{
+    scroll-padding-top:74px;
+  }
+
   .container{
     width:min(100% - 24px,1240px);
   }
 
 
-  /* HEADER */
+  /* =========================
+     HEADER MOBILE
+  ========================= */
+
+  .site-header{
+    min-height:64px;
+  }
 
   .header-inner{
     min-height:64px;
@@ -756,29 +766,55 @@ footer{
   }
 
 
-  /* INTRO */
+  /* =========================
+     INTRO MOBILE
+  ========================= */
 
   .intro-banner{
-    padding:42px 0;
+    /*
+      18px adicionales arriba evitan que
+      el contenido quede visualmente pegado
+      al header sticky.
+    */
+    padding:60px 0 42px;
+  }
+
+  .intro-content-unified{
+    gap:24px;
+  }
+
+  .intro-copy{
+    padding-top:2px;
+  }
+
+  .eyebrow{
+    margin-top:0;
   }
 
   .intro-copy h1{
+    margin-top:10px;
     font-size:2.35rem;
+    line-height:1.08;
   }
 
   .intro-copy p{
     font-size:.92rem;
+    line-height:1.65;
   }
 
 
-  /* INFORMACIÓN */
+  /* =========================
+     INFORMACIÓN
+  ========================= */
 
   .info-cards-group{
     grid-template-columns:1fr;
   }
 
 
-  /* CATÁLOGO */
+  /* =========================
+     CATÁLOGO
+  ========================= */
 
   .catalog-section{
     padding:50px 0 68px;
@@ -798,7 +834,9 @@ footer{
   }
 
 
-  /* CATEGORÍA */
+  /* =========================
+     CATEGORÍA
+  ========================= */
 
   .catalog-category{
     padding:20px;
@@ -814,7 +852,9 @@ footer{
   }
 
 
-  /* TARJETAS */
+  /* =========================
+     TARJETAS
+  ========================= */
 
   .subcategory-grid{
     grid-template-columns:1fr;
@@ -826,7 +866,9 @@ footer{
   }
 
 
-  /* TÍTULO */
+  /* =========================
+     TÍTULO
+  ========================= */
 
   .subcategory-content h4{
     min-height:68px;
@@ -835,7 +877,9 @@ footer{
   }
 
 
-  /* IMAGEN */
+  /* =========================
+     IMAGEN
+  ========================= */
 
   .subcategory-image-wrap{
     width:calc(100% - 28px);
@@ -849,7 +893,9 @@ footer{
   }
 
 
-  /* BOTÓN */
+  /* =========================
+     BOTÓN
+  ========================= */
 
   .quote-button{
     width:calc(100% - 36px);
@@ -857,7 +903,9 @@ footer{
   }
 
 
-  /* FOOTER */
+  /* =========================
+     FOOTER
+  ========================= */
 
   .footer-inner{
     grid-template-columns:1fr;
@@ -868,11 +916,66 @@ footer{
   }
 
 
-  /* WHATSAPP */
+  /* =========================
+     WHATSAPP
+  ========================= */
 
   .whatsapp-float{
     right:14px;
     bottom:14px;
+  }
+
+}
+
+
+/* =========================
+   TELÉFONO VERTICAL
+   AJUSTE ESPECÍFICO
+========================= */
+
+@media(max-width:560px) and (orientation:portrait){
+
+  /*
+    En orientación vertical el header sticky
+    ocupa espacio visual sobre el comienzo
+    del banner.
+
+    Este margen evita que "NEXUS" /
+    "¿Necesitas orientación?" queden
+    demasiado arriba.
+  */
+
+  .intro-banner{
+    padding-top:68px;
+  }
+
+  .intro-copy{
+    padding-top:4px;
+  }
+
+}
+
+
+/* =========================
+   TELÉFONO MUY PEQUEÑO
+========================= */
+
+@media(max-width:380px) and (orientation:portrait){
+
+  .intro-banner{
+    padding-top:72px;
+  }
+
+  .intro-copy h1{
+    font-size:2.05rem;
+  }
+
+  .intro-copy p{
+    font-size:.88rem;
+  }
+
+  .header-search input{
+    font-size:.76rem;
   }
 
 }
