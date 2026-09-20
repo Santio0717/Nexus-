@@ -9,7 +9,7 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: #f8f9fa;
+  background-color: #f8f9fa; /* Fondo general claro */
   color: #1a1a1a;
   line-height: 1.5;
 }
@@ -24,7 +24,6 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: none; /* Eliminamos borde para que se integre perfectamente con el banner */
 }
 
 .header-container {
@@ -88,19 +87,21 @@ body {
 }
 
 /* =========================================================
-   BANNER SUPERIOR CON DEGRADADO SUAVE (#0d0d0d -> #1f1d1d)
+   BANNER CON DEGRADADO Y OLA SVG (TRANSICIÓN A FONDO CLARO)
    ========================================================= */
 .info-banner {
+  position: relative;
   background: linear-gradient(180deg, #0d0d0d 0%, #1f1d1d 100%);
   color: #ffffff;
-  padding: 3.5rem 1.5rem;
+  padding: 3.5rem 1.5rem 6rem 1.5rem; /* Padding inferior amplio para albergar la curva */
   text-align: center;
-  border-bottom: none;
 }
 
 .banner-container {
   max-width: 850px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .banner-badge {
@@ -131,12 +132,30 @@ body {
   line-height: 1.6;
 }
 
+/* Estilos de la Ola SVG */
+.banner-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.banner-wave svg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 60px; /* Ajusta el alto de la curva según tu preferencia */
+}
+
 /* =========================================================
    SECCIÓN DE CATÁLOGO & PRODUCTOS
    ========================================================= */
 .catalog-section {
   max-width: 1200px;
-  margin: 2.5rem auto;
+  margin: 1.5rem auto 2.5rem;
   padding: 0 1.5rem;
 }
 
@@ -162,7 +181,7 @@ body {
   color: #6b7280;
 }
 
-/* Grilla de productos/categorías */
+/* Grilla de productos / categorías */
 .catalog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -177,7 +196,7 @@ body {
   width: 100%;
 }
 
-/* Tarjetas */
+/* Tarjetas claras */
 .category-card, 
 .subcategory-card {
   background-color: #ffffff;
