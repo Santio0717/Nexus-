@@ -263,10 +263,9 @@ function handleImageError(image) {
 }
 
 /* =========================================================
-   TARJETAS DENSAS (HTML) CON HOVER POP-OVER
+   TARJETAS CON POPOVER FLOTANTE EN HOVER
    ========================================================= */
 function createCategoryCard(category) {
-  // Extrae los primeros 4 o 5 elementos para mostrarlos en el panel desplegable
   const previewItems = category.items ? category.items.slice(0, 5) : [];
   const previewListHTML = previewItems
     .map(item => `<li class="popover-item">${escapeHTML(item.name)}</li>`)
@@ -334,7 +333,7 @@ function createItemCard(item, categoryName) {
 }
 
 /* =========================================================
-   RENDER DE CATEGORÍAS
+   RENDER DE CATEGORÍAS (Con animación de fundido)
    ========================================================= */
 function renderCategories(options = {}) {
   const { updateHistory = true, scroll = false } = options;
@@ -369,16 +368,23 @@ function renderCategories(options = {}) {
     updateSearchStatus(`Resultados para “${currentSearch}”`);
   }
 
-  if (!filteredCategories.length) {
-    catalogElement.innerHTML = `
-      <div class="empty-state">
-        <h3>No encontramos una categoría relacionada</h3>
-        <p>Prueba con otro término o selecciona una categoría cercana a lo que estás buscando.</p>
-      </div>
-    `;
-  } else {
-    catalogElement.innerHTML = filteredCategories.map(createCategoryCard).join("");
-  }
+  // Animación suave al actualizar resultados
+  catalogElement.style.opacity = '0';
+  catalogElement.style.transition = 'opacity 0.2s ease';
+
+  setTimeout(() => {
+    if (!filteredCategories.length) {
+      catalogElement.innerHTML = `
+        <div class="empty-state">
+          <h3>No encontramos una categoría relacionada</h3>
+          <p>Prueba con otro término o selecciona una categoría cercana a lo que estás buscando.</p>
+        </div>
+      `;
+    } else {
+      catalogElement.innerHTML = filteredCategories.map(createCategoryCard).join("");
+    }
+    catalogElement.style.opacity = '1';
+  }, 150);
 
   if (updateHistory) {
     history.pushState({ page: "home" }, "", window.location.pathname);
@@ -448,7 +454,11 @@ function renderCategory(categoryName, options = {}) {
     </div>
   `;
 
-  catalogElement.innerHTML = content;
+  catalogElement.style.opacity = '0';
+  setTimeout(() => {
+    catalogElement.innerHTML = content;
+    catalogElement.style.opacity = '1';
+  }, 150);
 
   if (updateHistory) {
     history.pushState({ page: "category", category: category.name }, "", window.location.pathname);
@@ -535,6 +545,19 @@ brandLink?.addEventListener("click", (event) => {
 
 footerWhatsapp?.addEventListener("click", () => {
   openWhatsApp();
+});
+
+/* HEADER DINÁMICO AL HACER SCROLL */
+window.addEventListener("scroll", () => {
+  const header = document.querySelector(".header");
+  if (!header) return;
+  if (window.scrollY > 40) {
+    header.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.6)";
+    header.style.padding = "0.7rem 1.5rem";
+  } else {
+    header.style.boxShadow = "none";
+    header.style.padding = "1rem 1.5rem";
+  }
 });
 
 window.addEventListener("popstate", (event) => {
