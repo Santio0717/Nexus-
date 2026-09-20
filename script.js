@@ -116,7 +116,7 @@ const catalogData = [
       ["SSD", "SSD.jpg"],
       ["SSD M.2", "SSD M.2.jpg"],
       ["MicroSD", "MicroSD.jpg"],
-      ["SD", "SD.jpg"] // Corrección de extensión duplicada (.jpg.jpg -> .jpg)
+      ["SD", "SD.jpg"]
     ])
   },
 
@@ -175,7 +175,7 @@ const catalogData = [
     name: "Servicios Técnicos",
     image: imagePath("Servicios Tecnicos.jpg"),
     items: makeItems([
-      ["Mantenimiento", "Mantenimiento.jpg"], // Corrección de extensión duplicada (.jpg.jpg -> .jpg)
+      ["Mantenimiento", "Mantenimiento.jpg"],
       ["Reparación", "Reparacion.jpg"],
       ["Instalación de programas y configuración", "Instalacion de Programas y Configuracion.jpg"]
     ])
@@ -263,11 +263,26 @@ function handleImageError(image) {
 }
 
 /* =========================================================
-   TARJETAS DENSAS (HTML)
+   TARJETAS DENSAS (HTML) CON HOVER POP-OVER
    ========================================================= */
 function createCategoryCard(category) {
+  // Extrae los primeros 4 o 5 elementos para mostrarlos en el panel desplegable
+  const previewItems = category.items ? category.items.slice(0, 5) : [];
+  const previewListHTML = previewItems
+    .map(item => `<li class="popover-item">${escapeHTML(item.name)}</li>`)
+    .join('');
+
   return `
     <article class="category-card">
+      <!-- VISTA PREVIA FLOTANTE EN HOVER -->
+      <div class="category-preview-popover">
+        <div class="popover-title">Incluye:</div>
+        <ul class="popover-list">
+          ${previewListHTML}
+          ${category.items.length > 5 ? `<li class="popover-item" style="font-style: italic; opacity: 0.8;">y más...</li>` : ''}
+        </ul>
+      </div>
+
       <div class="category-content">
         <h3 class="category-title">${escapeHTML(category.name)}</h3>
       </div>
