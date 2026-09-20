@@ -62,7 +62,7 @@ const catalogData = [
     ])
   },
 
-  /* 4. PERIFÉRICOS */
+  /* 4. PERIFÉRICOS (Sin cables, adaptadores ni cargadores) */
   {
     name: "Periféricos",
     image: imagePath("Perifericos.jpg"),
@@ -82,30 +82,46 @@ const catalogData = [
       ["Cámaras web", "Camaras web.jpg"],
       ["Cámaras fotográficas", "Camaras fotográficas.jpg"],
       ["Trípodes", "Tripodes.jpg"],
-      ["Cargadores para PC / portátil", "Cargadores para PC- portatil.jpg"],
-      ["Cargadores para celular", "Cargadores para Celular.jpg"],
+      ["Soportes para monitor", "Soportes para Monitor.jpg"],
+      ["Soportes para portátil", "Soportes para Portatil.jpg"],
+      ["Bases para portátil", "Bases para Portatil.jpg"],
+      ["Bases refrigerantes con ventilador", "Bases Refrigerantes con Ventilador.jpg"]
+    ])
+  },
+
+  /* 5. CABLES (Incluyendo cables y cargadores) */
+  {
+    name: "Cables",
+    image: imagePath("Cable Usb.jpg"),
+    items: makeItems([
       ["Cables USB", "Cable Usb.jpg"],
       ["Cables HDMI", "Cables HDMI.jpg"],
       ["Cables de red", "Cables de Red.jpg"],
       ["Cables de audio", "Cables de Audio.jpg"],
       ["Cables para celular", "Cables para Celular.jpg"],
       ["Cables para computador", "Cables para Computador.jpg"],
+      ["Cargadores para PC / portátil", "Cargadores para PC- portatil.jpg"],
+      ["Cargadores para celular", "Cargadores para Celular.jpg"]
+    ])
+  },
+
+  /* 6. ADAPTADORES Y REDES */
+  {
+    name: "Adaptadores y Redes",
+    image: imagePath("Wi-Fi.jpg"),
+    items: makeItems([
       ["Adaptadores USB", "Adaptadores USB.jpg"],
       ["Adaptadores HDMI", "Adaptadores HDMI.jpg"],
       ["Adaptadores de video", "Adaptadores de Video.jpg"],
       ["Adaptadores de red", "Adaptadores de Red.jpg"],
       ["Hubs USB", "Hubs USB.jpg"],
       ["Wi-Fi", "Wi-Fi.jpg"],
-      ["Soportes para monitor", "Soportes para Monitor.jpg"],
-      ["Soportes para portátil", "Soportes para Portatil.jpg"],
-      ["Bases para portátil", "Bases para Portatil.jpg"],
-      ["Bases refrigerantes con ventilador", "Bases Refrigerantes con Ventilador.jpg"],
       ["Lectores", "Lectores.jpg"],
       ["Accesorios internos", "Accesorios internos.jpg"]
     ])
   },
 
-  /* 5. ALMACENAMIENTO */
+  /* 7. ALMACENAMIENTO */
   {
     name: "Almacenamiento",
     image: imagePath("Almacenamiento.jpg"),
@@ -120,7 +136,7 @@ const catalogData = [
     ])
   },
 
-  /* 6. IMPRESORAS */
+  /* 8. IMPRESORAS */
   {
     name: "Impresoras",
     image: imagePath("Impresoras.jpg"),
@@ -137,7 +153,7 @@ const catalogData = [
     ])
   },
 
-  /* 7. CELULARES */
+  /* 9. CELULARES */
   {
     name: "Celulares",
     image: imagePath("Celulares categoria.jpg"),
@@ -150,7 +166,7 @@ const catalogData = [
     ])
   },
 
-  /* 8. SILLAS */
+  /* 10. SILLAS */
   {
     name: "Sillas",
     image: imagePath("Sillas Categoria.jpg"),
@@ -160,7 +176,7 @@ const catalogData = [
     ])
   },
 
-  /* 9. ENERGÍA */
+  /* 11. ENERGÍA */
   {
     name: "Energía",
     image: imagePath("Energia.jpg"),
@@ -170,7 +186,7 @@ const catalogData = [
     ])
   },
 
-  /* 10. SERVICIOS TÉCNICOS */
+  /* 12. SERVICIOS TÉCNICOS */
   {
     name: "Servicios Técnicos",
     image: imagePath("Servicios Tecnicos.jpg"),
@@ -361,7 +377,7 @@ function renderCategories(options = {}) {
   if (catalogCount) {
     catalogCount.textContent = query
       ? `${filteredCategories.length} ${filteredCategories.length === 1 ? "categoría" : "categorías"}`
-      : "10 categorías";
+      : "12 categorías";
   }
 
   if (query) {
