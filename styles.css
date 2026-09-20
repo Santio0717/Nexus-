@@ -15,7 +15,7 @@ body {
 }
 
 /* =========================================================
-   HEADER Y BANNER (ESTILO UNIFICADO OSCURO / NEGRO)
+   HEADER / NAVEGACIÓN
    ========================================================= */
 .header {
   background-color: #0d0d0d;
@@ -87,13 +87,15 @@ body {
   background-color: #0056b3;
 }
 
-/* BANNER SUPERIOR CON EL MISMO FONDO NEGRO DEL LOGO/HEADER */
+/* =========================================================
+   BANNER INFORMATIVO SUPERIOR (#333030)
+   ========================================================= */
 .info-banner {
-  background-color: #0d0d0d;
-  border-bottom: 1px solid #222;
-  color: #fff;
+  background-color: #333030;
+  color: #ffffff;
   padding: 3rem 1.5rem;
   text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .banner-container {
@@ -103,15 +105,15 @@ body {
 
 .banner-badge {
   display: inline-block;
-  background-color: rgba(0, 123, 255, 0.15);
-  color: #38bdf8;
+  background-color: rgba(0, 123, 255, 0.2);
+  color: #60a5fa;
   padding: 0.3rem 0.85rem;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 1rem;
-  border: 1px solid rgba(0, 123, 255, 0.3);
+  border: 1px solid rgba(0, 123, 255, 0.4);
 }
 
 .banner-container h1 {
@@ -123,14 +125,14 @@ body {
 
 .banner-container p {
   font-size: 1.05rem;
-  color: #a1a1aa;
+  color: #d1d5db;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
 /* =========================================================
-   SECCIÓN DE CATÁLOGO (FONDO CLARO CON CONTRASTE)
+   SECCIÓN DE CATÁLOGO & PRODUCTOS
    ========================================================= */
 .catalog-section {
   max-width: 1200px;
@@ -175,7 +177,7 @@ body {
   width: 100%;
 }
 
-/* Tarjetas claras que contrastan sobre la página */
+/* Tarjetas */
 .category-card, 
 .subcategory-card {
   background-color: #ffffff;
@@ -223,7 +225,7 @@ body {
   object-fit: contain;
 }
 
-/* Botones dentro del catálogo */
+/* Botones */
 .explore-button, 
 .quote-button, 
 .back-to-catalog {
@@ -275,7 +277,7 @@ body {
 }
 
 /* =========================================================
-   FOOTER (OSCURO PARA MANTENER BALANCE)
+   FOOTER
    ========================================================= */
 .footer {
   background-color: #0d0d0d;
