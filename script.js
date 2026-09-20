@@ -4,29 +4,36 @@
 
 const IMAGE_BASE = "Nexus_Imagenes/";
 
-const imagePath = fileName =>
+const imagePath = (fileName) =>
   `${IMAGE_BASE}${encodeURIComponent(fileName)}`;
 
 const LOGO_URL = imagePath("Logo.jpg");
 
 const WHATSAPP_ADVISOR = "573228182311";
-const WHATSAPP_ADVISOR_2 = "573117161043");
+const WHATSAPP_ADVISOR_2 = "573117161043";
 
 
 /* =========================================================
    DATOS DEL CATÁLOGO
 ========================================================= */
 
-const makeItems = items =>
+const makeItems = (items) =>
   items.map(([name, file]) => ({
     name,
     image: imagePath(file)
   }));
 
+
 const catalogData = [
+
+  /* =======================================================
+     1. COMPUTADORES
+  ======================================================= */
+
   {
     name: "Computadores",
     image: imagePath("Computadores.jpg"),
+
     items: makeItems([
       ["Portátiles", "Portatiles.jpg"],
       ["Torres", "Torres.jpg"],
@@ -40,9 +47,15 @@ const catalogData = [
     ])
   },
 
+
+  /* =======================================================
+     2. MONITORES Y TV
+  ======================================================= */
+
   {
     name: "Monitores y TV",
     image: imagePath("Monitores y TV.jpg"),
+
     items: makeItems([
       ["Monitores", "Monitores.jpg"],
       ["Monitores Gaming", "Monitores Gaming.jpg"],
@@ -50,9 +63,15 @@ const catalogData = [
     ])
   },
 
+
+  /* =======================================================
+     3. GAMING
+  ======================================================= */
+
   {
     name: "Gaming",
     image: imagePath("Gaming.jpg"),
+
     items: makeItems([
       ["Consolas", "Consolas.jpg"],
       ["Controles", "Controles.jpg"],
@@ -60,33 +79,54 @@ const catalogData = [
     ])
   },
 
+
+  /* =======================================================
+     4. PERIFÉRICOS
+  ======================================================= */
+
   {
     name: "Periféricos",
     image: imagePath("Perifericos.jpg"),
+
     items: makeItems([
+
+      /* Teclados */
       ["Teclados Gaming", "Teclados Gaming.jpg"],
       ["Teclados Cableados", "Teclados Cableados.jpg"],
       ["Teclados Inalámbricos", "Teclados Inalambricos.jpg"],
 
+      /* Mouse */
       ["Mouse Gaming", "Mouse Gaming.jpg"],
       ["Mouse Cableados", "Mouse Cableados.jpg"],
       ["Mouse Inalámbricos", "Mouse Inalambricos.jpg"],
 
+      /* Combos */
       ["Combo Teclado + Mouse", "Combo Teclado + Mouse.jpg"],
       ["Combo Gaming", "Combo Gaming.jpg"],
       ["Combo Inalámbrico", "Combo Inalambrico.jpg"],
 
+      /* Audio */
       ["Audífonos", "Audifonos.jpg"],
       ["Micrófonos", "Microfonos.jpg"],
       ["Parlantes", "Parlantes.jpg"],
 
+      /* Cámaras */
       ["Cámaras web", "Camaras web.jpg"],
       ["Cámaras fotográficas", "Camaras fotográficas.jpg"],
       ["Trípodes", "Tripodes.jpg"],
 
-      ["Cargadores para PC / portátil", "Cargadores para PC- portatil.jpg"],
-      ["Cargadores para celular", "Cargadores para Celular.jpg"],
+      /* Cargadores */
+      [
+        "Cargadores para PC / portátil",
+        "Cargadores para PC- portatil.jpg"
+      ],
 
+      [
+        "Cargadores para celular",
+        "Cargadores para Celular.jpg"
+      ],
+
+      /* Cables */
       ["Cables USB", "Cable Usb.jpg"],
       ["Cables HDMI", "Cables HDMI.jpg"],
       ["Cables de red", "Cables de Red.jpg"],
@@ -94,28 +134,43 @@ const catalogData = [
       ["Cables para celular", "Cables para Celular.jpg"],
       ["Cables para computador", "Cables para Computador.jpg"],
 
+      /* Adaptadores */
       ["Adaptadores USB", "Adaptadores USB.jpg"],
       ["Adaptadores HDMI", "Adaptadores HDMI.jpg"],
       ["Adaptadores de video", "Adaptadores de Video.jpg"],
       ["Adaptadores de red", "Adaptadores de Red.jpg"],
 
+      /* Conectividad */
       ["Hubs USB", "Hubs USB.jpg"],
       ["Wi-Fi", "Wi-Fi.jpg"],
 
+      /* Soportes */
       ["Soportes para monitor", "Soportes para Monitor.jpg"],
       ["Soportes para portátil", "Soportes para Portatil.jpg"],
 
+      /* Bases */
       ["Bases para portátil", "Bases para Portatil.jpg"],
-      ["Bases refrigerantes con ventilador", "Bases Refrigerantes con Ventilador.jpg"],
+      [
+        "Bases refrigerantes con ventilador",
+        "Bases Refrigerantes con Ventilador.jpg"
+      ],
 
+      /* Accesorios */
       ["Lectores", "Lectores.jpg"],
       ["Accesorios internos", "Accesorios internos.jpg"]
+
     ])
   },
+
+
+  /* =======================================================
+     5. ALMACENAMIENTO
+  ======================================================= */
 
   {
     name: "Almacenamiento",
     image: imagePath("Almacenamiento.jpg"),
+
     items: makeItems([
       ["Memorias USB", "Memorias USB.jpg"],
       ["RAM", "RAM.jpg"],
@@ -127,9 +182,15 @@ const catalogData = [
     ])
   },
 
+
+  /* =======================================================
+     6. IMPRESORAS
+  ======================================================= */
+
   {
     name: "Impresoras",
     image: imagePath("Impresoras.jpg"),
+
     items: makeItems([
       ["Multifuncionales", "Multifuncionales.jpg"],
       ["Fotocopiadoras", "Fotocopiadoras.jpg"],
@@ -143,9 +204,15 @@ const catalogData = [
     ])
   },
 
+
+  /* =======================================================
+     7. CELULARES
+  ======================================================= */
+
   {
     name: "Celulares",
     image: imagePath("Celulares categoria.jpg"),
+
     items: makeItems([
       ["Celulares", "Celulares.jpg"],
       ["Cargadores", "Cargadores.jpg"],
@@ -155,27 +222,45 @@ const catalogData = [
     ])
   },
 
+
+  /* =======================================================
+     8. SILLAS
+  ======================================================= */
+
   {
     name: "Sillas",
     image: imagePath("Sillas Categoria.jpg"),
+
     items: makeItems([
       ["Sillas Gaming", "Sillas Gaming.jpg"],
       ["Sillas de oficina", "Sillas de Oficina.jpg"]
     ])
   },
 
+
+  /* =======================================================
+     9. ENERGÍA
+  ======================================================= */
+
   {
     name: "Energía",
     image: imagePath("Energia.jpg"),
+
     items: makeItems([
       ["UPS", "UPS.jpg"],
       ["Reguladores de voltaje", "Reguladores de Voltaje.jpg"]
     ])
   },
 
+
+  /* =======================================================
+     10. SERVICIOS TÉCNICOS
+  ======================================================= */
+
   {
     name: "Servicios Técnicos",
     image: imagePath("Servicios Tecnicos.jpg"),
+
     items: makeItems([
       ["Mantenimiento", "Mantenimiento.jpg.jpg"],
       ["Reparación", "Reparacion.jpg"],
@@ -185,11 +270,12 @@ const catalogData = [
       ]
     ])
   }
+
 ];
 
 
 /* =========================================================
-   ELEMENTOS
+   ELEMENTOS DEL HTML
 ========================================================= */
 
 const catalogElement =
@@ -248,53 +334,83 @@ let currentSearch = "";
 ========================================================= */
 
 function normalizeText(text) {
+
   return String(text || "")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .trim();
+
 }
 
 
 function escapeHTML(text) {
+
   const div =
     document.createElement("div");
 
   div.textContent = text;
 
   return div.innerHTML;
+
 }
 
 
 function getCategory(categoryName) {
+
   return catalogData.find(
-    category =>
+    (category) =>
       category.name === categoryName
   );
+
 }
 
 
+/* =========================================================
+   MOSTRAR / OCULTAR FOOTER
+========================================================= */
+
 function setFooterVisible(visible) {
-  if (!footerElement) return;
+
+  if (!footerElement) {
+    return;
+  }
 
   footerElement.classList.toggle(
     "is-hidden",
     !visible
   );
+
 }
 
+
+/* =========================================================
+   MOSTRAR / OCULTAR BANNER
+========================================================= */
 
 function setBannerVisible(visible) {
-  if (!infoBanner) return;
+
+  if (!infoBanner) {
+    return;
+  }
 
   infoBanner.hidden = !visible;
+
 }
 
 
+/* =========================================================
+   ESTADO DE BÚSQUEDA
+========================================================= */
+
 function updateSearchStatus(text = "") {
-  if (!searchStatus) return;
+
+  if (!searchStatus) {
+    return;
+  }
 
   searchStatus.textContent = text;
+
 }
 
 
@@ -305,13 +421,16 @@ function updateSearchStatus(text = "") {
 ========================================================= */
 
 function getWhatsAppNumber() {
+
   return Math.random() < 0.60
     ? WHATSAPP_ADVISOR
     : WHATSAPP_ADVISOR_2;
+
 }
 
 
 function openWhatsApp(productName = "") {
+
   const number =
     getWhatsAppNumber();
 
@@ -329,14 +448,20 @@ function openWhatsApp(productName = "") {
     "_blank",
     "noopener,noreferrer"
   );
+
 }
 
 
 /* =========================================================
-   IMÁGENES
+   MANEJO DE ERROR DE IMAGEN
 ========================================================= */
 
 function handleImageError(image) {
+
+  if (!image) {
+    return;
+  }
+
   image.onerror = null;
 
   image.style.display = "none";
@@ -345,10 +470,13 @@ function handleImageError(image) {
     image.parentElement;
 
   if (wrapper) {
+
     wrapper.classList.add(
       "image-error"
     );
+
   }
+
 }
 
 
@@ -357,23 +485,28 @@ function handleImageError(image) {
 ========================================================= */
 
 function createCategoryCard(category) {
+
   return `
     <article class="category-card">
 
       <div class="category-image-wrap">
+
         <img
           src="${category.image}"
           alt="${escapeHTML(category.name)}"
           loading="lazy"
           onerror="handleImageError(this)"
         >
+
       </div>
+
 
       <div class="category-content">
 
         <h3 class="category-title">
           ${escapeHTML(category.name)}
         </h3>
+
 
         <button
           type="button"
@@ -387,6 +520,7 @@ function createCategoryCard(category) {
 
     </article>
   `;
+
 }
 
 
@@ -398,6 +532,7 @@ function createItemCard(
   item,
   categoryName
 ) {
+
   return `
     <article class="subcategory-card">
 
@@ -405,14 +540,18 @@ function createItemCard(
         ${escapeHTML(item.name)}
       </div>
 
+
       <div class="subcategory-image-wrap">
+
         <img
           src="${item.image}"
           alt="${escapeHTML(item.name)}"
           loading="lazy"
           onerror="handleImageError(this)"
         >
+
       </div>
+
 
       <div class="subcategory-actions">
 
@@ -429,66 +568,94 @@ function createItemCard(
 
     </article>
   `;
+
 }
 
 
 /* =========================================================
-   RENDER - PÁGINA PRINCIPAL
+   RENDER DEL CATÁLOGO PRINCIPAL
 ========================================================= */
 
-function renderCategories(
-  options = {}
-) {
+function renderCategories(options = {}) {
+
   const {
     updateHistory = true,
     scroll = false
   } = options;
 
+
   currentCategory = null;
+
+
+  /* Mostrar banner y footer */
 
   setBannerVisible(true);
   setFooterVisible(true);
 
+
+  /* Título correcto del catálogo */
+
   if (catalogTitle) {
+
     catalogTitle.textContent =
-      "Encuentra lo que necesitas";
+      "CATÁLOGO";
+
   }
 
+
   updateSearchStatus("");
+
 
   const query =
     normalizeText(currentSearch);
 
+
   let filteredCategories =
     catalogData;
 
+
+  /* =======================================================
+     FILTRAR CATEGORÍAS
+  ======================================================= */
+
   if (query) {
+
     filteredCategories =
       catalogData.filter(
-        category => {
+        (category) => {
 
           const categoryMatch =
             normalizeText(
               category.name
             ).includes(query);
 
+
           const itemMatch =
             category.items.some(
-              item =>
+              (item) =>
                 normalizeText(
                   item.name
                 ).includes(query)
             );
 
+
           return (
             categoryMatch ||
             itemMatch
           );
+
         }
       );
+
   }
 
+
+  /* =======================================================
+     CONTADOR
+  ======================================================= */
+
   if (catalogCount) {
+
     catalogCount.textContent =
       query
         ? `${filteredCategories.length} ${
@@ -497,17 +664,31 @@ function renderCategories(
               : "categorías"
           }`
         : "10 categorías";
+
   }
 
+
+  /* =======================================================
+     ESTADO DE BÚSQUEDA
+  ======================================================= */
+
   if (query) {
+
     updateSearchStatus(
       `Resultados para “${currentSearch}”`
     );
+
   }
+
+
+  /* =======================================================
+     MOSTRAR RESULTADOS
+  ======================================================= */
 
   if (!filteredCategories.length) {
 
     catalogElement.innerHTML = `
+
       <div class="empty-state">
 
         <h3>
@@ -520,6 +701,7 @@ function renderCategories(
         </p>
 
       </div>
+
     `;
 
   } else {
@@ -530,6 +712,11 @@ function renderCategories(
         .join("");
 
   }
+
+
+  /* =======================================================
+     HISTORIAL
+  ======================================================= */
 
   if (updateHistory) {
 
@@ -543,74 +730,101 @@ function renderCategories(
 
   }
 
+
+  /* =======================================================
+     SCROLL
+  ======================================================= */
+
   if (scroll) {
 
     document
-      .getElementById(
-        "catalogSection"
-      )
+      .getElementById("catalogSection")
       ?.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
 
   }
+
 }
 
 
 /* =========================================================
-   RENDER - CATEGORÍA
+   RENDER DE CATEGORÍA / SUBCATEGORÍAS
 ========================================================= */
 
 function renderCategory(
   categoryName,
   options = {}
 ) {
+
   const {
     updateHistory = true,
     scroll = true
   } = options;
 
+
   const category =
     getCategory(categoryName);
 
+
   if (!category) {
+
     renderCategories();
+
     return;
+
   }
+
 
   currentCategory =
     category.name;
 
-  /*
-    Ocultar banner y footer
-    mientras se visualizan las subcategorías.
-  */
+
+  /* Ocultar banner y footer */
+
   setBannerVisible(false);
   setFooterVisible(false);
 
+
+  /* Título de la categoría */
+
   if (catalogTitle) {
+
     catalogTitle.textContent =
       category.name;
+
   }
+
 
   const query =
     normalizeText(currentSearch);
 
+
   let filteredItems =
     category.items;
+
+
+  /* =======================================================
+     FILTRAR SUBCATEGORÍAS
+  ======================================================= */
 
   if (query) {
 
     filteredItems =
       category.items.filter(
-        item =>
+        (item) =>
           normalizeText(
             item.name
           ).includes(query)
       );
 
   }
+
+
+  /* =======================================================
+     CONTADOR
+  ======================================================= */
 
   if (catalogCount) {
 
@@ -625,17 +839,25 @@ function renderCategory(
 
   }
 
+
   updateSearchStatus(
     query
       ? `Resultados para “${currentSearch}”`
       : ""
   );
 
+
   let content = "";
+
+
+  /* =======================================================
+     SIN RESULTADOS
+  ======================================================= */
 
   if (!filteredItems.length) {
 
     content += `
+
       <div class="empty-state">
 
         <h3>
@@ -650,41 +872,59 @@ function renderCategory(
         </p>
 
       </div>
+
     `;
 
   } else {
 
+    /* =====================================================
+       SUBCATEGORÍAS
+    ===================================================== */
+
     content += `
+
       <div class="subcategory-grid">
 
         ${filteredItems
-          .map(item =>
-            createItemCard(
-              item,
-              category.name
-            )
+          .map(
+            (item) =>
+              createItemCard(
+                item,
+                category.name
+              )
           )
           .join("")}
 
       </div>
+
     `;
 
   }
 
-  /*
-    Un solo botón al final de la categoría.
-  */
+
+  /* =======================================================
+     ÚNICO BOTÓN PARA VOLVER
+  ======================================================= */
+
   content += `
+
     <button
       type="button"
       class="back-to-catalog"
     >
       Volver al catálogo
     </button>
+
   `;
+
 
   catalogElement.innerHTML =
     content;
+
+
+  /* =======================================================
+     HISTORIAL
+  ======================================================= */
 
   if (updateHistory) {
 
@@ -699,18 +939,22 @@ function renderCategory(
 
   }
 
+
+  /* =======================================================
+     SCROLL
+  ======================================================= */
+
   if (scroll) {
 
     document
-      .getElementById(
-        "catalogSection"
-      )
+      .getElementById("catalogSection")
       ?.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
 
   }
+
 }
 
 
@@ -721,17 +965,23 @@ function renderCategory(
 function goBackToCatalog(
   options = {}
 ) {
+
   const {
     updateHistory = true,
     scroll = true
   } = options;
 
+
   currentCategory = null;
   currentSearch = "";
 
+
   if (searchInput) {
+
     searchInput.value = "";
+
   }
+
 
   if (updateHistory) {
 
@@ -745,23 +995,24 @@ function goBackToCatalog(
 
   }
 
+
   renderCategories({
     updateHistory: false,
     scroll: false
   });
 
+
   if (scroll) {
 
     document
-      .getElementById(
-        "catalogSection"
-      )
+      .getElementById("catalogSection")
       ?.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
 
   }
+
 }
 
 
@@ -770,10 +1021,19 @@ function goBackToCatalog(
 ========================================================= */
 
 function performSearch() {
-  if (!searchInput) return;
+
+  if (!searchInput) {
+    return;
+  }
+
 
   currentSearch =
     searchInput.value.trim();
+
+
+  /* =======================================================
+     BUSCAR DENTRO DE CATEGORÍA
+  ======================================================= */
 
   if (currentCategory) {
 
@@ -785,7 +1045,13 @@ function performSearch() {
       }
     );
 
-  } else {
+  }
+
+  /* =======================================================
+     BUSCAR EN CATEGORÍAS
+  ======================================================= */
+
+  else {
 
     renderCategories({
       updateHistory: false,
@@ -794,20 +1060,24 @@ function performSearch() {
 
   }
 
+
   document
-    .getElementById(
-      "catalogSection"
-    )
+    .getElementById("catalogSection")
     ?.scrollIntoView({
       behavior: "smooth",
       block: "start"
     });
+
 }
 
 
+/* =========================================================
+   EVENTO DEL BUSCADOR
+========================================================= */
+
 searchForm?.addEventListener(
   "submit",
-  event => {
+  (event) => {
 
     event.preventDefault();
 
@@ -823,16 +1093,18 @@ searchForm?.addEventListener(
 
 catalogElement?.addEventListener(
   "click",
-  event => {
+  (event) => {
 
-    /*
-      VOLVER AL CATÁLOGO
-    */
+
+    /* =====================================================
+       VOLVER AL CATÁLOGO
+    ===================================================== */
 
     const backButton =
       event.target.closest(
         ".back-to-catalog"
       );
+
 
     if (backButton) {
 
@@ -841,60 +1113,73 @@ catalogElement?.addEventListener(
       goBackToCatalog();
 
       return;
+
     }
 
 
-    /*
-      ENTRAR A CATEGORÍA
-    */
+    /* =====================================================
+       ENTRAR A CATEGORÍA
+    ===================================================== */
 
     const categoryButton =
       event.target.closest(
         ".explore-button"
       );
 
+
     if (categoryButton) {
 
       event.preventDefault();
 
+
       const categoryName =
         categoryButton.dataset.category;
+
 
       renderCategory(
         categoryName
       );
 
+
       return;
+
     }
 
 
-    /*
-      COTIZAR
-    */
+    /* =====================================================
+       COTIZAR PRODUCTO
+    ===================================================== */
 
     const quoteButton =
       event.target.closest(
         ".quote-button"
       );
 
+
     if (quoteButton) {
 
       event.preventDefault();
 
+
       const product =
         quoteButton.dataset.product;
+
 
       const category =
         quoteButton.dataset.category;
 
+
       const number =
         getWhatsAppNumber();
+
 
       const message =
         `Hola, quiero cotizar ${product} de la categoría ${category}.`;
 
+
       const url =
         `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+
 
       window.open(
         url,
@@ -914,15 +1199,20 @@ catalogElement?.addEventListener(
 
 brandLink?.addEventListener(
   "click",
-  event => {
+  (event) => {
 
     event.preventDefault();
 
+
     currentSearch = "";
 
+
     if (searchInput) {
+
       searchInput.value = "";
+
     }
+
 
     goBackToCatalog();
 
@@ -950,10 +1240,15 @@ footerWhatsapp?.addEventListener(
 
 window.addEventListener(
   "popstate",
-  event => {
+  (event) => {
 
     const state =
       event.state;
+
+
+    /* =====================================================
+       VOLVER A UNA CATEGORÍA
+    ===================================================== */
 
     if (
       state &&
@@ -969,15 +1264,26 @@ window.addEventListener(
         }
       );
 
+
       return;
+
     }
+
+
+    /* =====================================================
+       VOLVER AL INICIO
+    ===================================================== */
 
     currentCategory = null;
     currentSearch = "";
 
+
     if (searchInput) {
+
       searchInput.value = "";
+
     }
+
 
     renderCategories({
       updateHistory: false,
