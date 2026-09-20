@@ -1,6 +1,6 @@
 /* =========================================================
    NEXUS - CATÁLOGO
-   ========================================================= */
+========================================================= */
 
 
 /* =========================================================
@@ -74,6 +74,7 @@ const catalog = [
 
         ]
       },
+
 
       {
         name: "Componentes",
@@ -324,7 +325,7 @@ const catalog = [
           {
             name: "Parlantes",
             image:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd1BkIZMe69uHbJ-vG99jQV2nh6Xx3ayHKlMw8LiRtvw&s=10"
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd1BkIZMe69hUbJ-vG99jQV2nh6Xx3ayHKlMw8LiRtvw&s=10"
           }
 
         ]
@@ -578,7 +579,7 @@ const catalog = [
           {
             name: "HDD",
             image:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkvaPfRSmQwtD5vtNYpG3ifpA7GZ3kDmQQ3mZxTNc5iQ&s=10"
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkvaPfRSmQwtD5vtNYpG3ifpA7G3kDmQQ3mZxTNc5iQ&s=10"
           },
 
           {
@@ -875,14 +876,12 @@ const catalog = [
 ========================================================= */
 
 function escapeHtml(value) {
-
   return String(value)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
-
 }
 
 
@@ -917,93 +916,10 @@ const footerWhatsapp =
 ========================================================= */
 
 let currentCategory = null;
-let currentGroup = null;
 
 
 /* =========================================================
-   HISTORIAL
-========================================================= */
-
-function initializeHistory() {
-
-  if (!history.state || history.state.nexus !== true) {
-
-    history.replaceState(
-      {
-        nexus: true,
-        view: "catalog"
-      },
-      "",
-      window.location.href
-    );
-
-  }
-
-}
-
-
-function goToCategoryHistory(categoryName) {
-
-  history.pushState(
-    {
-      nexus: true,
-      view: "category",
-      category: categoryName
-    },
-    "",
-    `#categoria=${encodeURIComponent(categoryName)}`
-  );
-
-}
-
-
-function goToCatalogHistory() {
-
-  const currentState = history.state;
-
-  if (
-    currentState &&
-    currentState.nexus === true &&
-    currentState.view === "category"
-  ) {
-
-    history.back();
-
-    return;
-
-  }
-
-
-  renderCategories();
-
-}
-
-
-/* =========================================================
-   CONTADOR
-========================================================= */
-
-function getTotalItems() {
-
-  return catalog.reduce(
-    (total, category) => {
-
-      return total +
-        category.groups.reduce(
-          (groupTotal, group) =>
-            groupTotal + group.items.length,
-          0
-        );
-
-    },
-    0
-  );
-
-}
-
-
-/* =========================================================
-   WHATSAPP 60/40
+   WHATSAPP
 ========================================================= */
 
 function createWhatsAppSequence() {
@@ -1025,7 +941,6 @@ function createWhatsAppSequence() {
   return sequence.sort(
     () => Math.random() - 0.5
   );
-
 }
 
 
@@ -1087,12 +1002,12 @@ function getWhatsAppNumber() {
 
 
   return selectedNumber;
-
 }
 
 
 function openWhatsApp(
-  itemName = "información general sobre productos y servicios"
+  itemName =
+    "información general sobre productos y servicios"
 ) {
 
   const phoneNumber =
@@ -1112,12 +1027,34 @@ function openWhatsApp(
     "_blank",
     "noopener,noreferrer"
   );
+}
+
+
+/* =========================================================
+   CONTADOR
+========================================================= */
+
+function getTotalItems() {
+
+  return catalog.reduce(
+    (total, category) => {
+
+      return total +
+        category.groups.reduce(
+          (groupTotal, group) =>
+            groupTotal + group.items.length,
+          0
+        );
+
+    },
+    0
+  );
 
 }
 
 
 /* =========================================================
-   CARD DE COTIZACIÓN
+   TARJETA DE SUBCATEGORÍA
 ========================================================= */
 
 function createItemCard(
@@ -1128,6 +1065,11 @@ function createItemCard(
 
   return `
     <article class="subcategory-card">
+
+      <div class="subcategory-title">
+        ${escapeHtml(item.name)}
+      </div>
+
 
       <div class="subcategory-image-wrap">
 
@@ -1141,11 +1083,7 @@ function createItemCard(
       </div>
 
 
-      <div class="subcategory-content">
-
-        <h4>
-          ${escapeHtml(item.name)}
-        </h4>
+      <div class="subcategory-actions">
 
         <button
           class="quote-button"
@@ -1157,11 +1095,18 @@ function createItemCard(
           Cotizar
         </button>
 
+
+        <button
+          class="back-button"
+          type="button"
+        >
+          ← Volver al catálogo
+        </button>
+
       </div>
 
     </article>
   `;
-
 }
 
 
@@ -1169,36 +1114,13 @@ function createItemCard(
    CATEGORÍAS PRINCIPALES
 ========================================================= */
 
-function renderCategories(
-  updateHistory = false
-) {
+function renderCategories() {
 
   currentCategory = null;
-  currentGroup = null;
 
 
   if (!catalogElement) {
     return;
-  }
-
-
-  if (searchInput) {
-    searchInput.value = "";
-  }
-
-
-  if (updateHistory) {
-
-    history.replaceState(
-      {
-        nexus: true,
-        view: "catalog"
-      },
-      "",
-      window.location.pathname +
-      window.location.search
-    );
-
   }
 
 
@@ -1210,65 +1132,65 @@ function renderCategories(
     `${catalog.length} categorías`;
 
 
-  catalogStatus.classList.add("hidden");
+  catalogStatus.classList.add(
+    "hidden"
+  );
 
 
-  const html = catalog.map(
-    (category, index) => {
+  const html =
+    catalog.map(
+      (category, index) => {
 
-      const firstItem =
-        category.groups[0]?.items[0];
-
-
-      return `
-        <article
-          class="category-card"
-        >
-
-          <div class="category-image">
-
-            ${
-              firstItem
-                ? `
-                  <img
-                    src="${escapeHtml(firstItem.image)}"
-                    alt="${escapeHtml(category.name)}"
-                    loading="${index < 3 ? "eager" : "lazy"}"
-                    onerror="this.style.display='none';"
-                  >
-                `
-                : ""
-            }
-
-          </div>
+        const firstItem =
+          category.groups[0]?.items[0];
 
 
-          <div class="category-info">
+        return `
+          <article class="category-card">
 
-            <h3>
-              ${escapeHtml(category.name)}
-            </h3>
+            <div class="category-image">
 
-            <p>
-              ${escapeHtml(category.description)}
-            </p>
+              ${
+                firstItem
+                  ? `
+                    <img
+                      src="${escapeHtml(firstItem.image)}"
+                      alt="${escapeHtml(category.name)}"
+                      loading="${index < 3 ? "eager" : "lazy"}"
+                      onerror="this.style.display='none';"
+                    >
+                  `
+                  : ""
+              }
+
+            </div>
 
 
-            <button
-              type="button"
-              class="explore-button"
-              data-category="${escapeHtml(category.name)}"
-            >
-              Conocer productos
-            </button>
+            <div class="category-info">
 
-          </div>
+              <h3>
+                ${escapeHtml(category.name)}
+              </h3>
 
-        </article>
-      `;
+              <p>
+                ${escapeHtml(category.description)}
+              </p>
 
-    }
-  ).join("");
+              <button
+                type="button"
+                class="explore-button"
+                data-category="${escapeHtml(category.name)}"
+              >
+                Conocer productos
+              </button>
+
+            </div>
+
+          </article>
+        `;
+
+      }
+    ).join("");
 
 
   catalogElement.innerHTML = `
@@ -1276,101 +1198,6 @@ function renderCategories(
       ${html}
     </div>
   `;
-
-
-  bindCategoryButtons();
-
-}
-
-
-/* =========================================================
-   VOLVER AL CATÁLOGO
-========================================================= */
-
-function returnToCatalog() {
-
-  currentCategory = null;
-  currentGroup = null;
-
-
-  if (searchInput) {
-    searchInput.value = "";
-  }
-
-
-  catalogStatus?.classList.add(
-    "hidden"
-  );
-
-
-  /*
-    Si estamos dentro de una categoría,
-    usamos el historial para regresar.
-  */
-
-  if (
-    history.state &&
-    history.state.nexus === true &&
-    history.state.view === "category"
-  ) {
-
-    history.back();
-
-    return;
-
-  }
-
-
-  /*
-    Respaldo por si no existe un estado
-    de historial válido.
-  */
-
-  renderCategories();
-
-
-  scrollToCatalog();
-
-}
-
-
-/* =========================================================
-   SCROLL AL CATÁLOGO
-========================================================= */
-
-function scrollToCatalog() {
-
-  const catalogSection =
-    document.querySelector(".catalog-section");
-
-
-  if (!catalogSection) {
-    return;
-  }
-
-
-  const header =
-    document.querySelector(".site-header");
-
-
-  const headerHeight =
-    header
-      ? header.getBoundingClientRect().height
-      : 0;
-
-
-  const position =
-    catalogSection.getBoundingClientRect().top +
-    window.scrollY -
-    headerHeight -
-    18;
-
-
-  window.scrollTo({
-    top: Math.max(position, 0),
-    behavior: "smooth"
-  });
-
 }
 
 
@@ -1380,7 +1207,7 @@ function scrollToCatalog() {
 
 function renderCategory(
   categoryName,
-  updateHistory = true
+  shouldScroll = true
 ) {
 
   const category =
@@ -1394,21 +1221,8 @@ function renderCategory(
   }
 
 
-  currentCategory = categoryName;
-  currentGroup = null;
-
-
-  if (updateHistory) {
-
-    goToCategoryHistory(
-      categoryName
-    );
-
-  }
-
-
-  catalogTitle.textContent =
-    category.name;
+  currentCategory =
+    categoryName;
 
 
   const totalItems =
@@ -1419,11 +1233,17 @@ function renderCategory(
     );
 
 
+  catalogTitle.textContent =
+    category.name;
+
+
   resultCount.textContent =
     `${totalItems} opciones`;
 
 
-  catalogStatus.classList.add("hidden");
+  catalogStatus.classList.add(
+    "hidden"
+  );
 
 
   let groupsHTML = "";
@@ -1440,11 +1260,9 @@ function renderCategory(
             category.groups.length > 1
               ? `
                 <div class="catalog-group-header">
-
                   <h3>
                     ${escapeHtml(group.name)}
                   </h3>
-
                 </div>
               `
               : ""
@@ -1453,14 +1271,18 @@ function renderCategory(
 
           <div class="subcategory-grid">
 
-            ${group.items.map(
-              item =>
-                createItemCard(
-                  item,
-                  category.name,
-                  group.name
+            ${
+              group.items
+                .map(
+                  item =>
+                    createItemCard(
+                      item,
+                      category.name,
+                      group.name
+                    )
                 )
-            ).join("")}
+                .join("")
+            }
 
           </div>
 
@@ -1473,88 +1295,55 @@ function renderCategory(
 
 
   catalogElement.innerHTML = `
-
     <div class="category-view">
-
-      <div class="category-detail-heading">
-
-        <button
-          type="button"
-          class="back-button"
-          id="backToCatalog"
-          aria-label="Volver al catálogo"
-        >
-          ← Volver al catálogo
-        </button>
-
-
-        <h2>
-          ${escapeHtml(category.name)}
-        </h2>
-
-
-        <p>
-          ${escapeHtml(category.description)}
-        </p>
-
-      </div>
-
-
       ${groupsHTML}
-
     </div>
-
   `;
 
 
-  bindQuoteButtons();
+  if (shouldScroll) {
 
+    document
+      .querySelector(".catalog-section")
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
 
-  scrollToCatalog();
+  }
 
 }
 
 
 /* =========================================================
-   BOTONES DE CATEGORÍAS
+   VOLVER AL CATÁLOGO
 ========================================================= */
 
-function bindCategoryButtons() {
+function goBackToCatalog() {
 
-  const buttons =
-    document.querySelectorAll(
-      ".explore-button"
-    );
+  currentCategory = null;
 
 
-  buttons.forEach(
-    button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          const categoryName =
-            button.dataset.category;
+  if (searchInput) {
+    searchInput.value = "";
+  }
 
 
-          renderCategory(
-            categoryName,
-            true
-          );
+  renderCategories();
 
-        }
-      );
 
-    }
-  );
-
+  document
+    .querySelector(".catalog-section")
+    ?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
 }
 
 
 /* =========================================================
-   BOTÓN VOLVER
    EVENT DELEGATION
+   FUNCIONA TAMBIÉN CON CONTENIDO DINÁMICO
 ========================================================= */
 
 catalogElement?.addEventListener(
@@ -1563,79 +1352,85 @@ catalogElement?.addEventListener(
 
     const backButton =
       event.target.closest(
-        "#backToCatalog"
+        ".back-button"
       );
 
 
-    if (!backButton) {
+    if (backButton) {
+
+      event.preventDefault();
+
+      goBackToCatalog();
+
       return;
     }
 
 
-    event.preventDefault();
+    const categoryButton =
+      event.target.closest(
+        ".explore-button"
+      );
 
 
-    returnToCatalog();
+    if (categoryButton) {
 
-  }
-);
+      event.preventDefault();
 
+      const categoryName =
+        categoryButton.dataset.category;
 
-/* =========================================================
-   BOTONES COTIZAR
-========================================================= */
+      renderCategory(
+        categoryName
+      );
 
-function bindQuoteButtons() {
-
-  const buttons =
-    document.querySelectorAll(
-      ".quote-button"
-    );
+      return;
+    }
 
 
-  buttons.forEach(
-    button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          const item =
-            button.dataset.item ||
-            "un producto";
+    const quoteButton =
+      event.target.closest(
+        ".quote-button"
+      );
 
 
-          const category =
-            button.dataset.category ||
-            "";
+    if (quoteButton) {
+
+      event.preventDefault();
 
 
-          const group =
-            button.dataset.group ||
-            "";
+      const item =
+        quoteButton.dataset.item ||
+        "un producto";
 
 
-          const itemText =
-            [
-              item,
-              group,
-              category
-            ]
-            .filter(Boolean)
-            .join(" - ");
+      const category =
+        quoteButton.dataset.category ||
+        "";
 
 
-          openWhatsApp(
-            `cotizar ${itemText}`
-          );
+      const group =
+        quoteButton.dataset.group ||
+        "";
 
-        }
+
+      const itemText =
+        [
+          item,
+          group,
+          category
+        ]
+        .filter(Boolean)
+        .join(" - ");
+
+
+      openWhatsApp(
+        `cotizar ${itemText}`
       );
 
     }
-  );
 
-}
+  }
+);
 
 
 /* =========================================================
@@ -1658,8 +1453,10 @@ function getAllItems() {
 
               items.push({
                 ...item,
+
                 category:
                   category.name,
+
                 group:
                   group.name
               });
@@ -1675,7 +1472,6 @@ function getAllItems() {
 
 
   return items;
-
 }
 
 
@@ -1696,12 +1492,10 @@ function searchCatalog(query) {
     renderCategories();
 
     return;
-
   }
 
 
   currentCategory = null;
-  currentGroup = null;
 
 
   const results =
@@ -1714,8 +1508,8 @@ function searchCatalog(query) {
             item.category,
             item.group
           ]
-            .join(" ")
-            .toLowerCase();
+          .join(" ")
+          .toLowerCase();
 
 
         return searchable.includes(
@@ -1749,11 +1543,11 @@ function searchCatalog(query) {
     );
 
 
-    catalogElement.innerHTML = "";
+    catalogElement.innerHTML =
+      "";
 
 
     return;
-
   }
 
 
@@ -1766,65 +1560,63 @@ function searchCatalog(query) {
 
     <div class="search-results">
 
-      ${results.map(
-        item => `
+      ${
+        results
+          .map(
+            item => `
 
-          <article
-            class="search-result-card"
-          >
+              <article class="search-result-card">
 
-            <div class="search-result-image">
+                <div class="search-result-image">
 
-              <img
-                src="${escapeHtml(item.image)}"
-                alt="${escapeHtml(item.name)}"
-                loading="lazy"
-                onerror="this.style.display='none';"
-              >
+                  <img
+                    src="${escapeHtml(item.image)}"
+                    alt="${escapeHtml(item.name)}"
+                    loading="lazy"
+                    onerror="this.style.display='none';"
+                  >
 
-            </div>
-
-
-            <div class="search-result-content">
-
-              <small>
-                ${escapeHtml(item.category)}
-              </small>
-
-              <h3>
-                ${escapeHtml(item.name)}
-              </h3>
+                </div>
 
 
-              <button
-                type="button"
-                class="quote-button"
-                data-item="${escapeHtml(item.name)}"
-                data-category="${escapeHtml(item.category)}"
-                data-group="${escapeHtml(item.group)}"
-              >
-                Cotizar
-              </button>
+                <div class="search-result-content">
 
-            </div>
+                  <small>
+                    ${escapeHtml(item.category)}
+                  </small>
 
-          </article>
+                  <h3>
+                    ${escapeHtml(item.name)}
+                  </h3>
 
-        `
-      ).join("")}
+
+                  <button
+                    type="button"
+                    class="quote-button"
+                    data-item="${escapeHtml(item.name)}"
+                    data-category="${escapeHtml(item.category)}"
+                    data-group="${escapeHtml(item.group)}"
+                  >
+                    Cotizar
+                  </button>
+
+                </div>
+
+              </article>
+
+            `
+          )
+          .join("")
+      }
 
     </div>
 
   `;
-
-
-  bindQuoteButtons();
-
 }
 
 
 /* =========================================================
-   EVENTO DEL BUSCADOR
+   BUSCADOR
 ========================================================= */
 
 searchInput?.addEventListener(
@@ -1853,22 +1645,6 @@ brandHome?.addEventListener(
     if (searchInput) {
       searchInput.value = "";
     }
-
-
-    /*
-      El logo siempre lleva al
-      catálogo principal.
-    */
-
-    history.replaceState(
-      {
-        nexus: true,
-        view: "catalog"
-      },
-      "",
-      window.location.pathname +
-      window.location.search
-    );
 
 
     renderCategories();
@@ -1900,84 +1676,14 @@ footerWhatsapp?.addEventListener(
 
 
 /* =========================================================
-   BOTÓN ATRÁS DEL NAVEGADOR
-========================================================= */
-
-window.addEventListener(
-  "popstate",
-  event => {
-
-    const state =
-      event.state;
-
-
-    if (
-      state &&
-      state.nexus === true &&
-      state.view === "category" &&
-      state.category
-    ) {
-
-      renderCategory(
-        state.category,
-        false
-      );
-
-      return;
-
-    }
-
-
-    /*
-      Si volvemos al estado principal,
-      mostramos nuevamente las categorías.
-    */
-
-    renderCategories(
-      false
-    );
-
-    scrollToCatalog();
-
-  }
-);
-
-
-/* =========================================================
    INICIO
 ========================================================= */
 
-function initializeCatalog() {
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
 
-  initializeHistory();
+    renderCategories();
 
-  renderCategories(
-    false
-  );
-
-}
-
-
-/*
-  Funciona tanto si el script está
-  al final del body como si está
-  cargado antes del HTML.
-*/
-
-if (
-  document.readyState === "loading"
-) {
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    initializeCatalog,
-    {
-      once: true
-    }
-  );
-
-} else {
-
-  initializeCatalog();
-
-}
+  }
+);
