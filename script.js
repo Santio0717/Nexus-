@@ -300,10 +300,10 @@ const infoBanner =
   document.getElementById("infoBanner");
 
 const footerElement =
-  document.getElementById("footer");
+  document.getElementById("contacto");
 
 const brandLink =
-  document.getElementById("brandLink");
+  document.querySelector(".brand");
 
 const footerWhatsapp =
   document.getElementById("footerWhatsapp");
@@ -314,7 +314,7 @@ const footerWhatsapp =
 ========================================================= */
 
 const brandLogo =
-  brandLink?.querySelector("img");
+  brandLink?.querySelector(".brand-logo");
 
 if (brandLogo) {
   brandLogo.src = LOGO_URL;
@@ -481,13 +481,27 @@ function handleImageError(image) {
 
 
 /* =========================================================
-   CARD DE CATEGORÍA
+   CARD DE CATEGORÍA PRINCIPAL
+
+   ORDEN:
+   TÍTULO
+   IMAGEN
+   BOTÓN
 ========================================================= */
 
 function createCategoryCard(category) {
 
   return `
     <article class="category-card">
+
+      <div class="category-content">
+
+        <h3 class="category-title">
+          ${escapeHTML(category.name)}
+        </h3>
+
+      </div>
+
 
       <div class="category-image-wrap">
 
@@ -501,12 +515,7 @@ function createCategoryCard(category) {
       </div>
 
 
-      <div class="category-content">
-
-        <h3 class="category-title">
-          ${escapeHTML(category.name)}
-        </h3>
-
+      <div class="category-actions">
 
         <button
           type="button"
@@ -526,6 +535,11 @@ function createCategoryCard(category) {
 
 /* =========================================================
    CARD DE SUBCATEGORÍA
+
+   ORDEN:
+   TÍTULO
+   IMAGEN
+   BOTÓN
 ========================================================= */
 
 function createItemCard(
@@ -536,9 +550,9 @@ function createItemCard(
   return `
     <article class="subcategory-card">
 
-      <div class="subcategory-title">
+      <h3 class="subcategory-title">
         ${escapeHTML(item.name)}
-      </div>
+      </h3>
 
 
       <div class="subcategory-image-wrap">
@@ -593,7 +607,7 @@ function renderCategories(options = {}) {
   setFooterVisible(true);
 
 
-  /* Título correcto del catálogo */
+  /* Título */
 
   if (catalogTitle) {
 
@@ -770,7 +784,10 @@ function renderCategory(
 
   if (!category) {
 
-    renderCategories();
+    renderCategories({
+      updateHistory: false,
+      scroll: false
+    });
 
     return;
 
@@ -787,7 +804,7 @@ function renderCategory(
   setFooterVisible(false);
 
 
-  /* Título de la categoría */
+  /* Título */
 
   if (catalogTitle) {
 
@@ -903,17 +920,21 @@ function renderCategory(
 
 
   /* =======================================================
-     ÚNICO BOTÓN PARA VOLVER
+     BOTÓN VOLVER
   ======================================================= */
 
   content += `
 
-    <button
-      type="button"
-      class="back-to-catalog"
-    >
-      Volver al catálogo
-    </button>
+    <div class="back-button-wrap">
+
+      <button
+        type="button"
+        class="back-to-catalog"
+      >
+        Volver al catálogo
+      </button>
+
+    </div>
 
   `;
 
