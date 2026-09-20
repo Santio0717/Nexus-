@@ -39,7 +39,6 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   text-decoration: none;
   color: #fff;
 }
@@ -48,12 +47,6 @@ body {
   height: 40px;
   width: auto;
   object-fit: contain;
-}
-
-.brand-name {
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: 1px;
 }
 
 .search-form {
@@ -93,18 +86,47 @@ body {
 }
 
 /* =========================================================
-   BANNER INFORMATIVO
+   BANNER INFORMATIVO (ESTILO AZUL NOCHE SOBRIO Y ELEGANTE)
    ========================================================= */
 .info-banner {
-  background: linear-gradient(135deg, #007bff, #003366);
+  background: linear-gradient(135deg, #0b132b 0%, #1c2541 100%);
+  border-bottom: 1px solid #2a3d66;
   color: #fff;
   padding: 3rem 1.5rem;
   text-align: center;
 }
 
+.banner-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.banner-badge {
+  display: inline-block;
+  background-color: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
 .banner-container h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.banner-container p {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* =========================================================
@@ -252,33 +274,82 @@ body {
 }
 
 /* =========================================================
-   FOOTER & UTILIDADES
+   FOOTER DETALLADO Y UBICACIÓN
    ========================================================= */
 .footer {
   background-color: #111;
   color: #fff;
-  padding: 2rem 1.5rem;
+  padding: 3rem 1.5rem 1.5rem;
   margin-top: 3rem;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
 }
 
+.footer-column h3,
+.footer-column h4 {
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.footer-column p {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Enlace a Google Maps estilizado */
+.map-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: #60a5fa;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.map-link:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+/* Botón de WhatsApp en Footer */
 .whatsapp-button {
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.25rem;
   background-color: #25d366;
   color: #fff;
   border: none;
   border-radius: 6px;
   font-weight: 700;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.whatsapp-button:hover {
+  background-color: #1eb956;
+}
+
+/* Línea divisoria y derechos reservados */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2.5rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid #222;
+  text-align: left;
+}
+
+.footer-bottom p {
+  color: #777;
+  font-size: 0.85rem;
 }
 
 .is-hidden {
