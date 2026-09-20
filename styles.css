@@ -15,7 +15,7 @@ body {
 }
 
 /* =========================================================
-   HEADER / NAVEGACIÓN
+   HEADER / NAVEGACIÓN (Con transición para scroll)
    ========================================================= */
 .header {
   background-color: #0d0d0d;
@@ -24,6 +24,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: all 0.3s ease; /* Transición fluida al hacer scroll */
 }
 
 .header-container {
@@ -187,7 +188,20 @@ body {
   width: 100%;
 }
 
-/* Tarjetas claras */
+/* =========================================================
+   TARJETAS Y ANIMACIÓN DE ENTRADA (FADE-IN)
+   ========================================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .category-card, 
 .subcategory-card {
   position: relative !important;
@@ -202,10 +216,11 @@ body {
   gap: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s, box-shadow 0.2s;
+  animation: fadeInUp 0.35s ease-out forwards; /* Animación fluida de carga */
 }
 
 .category-card:hover {
-  z-index: 50; /* Eleva la tarjeta activa en hover */
+  z-index: 50; /* Eleva la tarjeta activa al pasar el mouse */
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
@@ -243,7 +258,7 @@ body {
 }
 
 /* =========================================================
-   VISTA PREVIA EN HOVER (POPOVER FLOTANTE OCULTO POR DEFECTO)
+   VISTA PREVIA EN HOVER (POPOVER FLOTANTE)
    ========================================================= */
 .category-preview-popover {
   position: absolute;
@@ -260,7 +275,7 @@ body {
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
-  z-index: 999 !important; /* Prioridad máxima para sobreponerse sin cortarse */
+  z-index: 999 !important;
   border: 1px solid #374151;
   text-align: left;
 }
