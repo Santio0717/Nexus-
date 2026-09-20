@@ -77,6 +77,7 @@ const catalog = [
 
       },
 
+
       {
         name: "Componentes",
 
@@ -91,7 +92,7 @@ const catalog = [
           {
             name: "Tarjetas madre",
             image:
-              "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEakxJ-gKEsCVDCidynb0svId8C92v6p12z4yRxO4NwtTiLnGWuwPvo_LnXhnEloifnXMpAGnLIYb2PFNvt0GAEh_yP0wT4A5m1BPzQAOH5w9g_C6_jJUXzYv5jusXqh9gmJa5_vm9qEA/s640/Tarjeta+Madre.png"
+              "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEakxJ-gKEsCVDCidnbsvId8C92v6p12z4yRxO4NwtTiLnGWuwPvo_LnXhnEloifnXMpAGnLIYb2PFNvt0GAEh_yP0wT4A5m1BPzQAOH5w9g_C6_jJUXzYv5jusXqh9gmJa5_vm9qEA/s640/Tarjeta+Madre.png"
           },
 
           {
@@ -121,6 +122,7 @@ const catalog = [
         ]
 
       },
+
 
       {
         name: "Monitores y TV",
@@ -202,7 +204,7 @@ const catalog = [
 
 
   /* =======================================================
-     PERIFÉRICOS + ACCESORIOS
+     PERIFÉRICOS
   ======================================================== */
 
   {
@@ -243,6 +245,7 @@ const catalog = [
 
       },
 
+
       {
         name: "Mouse",
 
@@ -269,6 +272,7 @@ const catalog = [
         ]
 
       },
+
 
       {
         name: "Combos",
@@ -297,6 +301,7 @@ const catalog = [
 
       },
 
+
       {
         name: "Audio",
 
@@ -323,6 +328,7 @@ const catalog = [
         ]
 
       },
+
 
       {
         name: "Cámaras",
@@ -352,10 +358,6 @@ const catalog = [
       },
 
 
-      /* =========================
-         ACCESORIOS ORIGINALES
-      ========================== */
-
       {
         name: "Cargadores",
 
@@ -376,6 +378,7 @@ const catalog = [
         ]
 
       },
+
 
       {
         name: "Cables",
@@ -422,6 +425,7 @@ const catalog = [
 
       },
 
+
       {
         name: "Adaptadores",
 
@@ -455,6 +459,7 @@ const catalog = [
 
       },
 
+
       {
         name: "Conectividad",
 
@@ -475,6 +480,7 @@ const catalog = [
         ]
 
       },
+
 
       {
         name: "Soportes",
@@ -497,6 +503,7 @@ const catalog = [
 
       },
 
+
       {
         name: "Bases",
 
@@ -517,6 +524,7 @@ const catalog = [
         ]
 
       },
+
 
       {
         name: "Accesorios para computadores",
@@ -834,7 +842,7 @@ const catalog = [
 
 
   /* =======================================================
-     SERVICIOS
+     SERVICIOS TÉCNICOS
   ======================================================== */
 
   {
@@ -915,26 +923,185 @@ const resultCount =
 const catalogStatus =
   document.getElementById("catalogStatus");
 
-const catalogModal =
+let catalogModal =
   document.getElementById("catalogModal");
 
-const modalBackdrop =
+let modalBackdrop =
   document.getElementById("modalBackdrop");
 
-const closeModal =
+let closeModal =
   document.getElementById("closeModal");
 
-const modalCloseIcon =
+let modalCloseIcon =
   document.getElementById("modalCloseIcon");
 
-const modalTitle =
+let modalTitle =
   document.getElementById("modalTitle");
 
-const modalDescription =
+let modalDescription =
   document.getElementById("modalDescription");
 
-const modalContent =
+let modalContent =
   document.getElementById("modalContent");
+
+
+/* =========================================================
+   CREAR MODAL SI NO EXISTE
+========================================================= */
+
+function ensureCatalogModal() {
+
+  if (
+    catalogModal &&
+    modalBackdrop &&
+    modalTitle &&
+    modalDescription &&
+    modalContent
+  ) {
+
+    return;
+
+  }
+
+
+  if (!modalBackdrop) {
+
+    modalBackdrop =
+      document.createElement("div");
+
+    modalBackdrop.id =
+      "modalBackdrop";
+
+    modalBackdrop.className =
+      "modal-backdrop";
+
+    document.body.appendChild(
+      modalBackdrop
+    );
+
+  }
+
+
+  if (!catalogModal) {
+
+    catalogModal =
+      document.createElement("div");
+
+    catalogModal.id =
+      "catalogModal";
+
+    catalogModal.className =
+      "catalog-modal";
+
+    catalogModal.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    catalogModal.setAttribute(
+      "role",
+      "dialog"
+    );
+
+    catalogModal.setAttribute(
+      "aria-modal",
+      "true"
+    );
+
+
+    catalogModal.innerHTML = `
+
+      <div class="catalog-modal-content catalog-modal-inner">
+
+        <div class="catalog-modal-header">
+
+          <div>
+
+            <span class="eyebrow">
+              NEXUS
+            </span>
+
+            <h2
+              class="catalog-modal-title"
+              id="modalTitle"
+            ></h2>
+
+            <p
+              class="catalog-modal-description"
+              id="modalDescription"
+            ></p>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="catalog-modal-close"
+            id="modalCloseIcon"
+            aria-label="Cerrar catálogo"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div
+          class="catalog-modal-body modal-content-grid"
+          id="modalContent"
+        ></div>
+
+
+        <div class="catalog-modal-footer">
+
+          <button
+            type="button"
+            class="secondary-button"
+            id="closeModal"
+          >
+            Volver al catálogo
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+    document.body.appendChild(
+      catalogModal
+    );
+
+  }
+
+
+  modalTitle =
+    document.getElementById(
+      "modalTitle"
+    );
+
+  modalDescription =
+    document.getElementById(
+      "modalDescription"
+    );
+
+  modalContent =
+    document.getElementById(
+      "modalContent"
+    );
+
+  closeModal =
+    document.getElementById(
+      "closeModal"
+    );
+
+  modalCloseIcon =
+    document.getElementById(
+      "modalCloseIcon"
+    );
+
+}
 
 
 /* =========================================================
@@ -943,32 +1110,29 @@ const modalContent =
 
 function getWhatsAppNumber() {
 
-  const random =
-    Math.random();
-
-  if (random < 0.6) {
-
-    return WHATSAPP_NUMBERS[0].number;
-
-  }
-
-  return WHATSAPP_NUMBERS[1].number;
+  return Math.random() < 0.6
+    ? WHATSAPP_NUMBERS[0].number
+    : WHATSAPP_NUMBERS[1].number;
 
 }
 
 
 function openWhatsApp(
-  subject = "información general sobre productos y servicios"
+  subject =
+    "información general sobre productos y servicios"
 ) {
 
   const phone =
     getWhatsAppNumber();
 
+
   const message =
     `Hola, Nexus. Estoy interesado en ${subject}. ¿Me pueden brindar información y cotización?`;
 
+
   const url =
     `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
 
   window.open(
     url,
@@ -988,32 +1152,31 @@ function renderCategories(
 ) {
 
   if (!catalogElement) {
+
+    console.error(
+      "Nexus: no se encontró #catalog en el HTML."
+    );
+
     return;
+
   }
 
-  catalogElement.innerHTML = "";
+
+  catalogElement.innerHTML =
+    "";
 
 
   categories.forEach(
-    (category, index) => {
+    category => {
 
       const card =
-        document.createElement("article");
+        document.createElement(
+          "article"
+        );
+
 
       card.className =
         "category-card";
-
-
-      card.setAttribute(
-        "tabindex",
-        "0"
-      );
-
-
-      card.setAttribute(
-        "role",
-        "button"
-      );
 
 
       card.setAttribute(
@@ -1022,46 +1185,82 @@ function renderCategories(
       );
 
 
+      /*
+       * IMPORTANTE:
+       * Aquí se eliminaron:
+       * - Nexus Cali
+       * - la flecha →
+       *
+       * Y se reemplazaron por:
+       * - Conocer productos
+       *
+       * También se cambiaron las clases para
+       * que coincidan con el CSS nuevo.
+       */
+
       card.innerHTML = `
 
-        <div class="category-card-image">
+        <div class="category-image">
 
           <img
             src="${escapeHtml(category.cover)}"
             alt="${escapeHtml(category.name)}"
             loading="lazy"
+            decoding="async"
           >
 
         </div>
 
 
-        <div class="category-card-content">
-
-          <span>
-            Nexus Cali
-          </span>
+        <div class="category-info">
 
           <h3>
             ${escapeHtml(category.name)}
           </h3>
 
+
           <p>
             ${escapeHtml(category.description)}
           </p>
 
-        </div>
 
+          <button
+            type="button"
+            class="explore-button"
+            aria-label="Conocer productos de ${escapeHtml(category.name)}"
+          >
+            Conocer productos
+          </button>
 
-        <div class="category-card-arrow">
-          →
         </div>
 
       `;
 
 
+      const exploreButton =
+        card.querySelector(
+          ".explore-button"
+        );
+
+
+      /*
+       * Clic en toda la tarjeta
+       */
+
       card.addEventListener(
         "click",
-        () => {
+        event => {
+
+          if (
+            event.target.closest(
+              "button"
+            )
+          ) {
+
+            return;
+
+          }
+
 
           openCategory(
             category
@@ -1071,25 +1270,29 @@ function renderCategories(
       );
 
 
-      card.addEventListener(
-        "keydown",
-        event => {
+      /*
+       * Clic específico en
+       * "Conocer productos"
+       */
 
-          if (
-            event.key === "Enter" ||
-            event.key === " "
-          ) {
+      if (exploreButton) {
+
+        exploreButton.addEventListener(
+          "click",
+          event => {
 
             event.preventDefault();
+
+            event.stopPropagation();
 
             openCategory(
               category
             );
 
           }
+        );
 
-        }
-      );
+      }
 
 
       catalogElement.appendChild(
@@ -1099,6 +1302,10 @@ function renderCategories(
     }
   );
 
+
+  /*
+   * Contador
+   */
 
   if (resultCount) {
 
@@ -1112,9 +1319,15 @@ function renderCategories(
   }
 
 
+  /*
+   * Estado de búsqueda
+   */
+
   if (catalogStatus) {
 
-    if (categories.length === 0) {
+    if (
+      categories.length === 0
+    ) {
 
       catalogStatus.textContent =
         "No encontramos resultados para tu búsqueda.";
@@ -1144,8 +1357,22 @@ function openCategory(
   category
 ) {
 
-  if (!catalogModal) {
+  ensureCatalogModal();
+
+
+  if (
+    !catalogModal ||
+    !modalTitle ||
+    !modalDescription ||
+    !modalContent
+  ) {
+
+    console.error(
+      "Nexus: no se pudo preparar el segundo nivel del catálogo."
+    );
+
     return;
+
   }
 
 
@@ -1165,15 +1392,18 @@ function openCategory(
     group => {
 
       const groupElement =
-        document.createElement("section");
+        document.createElement(
+          "section"
+        );
+
 
       groupElement.className =
-        "modal-group";
+        "catalog-group";
 
 
       groupElement.innerHTML = `
 
-        <div class="modal-group-header">
+        <div class="catalog-group-header">
 
           <h3>
             ${escapeHtml(group.name)}
@@ -1182,30 +1412,34 @@ function openCategory(
         </div>
 
 
-        <div class="modal-items">
+        <div class="subcategory-grid">
 
           ${group.items.map(
             item => `
 
-              <article class="modal-item">
+              <article class="subcategory-card">
 
-                <div class="modal-item-image">
+                <div class="subcategory-image">
 
                   <img
                     src="${escapeHtml(item.image)}"
                     alt="${escapeHtml(item.name)}"
                     loading="lazy"
-                    onerror="this.style.opacity='0.2'"
+                    decoding="async"
+                    onerror="
+                      this.style.opacity='0.15';
+                    "
                   >
 
                 </div>
 
 
-                <div class="modal-item-content">
+                <div class="subcategory-info">
 
                   <h4>
                     ${escapeHtml(item.name)}
                   </h4>
+
 
                   <button
                     type="button"
@@ -1237,14 +1471,22 @@ function openCategory(
   );
 
 
+  /*
+   * Mostrar modal
+   */
+
   catalogModal.classList.add(
     "active"
   );
 
 
-  modalBackdrop.classList.add(
-    "active"
-  );
+  if (modalBackdrop) {
+
+    modalBackdrop.classList.add(
+      "active"
+    );
+
+  }
 
 
   catalogModal.setAttribute(
@@ -1258,6 +1500,10 @@ function openCategory(
   );
 
 
+  /*
+   * Activar botones Cotizar
+   */
+
   bindQuoteButtons();
 
 }
@@ -1270,7 +1516,9 @@ function openCategory(
 function closeCatalogModal() {
 
   if (!catalogModal) {
+
     return;
+
   }
 
 
@@ -1279,9 +1527,13 @@ function closeCatalogModal() {
   );
 
 
-  modalBackdrop.classList.remove(
-    "active"
-  );
+  if (modalBackdrop) {
+
+    modalBackdrop.classList.remove(
+      "active"
+    );
+
+  }
 
 
   catalogModal.setAttribute(
@@ -1312,27 +1564,52 @@ function bindQuoteButtons() {
   buttons.forEach(
     button => {
 
+      if (
+        button.dataset.bound === "true"
+      ) {
+
+        return;
+
+      }
+
+
+      button.dataset.bound =
+        "true";
+
+
       button.addEventListener(
         "click",
         event => {
+
+          event.preventDefault();
 
           event.stopPropagation();
 
 
           const item =
-            button.dataset.item;
+            button.dataset.item ||
+            "el producto";
 
 
           const category =
-            button.dataset.category;
+            button.dataset.category ||
+            "";
 
 
           const group =
-            button.dataset.group;
+            button.dataset.group ||
+            "";
+
+
+          const location =
+            group &&
+            group !== category
+              ? `${category}, ${group}`
+              : category;
 
 
           openWhatsApp(
-            `información sobre ${item} de la categoría ${category}`
+            `información sobre ${item} de la categoría ${location}`
           );
 
         }
@@ -1375,7 +1652,9 @@ function searchCatalog(
 
         const categoryText =
           [
+
             category.name,
+
             category.description,
 
             ...category.groups.map(
@@ -1408,14 +1687,6 @@ function searchCatalog(
     filtered
   );
 
-
-  /*
-   * Si encontramos una sola categoría
-   * y el usuario escribió exactamente
-   * su nombre, la dejamos disponible
-   * para abrir normalmente.
-   */
-
 }
 
 
@@ -1428,12 +1699,23 @@ function bindWhatsAppButton(
 ) {
 
   const button =
-    document.getElementById(id);
+    document.getElementById(
+      id
+    );
 
 
-  if (!button) {
+  if (
+    !button ||
+    button.dataset.whatsappBound === "true"
+  ) {
+
     return;
+
   }
+
+
+  button.dataset.whatsappBound =
+    "true";
 
 
   button.addEventListener(
@@ -1461,18 +1743,25 @@ document.addEventListener(
   "DOMContentLoaded",
   () => {
 
-    /* -------------------------
-       CATÁLOGO INICIAL
-    -------------------------- */
+    /*
+     * Preparar modal
+     */
+
+    ensureCatalogModal();
+
+
+    /*
+     * Renderizar las 9 categorías
+     */
 
     renderCategories(
       catalog
     );
 
 
-    /* -------------------------
-       BUSCADOR
-    -------------------------- */
+    /*
+     * Buscador
+     */
 
     if (searchInput) {
 
@@ -1490,9 +1779,9 @@ document.addEventListener(
     }
 
 
-    /* -------------------------
-       WHATSAPP
-    -------------------------- */
+    /*
+     * WhatsApp
+     */
 
     bindWhatsAppButton(
       "headerWhatsapp"
@@ -1515,9 +1804,9 @@ document.addEventListener(
     );
 
 
-    /* -------------------------
-       CERRAR MODAL
-    -------------------------- */
+    /*
+     * Cerrar modal
+     */
 
     if (closeModal) {
 
@@ -1549,9 +1838,9 @@ document.addEventListener(
     }
 
 
-    /* -------------------------
-       ESC
-    -------------------------- */
+    /*
+     * Tecla ESC
+     */
 
     document.addEventListener(
       "keydown",
