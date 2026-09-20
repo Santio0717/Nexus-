@@ -4,18 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Nexus | Tecnología</title>
   <meta
     name="description"
-    content="Nexus Cali | Tecnología, computadores, gaming, periféricos, almacenamiento, impresoras, celulares y servicios técnicos."
+    content="Catálogo de tecnología, computadores, periféricos, gaming, almacenamiento, impresoras y servicios técnicos de Nexus Cali."
   >
-
-  <title>Nexus | Tecnología</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
@@ -28,28 +26,37 @@
   <header class="site-header" id="inicio">
     <div class="container header-inner">
 
-      <a
-        class="brand"
-        href="#inicio"
-        aria-label="Nexus inicio"
-        id="brandHome"
-      >
+      <a href="#" class="brand" id="brandLink" aria-label="Nexus - Inicio">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmElgXb6F-1FWqLMwjW1ZTBxnz4Hy00DoAKXUufe6e7w&s=10"
-          alt="Nexus Tecnología"
+          alt="Nexus"
         >
       </a>
 
-      <label class="header-search" for="searchInput">
-        <span aria-hidden="true">⌕</span>
-
+      <form class="header-search" id="searchForm" role="search">
         <input
-          id="searchInput"
           type="search"
-          placeholder="Buscar computador, mouse, SSD, impresora..."
+          id="searchInput"
+          placeholder="Buscar productos..."
           autocomplete="off"
+          aria-label="Buscar productos"
         >
-      </label>
+
+        <button
+          type="submit"
+          class="search-button"
+          aria-label="Buscar"
+          title="Buscar"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="6.5"></circle>
+            <path d="M16 16L21 21"></path>
+          </svg>
+        </button>
+      </form>
 
     </div>
   </header>
@@ -57,158 +64,87 @@
 
   <main>
 
-    <!-- BANNER -->
-    <section class="info-banner">
+    <!-- BANNER PRINCIPAL -->
+    <section class="info-banner" id="infoBanner">
+      <div class="container info-banner-inner">
 
-      <div class="container info-banner-grid">
+        <div class="banner-copy">
+          <span class="banner-eyebrow">CATÁLOGO NEXUS</span>
 
-        <div class="banner-content">
-
-          <span class="banner-label">NEXUS</span>
-
-          <h1>
-            Tecnología para lo que necesitas
-          </h1>
+          <h1>Encuentra lo que necesitas</h1>
 
           <p>
-            Encuentra productos tecnológicos, accesorios,
-            soluciones gaming y servicios técnicos.
+            Explora nuestras categorías y encuentra la opción más cercana
+            a lo que buscas. Si no ves exactamente lo que necesitas,
+            selecciona el producto más similar y nuestro equipo te ayudará
+            a encontrar la mejor alternativa.
           </p>
-
-        </div>
-
-
-        <div class="banner-details">
-
-          <div class="banner-detail">
-
-            <span class="detail-label">
-              HORARIO
-            </span>
-
-            <strong>
-              Lunes a sábado
-            </strong>
-
-            <span>
-              9:00 a. m. — 6:00 p. m.
-            </span>
-
-          </div>
-
-
-          <div class="banner-detail">
-
-            <span class="detail-label">
-              UBICACIÓN
-            </span>
-
-            <strong>
-              Nexus Cali
-            </strong>
-
-            <a
-              href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x8e30a7f29313e393:0xdeb926ad2f00177e?entry=s&sa=X&ved=2ahUKEwiGi-HJqP2WAxX_p7AFHVxxMjAQ4kB6BAgcEAA&hl=es"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="banner-location"
-            >
-              Ver ubicación
-            </a>
-
-          </div>
-
         </div>
 
       </div>
-
     </section>
 
 
     <!-- CATÁLOGO -->
-    <section class="catalog-section" id="catalogo">
-
+    <section class="catalog-section" id="catalogSection">
       <div class="container">
 
         <div class="catalog-topbar">
 
           <div>
-
-            <span class="eyebrow">
-              CATÁLOGO
-            </span>
+            <span class="catalog-eyebrow">CATÁLOGO</span>
 
             <h2 id="catalogTitle">
               Encuentra lo que necesitas
             </h2>
-
           </div>
 
-          <span
-            class="result-count"
-            id="resultCount"
-          >
-            10 categorías
-          </span>
+          <div class="catalog-meta">
+            <span id="catalogCount">10 categorías</span>
+            <span id="searchStatus"></span>
+          </div>
 
         </div>
 
-
         <div
-          class="catalog-status hidden"
-          id="catalogStatus"
-        ></div>
-
-
-        <div
-          id="catalog"
           class="catalog-list"
+          id="catalog"
+          aria-live="polite"
         ></div>
 
       </div>
-
     </section>
 
   </main>
 
 
   <!-- FOOTER -->
-  <footer class="site-footer">
+  <footer class="site-footer" id="footer">
 
     <div class="container footer-grid">
 
-      <div class="footer-column footer-brand-column">
+      <div class="footer-column">
+        <h3>Nexus Cali</h3>
 
         <p>
           Tecnología, accesorios, gaming y servicios técnicos
           para diferentes necesidades.
         </p>
-
       </div>
 
 
       <div class="footer-column">
+        <span class="footer-label">HORARIO</span>
 
-        <span class="footer-title">
-          HORARIO
-        </span>
-
-        <strong>
-          Lunes a sábado
-        </strong>
-
-        <span>
+        <p>
+          Lunes a sábado<br>
           9:00 a. m. — 6:00 p. m.
-        </span>
-
+        </p>
       </div>
 
 
       <div class="footer-column">
-
-        <span class="footer-title">
-          CONTACTO
-        </span>
+        <span class="footer-label">CONTACTO</span>
 
         <a href="tel:+573228182311">
           +57 322 818 2311
@@ -219,35 +155,28 @@
         </a>
 
         <button
-          class="footer-whatsapp"
           type="button"
+          class="footer-whatsapp"
           id="footerWhatsapp"
         >
           Contactar por WhatsApp
         </button>
-
       </div>
 
 
       <div class="footer-column">
+        <span class="footer-label">UBICACIÓN</span>
 
-        <span class="footer-title">
-          UBICACIÓN
-        </span>
-
-        <strong>
-          Nexus Cali
-        </strong>
+        <p>Nexus Cali</p>
 
         <a
-          class="footer-location"
           href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x8e30a7f29313e393:0xdeb926ad2f00177e?entry=s&sa=X&ved=2ahUKEwiGi-HJqP2WAxX_p7AFHVxxMjAQ4kB6BAgcEAA&hl=es"
           target="_blank"
           rel="noopener noreferrer"
+          class="maps-link"
         >
           Ver ubicación en Google Maps
         </a>
-
       </div>
 
     </div>
@@ -255,13 +184,13 @@
 
     <div class="container footer-bottom">
 
-      <span>
+      <p>
         © 2026 Nexus Cali. Todos los derechos reservados.
-      </span>
+      </p>
 
-      <span>
+      <p>
         Precios y disponibilidad se confirman con un asesor.
-      </span>
+      </p>
 
     </div>
 
@@ -269,6 +198,5 @@
 
 
   <script src="script.js"></script>
-
 </body>
 </html>
