@@ -921,6 +921,65 @@ let currentGroup = null;
 
 
 /* =========================================================
+   HISTORIAL
+========================================================= */
+
+function initializeHistory() {
+
+  if (!history.state || history.state.nexus !== true) {
+
+    history.replaceState(
+      {
+        nexus: true,
+        view: "catalog"
+      },
+      "",
+      window.location.href
+    );
+
+  }
+
+}
+
+
+function goToCategoryHistory(categoryName) {
+
+  history.pushState(
+    {
+      nexus: true,
+      view: "category",
+      category: categoryName
+    },
+    "",
+    `#categoria=${encodeURIComponent(categoryName)}`
+  );
+
+}
+
+
+function goToCatalogHistory() {
+
+  const currentState = history.state;
+
+  if (
+    currentState &&
+    currentState.nexus === true &&
+    currentState.view === "category"
+  ) {
+
+    history.back();
+
+    return;
+
+  }
+
+
+  renderCategories();
+
+}
+
+
+/* =========================================================
    CONTADOR
 ========================================================= */
 
@@ -1032,7 +1091,9 @@ function getWhatsAppNumber() {
 }
 
 
-function openWhatsApp(itemName = "información general sobre productos y servicios") {
+function openWhatsApp(
+  itemName = "información general sobre productos y servicios"
+) {
 
   const phoneNumber =
     getWhatsAppNumber();
@@ -1108,13 +1169,36 @@ function createItemCard(
    CATEGORÍAS PRINCIPALES
 ========================================================= */
 
-function renderCategories() {
+function renderCategories(
+  updateHistory = false
+) {
 
   currentCategory = null;
   currentGroup = null;
 
+
   if (!catalogElement) {
     return;
+  }
+
+
+  if (searchInput) {
+    searchInput.value = "";
+  }
+
+
+  if (updateHistory) {
+
+    history.replaceState(
+      {
+        nexus: true,
+        view: "catalog"
+      },
+      "",
+      window.location.pathname +
+      window.location.search
+    );
+
   }
 
 
@@ -1200,10 +1284,104 @@ function renderCategories() {
 
 
 /* =========================================================
+   VOLVER AL CATÁLOGO
+========================================================= */
+
+function returnToCatalog() {
+
+  currentCategory = null;
+  currentGroup = null;
+
+
+  if (searchInput) {
+    searchInput.value = "";
+  }
+
+
+  catalogStatus?.classList.add(
+    "hidden"
+  );
+
+
+  /*
+    Si estamos dentro de una categoría,
+    usamos el historial para regresar.
+  */
+
+  if (
+    history.state &&
+    history.state.nexus === true &&
+    history.state.view === "category"
+  ) {
+
+    history.back();
+
+    return;
+
+  }
+
+
+  /*
+    Respaldo por si no existe un estado
+    de historial válido.
+  */
+
+  renderCategories();
+
+
+  scrollToCatalog();
+
+}
+
+
+/* =========================================================
+   SCROLL AL CATÁLOGO
+========================================================= */
+
+function scrollToCatalog() {
+
+  const catalogSection =
+    document.querySelector(".catalog-section");
+
+
+  if (!catalogSection) {
+    return;
+  }
+
+
+  const header =
+    document.querySelector(".site-header");
+
+
+  const headerHeight =
+    header
+      ? header.getBoundingClientRect().height
+      : 0;
+
+
+  const position =
+    catalogSection.getBoundingClientRect().top +
+    window.scrollY -
+    headerHeight -
+    18;
+
+
+  window.scrollTo({
+    top: Math.max(position, 0),
+    behavior: "smooth"
+  });
+
+}
+
+
+/* =========================================================
    VISTA DE CATEGORÍA
 ========================================================= */
 
-function renderCategory(categoryName) {
+function renderCategory(
+  categoryName,
+  updateHistory = true
+) {
 
   const category =
     catalog.find(
@@ -1220,10 +1398,13 @@ function renderCategory(categoryName) {
   currentGroup = null;
 
 
-  window.scrollTo({
-    top: document.querySelector(".catalog-section").offsetTop - 20,
-    behavior: "smooth"
-  });
+  if (updateHistory) {
+
+    goToCategoryHistory(
+      categoryName
+    );
+
+  }
 
 
   catalogTitle.textContent =
@@ -1301,6 +1482,7 @@ function renderCategory(categoryName) {
           type="button"
           class="back-button"
           id="backToCatalog"
+          aria-label="Volver al catálogo"
         >
           ← Volver al catálogo
         </button>
@@ -1328,16 +1510,7 @@ function renderCategory(categoryName) {
   bindQuoteButtons();
 
 
-  document
-    .getElementById("backToCatalog")
-    ?.addEventListener(
-      "click",
-      () => {
-
-        renderCategories();
-
-      }
-    );
+  scrollToCatalog();
 
 }
 
@@ -1364,8 +1537,10 @@ function bindCategoryButtons() {
           const categoryName =
             button.dataset.category;
 
+
           renderCategory(
-            categoryName
+            categoryName,
+            true
           );
 
         }
@@ -1375,6 +1550,35 @@ function bindCategoryButtons() {
   );
 
 }
+
+
+/* =========================================================
+   BOTÓN VOLVER
+   EVENT DELEGATION
+========================================================= */
+
+catalogElement?.addEventListener(
+  "click",
+  event => {
+
+    const backButton =
+      event.target.closest(
+        "#backToCatalog"
+      );
+
+
+    if (!backButton) {
+      return;
+    }
+
+
+    event.preventDefault();
+
+
+    returnToCatalog();
+
+  }
+);
 
 
 /* =========================================================
@@ -1620,7 +1824,7 @@ function searchCatalog(query) {
 
 
 /* =========================================================
-   EVENTOS
+   EVENTO DEL BUSCADOR
 ========================================================= */
 
 searchInput?.addEventListener(
@@ -1645,9 +1849,30 @@ brandHome?.addEventListener(
 
     event.preventDefault();
 
-    searchInput.value = "";
+
+    if (searchInput) {
+      searchInput.value = "";
+    }
+
+
+    /*
+      El logo siempre lleva al
+      catálogo principal.
+    */
+
+    history.replaceState(
+      {
+        nexus: true,
+        view: "catalog"
+      },
+      "",
+      window.location.pathname +
+      window.location.search
+    );
+
 
     renderCategories();
+
 
     window.scrollTo({
       top: 0,
@@ -1675,14 +1900,84 @@ footerWhatsapp?.addEventListener(
 
 
 /* =========================================================
-   INICIO
+   BOTÓN ATRÁS DEL NAVEGADOR
 ========================================================= */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
+window.addEventListener(
+  "popstate",
+  event => {
 
-    renderCategories();
+    const state =
+      event.state;
+
+
+    if (
+      state &&
+      state.nexus === true &&
+      state.view === "category" &&
+      state.category
+    ) {
+
+      renderCategory(
+        state.category,
+        false
+      );
+
+      return;
+
+    }
+
+
+    /*
+      Si volvemos al estado principal,
+      mostramos nuevamente las categorías.
+    */
+
+    renderCategories(
+      false
+    );
+
+    scrollToCatalog();
 
   }
 );
+
+
+/* =========================================================
+   INICIO
+========================================================= */
+
+function initializeCatalog() {
+
+  initializeHistory();
+
+  renderCategories(
+    false
+  );
+
+}
+
+
+/*
+  Funciona tanto si el script está
+  al final del body como si está
+  cargado antes del HTML.
+*/
+
+if (
+  document.readyState === "loading"
+) {
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    initializeCatalog,
+    {
+      once: true
+    }
+  );
+
+} else {
+
+  initializeCatalog();
+
+}
