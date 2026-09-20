@@ -1,3 +1,7 @@
+/* =========================
+   NÚMEROS DE WHATSAPP
+========================= */
+
 const WHATSAPP_NUMBERS = [
   {
     name: "Asesor 1",
@@ -8,6 +12,11 @@ const WHATSAPP_NUMBERS = [
     number: "573117161043"
   }
 ];
+
+
+/* =========================
+   CATÁLOGO
+========================= */
 
 const catalog = [
   {
@@ -509,6 +518,11 @@ const catalog = [
   }
 ];
 
+
+/* =========================
+   FUNCIONES GENERALES
+========================= */
+
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -518,32 +532,52 @@ function escapeHtml(value) {
     .replace(/'/g, "&#039;");
 }
 
+
 function getAllItems() {
+
   const items = [];
 
   catalog.forEach(category => {
+
     category.groups.forEach(group => {
+
       group.items.forEach(item => {
+
         items.push({
           ...item,
           category: category.name,
           group: group.name
         });
+
       });
+
     });
+
   });
 
   return items;
 }
 
+
 const allItems = getAllItems();
 
 let filteredCatalog = [...catalog];
 
+
+/* =========================
+   RENDER CATÁLOGO
+========================= */
+
 function renderCatalog(data = filteredCatalog) {
-  const catalogElement = document.getElementById("catalog");
-  const resultCount = document.getElementById("resultCount");
-  const catalogStatus = document.getElementById("catalogStatus");
+
+  const catalogElement =
+    document.getElementById("catalog");
+
+  const resultCount =
+    document.getElementById("resultCount");
+
+  const catalogStatus =
+    document.getElementById("catalogStatus");
 
   if (!catalogElement) return;
 
@@ -552,12 +586,17 @@ function renderCatalog(data = filteredCatalog) {
   let visibleItems = 0;
 
   data.forEach(category => {
-    const categoryCard = document.createElement("article");
-    categoryCard.className = "catalog-category";
+
+    const categoryCard =
+      document.createElement("article");
+
+    categoryCard.className =
+      "catalog-category";
 
     let groupsHTML = "";
 
     category.groups.forEach(group => {
+
       visibleItems += group.items.length;
 
       groupsHTML += `
@@ -566,15 +605,18 @@ function renderCatalog(data = filteredCatalog) {
           <div class="subcategory-grid">
 
             ${group.items.map(item => `
+
               <article class="subcategory-card">
 
                 <div class="subcategory-image-wrap">
+
                   <img
                     src="${escapeHtml(item.image)}"
                     alt="${escapeHtml(item.name)}"
                     loading="lazy"
                     onerror="this.style.display='none';"
                   >
+
                 </div>
 
                 <div class="subcategory-content">
@@ -596,6 +638,7 @@ function renderCatalog(data = filteredCatalog) {
                 </div>
 
               </article>
+
             `).join("")}
 
           </div>
@@ -605,52 +648,100 @@ function renderCatalog(data = filteredCatalog) {
     });
 
     categoryCard.innerHTML = `
+
       <div class="category-heading">
-        <h2>${escapeHtml(category.name)}</h2>
+
+        <h2>
+          ${escapeHtml(category.name)}
+        </h2>
+
       </div>
 
       ${groupsHTML}
+
     `;
 
     catalogElement.appendChild(categoryCard);
+
   });
 
+
   if (resultCount) {
+
     resultCount.textContent =
-      `${visibleItems} ${visibleItems === 1 ? "opción" : "opciones"}`;
+      `${visibleItems} ${
+        visibleItems === 1
+          ? "opción"
+          : "opciones"
+      }`;
+
   }
+
 
   if (catalogStatus) {
+
     if (visibleItems === 0) {
+
       catalogStatus.textContent =
         "No encontramos resultados para tu búsqueda.";
+
       catalogStatus.classList.remove("hidden");
+
     } else {
+
       catalogStatus.textContent = "";
+
       catalogStatus.classList.add("hidden");
+
     }
+
   }
 
+
   bindQuoteButtons();
+
 }
 
+
+/* =========================
+   WHATSAPP
+   60% ASESOR / 40% ASESORA
+========================= */
+
 function shuffleArray(array) {
+
   const shuffled = [...array];
 
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const randomIndex = Math.floor(Math.random() * (i + 1));
+  for (
+    let i = shuffled.length - 1;
+    i > 0;
+    i--
+  ) {
 
-    [shuffled[i], shuffled[randomIndex]] = [
+    const randomIndex =
+      Math.floor(
+        Math.random() * (i + 1)
+      );
+
+    [
+      shuffled[i],
+      shuffled[randomIndex]
+    ] = [
       shuffled[randomIndex],
       shuffled[i]
     ];
+
   }
 
   return shuffled;
 }
 
+
 function createWhatsAppSequence() {
+
   const sequence = [
+
+    // 60% — Asesor
     WHATSAPP_NUMBERS[0].number,
     WHATSAPP_NUMBERS[0].number,
     WHATSAPP_NUMBERS[0].number,
@@ -658,59 +749,87 @@ function createWhatsAppSequence() {
     WHATSAPP_NUMBERS[0].number,
     WHATSAPP_NUMBERS[0].number,
 
+    // 40% — Asesora
     WHATSAPP_NUMBERS[1].number,
     WHATSAPP_NUMBERS[1].number,
     WHATSAPP_NUMBERS[1].number,
     WHATSAPP_NUMBERS[1].number
+
   ];
 
   return shuffleArray(sequence);
 }
 
+
 function getWhatsAppNumber() {
-  const sequenceKey = "nexusWhatsAppSequence";
-  const positionKey = "nexusWhatsAppPosition";
+
+  const sequenceKey =
+    "nexusWhatsAppSequence";
+
+  const positionKey =
+    "nexusWhatsAppPosition";
 
   let sequence;
 
   try {
+
     sequence = JSON.parse(
       localStorage.getItem(sequenceKey) || "null"
     );
+
   } catch (error) {
+
     sequence = null;
+
   }
+
 
   let position = Number(
     localStorage.getItem(positionKey) || 0
   );
+
 
   if (
     !Array.isArray(sequence) ||
     sequence.length !== 10 ||
     position >= 10
   ) {
-    sequence = createWhatsAppSequence();
+
+    sequence =
+      createWhatsAppSequence();
+
     position = 0;
 
     localStorage.setItem(
       sequenceKey,
       JSON.stringify(sequence)
     );
+
   }
 
-  const selectedNumber = sequence[position];
+
+  const selectedNumber =
+    sequence[position];
+
 
   localStorage.setItem(
     positionKey,
     String(position + 1)
   );
 
+
   return selectedNumber;
 }
 
+
+/* =========================
+   ABRIR WHATSAPP
+========================= */
+
 function openWhatsApp(itemName) {
-  const phoneNumber = getWhatsAppNumber();
+
+  const phoneNumber =
+    getWhatsAppNumber();
 
   const message =
     `Hola, Nexus. Estoy interesado en cotizar: ${itemName}. ¿Me pueden brindar información?`;
@@ -723,34 +842,68 @@ function openWhatsApp(itemName) {
     "_blank",
     "noopener,noreferrer"
   );
+
 }
+
+
+/* =========================
+   BOTONES COTIZAR
+========================= */
 
 function bindQuoteButtons() {
-  const buttons = document.querySelectorAll(".quote-button");
+
+  const buttons =
+    document.querySelectorAll(".quote-button");
 
   buttons.forEach(button => {
-    button.addEventListener("click", () => {
-      const itemName = button.dataset.item;
 
-      if (itemName) {
-        openWhatsApp(itemName);
+    button.addEventListener(
+      "click",
+      () => {
+
+        const itemName =
+          button.dataset.item;
+
+        if (itemName) {
+
+          openWhatsApp(itemName);
+
+        }
+
       }
-    });
+    );
+
   });
+
 }
 
+
+/* =========================
+   BUSCADOR
+========================= */
+
 function filterCatalog(searchTerm) {
-  const term = searchTerm
-    .trim()
-    .toLowerCase();
+
+  const term =
+    searchTerm
+      .trim()
+      .toLowerCase();
+
 
   if (!term) {
-    filteredCatalog = [...catalog];
+
+    filteredCatalog =
+      [...catalog];
+
     renderCatalog();
+
     return;
+
   }
 
+
   filteredCatalog = catalog
+
     .map(category => {
 
       const categoryMatches =
@@ -758,84 +911,239 @@ function filterCatalog(searchTerm) {
           .toLowerCase()
           .includes(term);
 
-      const filteredGroups = category.groups
-        .map(group => {
 
-          const groupMatches =
-            group.name
-              .toLowerCase()
-              .includes(term);
+      const filteredGroups =
+        category.groups
 
-          const filteredItems = group.items.filter(item =>
-            item.name
-              .toLowerCase()
-              .includes(term)
+          .map(group => {
+
+            const groupMatches =
+              group.name
+                .toLowerCase()
+                .includes(term);
+
+
+            const filteredItems =
+              group.items.filter(item =>
+                item.name
+                  .toLowerCase()
+                  .includes(term)
+              );
+
+
+            if (
+              groupMatches ||
+              categoryMatches
+            ) {
+
+              return {
+
+                ...group,
+
+                items: [
+                  ...group.items
+                ]
+
+              };
+
+            }
+
+
+            return {
+
+              ...group,
+
+              items: filteredItems
+
+            };
+
+          })
+
+          .filter(
+            group =>
+              group.items.length > 0
           );
 
-          if (
-            groupMatches ||
-            categoryMatches
-          ) {
-            return {
-              ...group,
-              items: [...group.items]
-            };
-          }
-
-          return {
-            ...group,
-            items: filteredItems
-          };
-        })
-        .filter(group => group.items.length > 0);
 
       if (
         categoryMatches ||
         filteredGroups.length > 0
       ) {
+
         return {
+
           ...category,
+
           groups: filteredGroups
+
         };
+
       }
+
 
       return null;
+
     })
+
     .filter(Boolean);
 
+
   renderCatalog(filteredCatalog);
+
 }
 
-document.addEventListener("DOMContentLoaded", () => {
 
-  renderCatalog();
+/* =========================
+   INICIALIZACIÓN
+========================= */
 
-  const searchInput =
-    document.getElementById("searchInput");
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
 
-  if (searchInput) {
-    searchInput.addEventListener(
-      "input",
-      event => {
-        filterCatalog(event.target.value);
-      }
-    );
+    /* -------------------------
+       RENDER INICIAL
+    ------------------------- */
+
+    renderCatalog();
+
+
+    /* -------------------------
+       BUSCADOR
+    ------------------------- */
+
+    const searchInput =
+      document.getElementById(
+        "searchInput"
+      );
+
+
+    if (searchInput) {
+
+      searchInput.addEventListener(
+        "input",
+        event => {
+
+          filterCatalog(
+            event.target.value
+          );
+
+        }
+      );
+
+    }
+
+
+    /* -------------------------
+       WHATSAPP FLOTANTE
+    ------------------------- */
+
+    const floatingWhatsapp =
+      document.getElementById(
+        "floatingWhatsapp"
+      );
+
+
+    if (floatingWhatsapp) {
+
+      floatingWhatsapp.addEventListener(
+        "click",
+        event => {
+
+          event.preventDefault();
+
+          openWhatsApp(
+            "información general sobre productos y servicios"
+          );
+
+        }
+      );
+
+    }
+
+
+    /* -------------------------
+       WHATSAPP HEADER
+    ------------------------- */
+
+    const headerWhatsapp =
+      document.getElementById(
+        "headerWhatsapp"
+      );
+
+
+    if (headerWhatsapp) {
+
+      headerWhatsapp.addEventListener(
+        "click",
+        event => {
+
+          event.preventDefault();
+
+          openWhatsApp(
+            "información general sobre productos y servicios"
+          );
+
+        }
+      );
+
+    }
+
+
+    /* -------------------------
+       WHATSAPP CTA
+    ------------------------- */
+
+    const ctaWhatsapp =
+      document.getElementById(
+        "ctaWhatsapp"
+      );
+
+
+    if (ctaWhatsapp) {
+
+      ctaWhatsapp.addEventListener(
+        "click",
+        event => {
+
+          event.preventDefault();
+
+          openWhatsApp(
+            "información general sobre productos y servicios"
+          );
+
+        }
+      );
+
+    }
+
+
+    /* -------------------------
+       WHATSAPP FOOTER
+    ------------------------- */
+
+    const footerWhatsapp =
+      document.getElementById(
+        "footerWhatsapp"
+      );
+
+
+    if (footerWhatsapp) {
+
+      footerWhatsapp.addEventListener(
+        "click",
+        event => {
+
+          event.preventDefault();
+
+          openWhatsApp(
+            "información general sobre productos y servicios"
+          );
+
+        }
+      );
+
+    }
+
   }
-
-  const floatingWhatsapp =
-    document.getElementById("floatingWhatsapp");
-
-  if (floatingWhatsapp) {
-    floatingWhatsapp.addEventListener(
-      "click",
-      event => {
-        event.preventDefault();
-
-        openWhatsApp(
-          "información general sobre productos y servicios"
-        );
-      }
-    );
-  }
-
-});
+);
