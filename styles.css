@@ -9,7 +9,7 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: #f8f9fa; /* Fondo general claro */
+  background-color: #f8f9fa;
   color: #1a1a1a;
   line-height: 1.5;
 }
@@ -87,13 +87,13 @@ body {
 }
 
 /* =========================================================
-   BANNER CON DEGRADADO Y OLA SVG (TRANSICIÓN A FONDO CLARO)
+   BANNER CON DEGRADADO Y OLA SVG
    ========================================================= */
 .info-banner {
   position: relative;
   background: linear-gradient(180deg, #0d0d0d 0%, #1f1d1d 100%);
   color: #ffffff;
-  padding: 3.5rem 1.5rem 6rem 1.5rem; /* Padding inferior amplio para albergar la curva */
+  padding: 4rem 1.5rem 6.5rem 1.5rem;
   text-align: center;
 }
 
@@ -104,24 +104,12 @@ body {
   z-index: 2;
 }
 
-.banner-badge {
-  display: inline-block;
-  background-color: rgba(0, 123, 255, 0.2);
-  color: #60a5fa;
-  padding: 0.3rem 0.85rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(0, 123, 255, 0.4);
-}
-
 .banner-container h1 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 800;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   color: #ffffff;
+  letter-spacing: -0.5px;
 }
 
 .banner-container p {
@@ -147,7 +135,7 @@ body {
   position: relative;
   display: block;
   width: 100%;
-  height: 60px; /* Ajusta el alto de la curva según tu preferencia */
+  height: 60px;
 }
 
 /* =========================================================
@@ -199,6 +187,8 @@ body {
 /* Tarjetas claras */
 .category-card, 
 .subcategory-card {
+  position: relative !important;
+  overflow: visible !important;
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
@@ -242,6 +232,81 @@ body {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+/* =========================================================
+   VISTA PREVIA EN HOVER (POPOVER FLOTANTE OCULTO POR DEFECTO)
+   ========================================================= */
+.category-preview-popover {
+  position: absolute;
+  bottom: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 90%;
+  background-color: #111827;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  z-index: 100;
+  border: 1px solid #374151;
+  text-align: left;
+}
+
+.category-preview-popover::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #111827 transparent transparent transparent;
+}
+
+.category-card:hover .category-preview-popover {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.popover-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #38bdf8;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid #1f2937;
+  padding-bottom: 0.25rem;
+}
+
+.popover-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.popover-item {
+  font-size: 0.85rem;
+  color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.popover-item::before {
+  content: "•";
+  color: #38bdf8;
+  font-weight: bold;
 }
 
 /* Botones */
