@@ -10,10 +10,10 @@
 
   <meta
     name="description"
-    content="Nexus Cali - Tecnología, computadores, gaming, periféricos, almacenamiento, impresoras, celulares y servicios técnicos."
+    content="Nexus Cali | Tecnología, computadores, gaming, periféricos, almacenamiento, impresoras, celulares y servicios técnicos."
   >
 
-  <title>Nexus Cali | Tecnología</title>
+  <title>Nexus | Tecnología</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,120 +28,105 @@
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-
-  <header class="site-header">
+  <!-- HEADER -->
+  <header class="site-header" id="inicio">
 
     <div class="container header-inner">
 
       <a
-        href="#inicio"
         class="brand"
-        aria-label="Nexus Cali"
+        href="#inicio"
+        aria-label="Nexus inicio"
+        id="brandHome"
       >
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmElgXb6F-1FWqLMwjW1ZTBxnz4Hy00DoAKXUufe6e7w&s=10"
-          alt="Nexus Cali"
+          alt="Nexus Tecnología"
         >
       </a>
 
-      <div class="header-search">
-
-        <span class="search-icon" aria-hidden="true">
-          ⌕
-        </span>
+      <label
+        class="header-search"
+        for="searchInput"
+      >
+        <span aria-hidden="true">⌕</span>
 
         <input
           id="searchInput"
           type="search"
-          placeholder="Buscar tecnología..."
+          placeholder="Buscar computador, mouse, SSD, impresora..."
           autocomplete="off"
         >
-
-      </div>
-
-      <button
-        class="header-whatsapp"
-        id="headerWhatsapp"
-        type="button"
-      >
-        WhatsApp
-      </button>
+      </label>
 
     </div>
 
   </header>
 
 
-  <!-- =========================
-       MAIN
-  ========================== -->
+  <main>
 
-  <main id="inicio">
+    <!-- BANNER SUPERIOR -->
+    <section class="info-banner">
 
-    <!-- HERO -->
+      <div class="container info-banner-grid">
 
-    <section class="hero">
+        <div class="banner-content">
 
-      <div class="container hero-grid">
-
-        <div class="hero-content">
-
-          <span class="eyebrow">
-            NEXUS CALI
+          <span class="banner-label">
+            NEXUS
           </span>
 
           <h1>
-            Tecnología para lo que necesitas.
+            Tecnología para lo que necesitas
           </h1>
 
           <p>
-            Explora nuestro catálogo de productos,
-            accesorios, gaming y servicios técnicos.
-            Selecciona una categoría para conocer todo
-            lo que tenemos disponible.
+            Encuentra productos tecnológicos, accesorios,
+            soluciones gaming y servicios técnicos.
           </p>
 
-          <div class="hero-actions">
+        </div>
+
+
+        <div class="banner-details">
+
+          <div class="banner-detail">
+
+            <span class="detail-label">
+              HORARIO
+            </span>
+
+            <strong>
+              Lunes a sábado
+            </strong>
+
+            <span>
+              9:00 a. m. — 6:00 p. m.
+            </span>
+
+          </div>
+
+
+          <div class="banner-detail">
+
+            <span class="detail-label">
+              UBICACIÓN
+            </span>
+
+            <strong>
+              Nexus Cali
+            </strong>
 
             <a
-              href="#catalogo"
-              class="primary-button"
+              href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x8e30a7f29313e393:0xdeb926ad2f00177e?entry=s&sa=X&ved=2ahUKEwiGi-HJqP2WAxX_p7AFHVxxMjAQ4kB6BAgcEAA&hl=es"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="banner-location"
             >
-              Explorar catálogo
+              Ver ubicación
             </a>
 
-            <button
-              type="button"
-              class="secondary-button"
-              id="heroWhatsapp"
-            >
-              Hablar con un asesor
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <div class="hero-visual">
-
-          <div class="hero-logo-card">
-
-            <div class="hero-logo-glow"></div>
-
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmElgXb6F-1FWqLMwjW1ZTBxnz4Hy00DoAKXUufe6e7w&s=10"
-              alt="Nexus Cali Tecnología"
-            >
-
-            <div class="hero-logo-text">
-              <strong>NEXUS</strong>
-              <span>Soluciones Tecnológicas</span>
-            </div>
-
           </div>
 
         </div>
@@ -151,77 +136,7 @@
     </section>
 
 
-    <!-- INFORMACIÓN -->
-
-    <section class="info-strip">
-
-      <div class="container info-grid">
-
-        <div class="info-item">
-
-          <span class="info-icon">
-            01
-          </span>
-
-          <div>
-            <strong>
-              Atención personalizada
-            </strong>
-
-            <p>
-              Te ayudamos a encontrar lo que necesitas.
-            </p>
-          </div>
-
-        </div>
-
-
-        <div class="info-item">
-
-          <span class="info-icon">
-            02
-          </span>
-
-          <div>
-            <strong>
-              Cotizaciones por WhatsApp
-            </strong>
-
-            <p>
-              Solicita información directamente con un asesor.
-            </p>
-          </div>
-
-        </div>
-
-
-        <div class="info-item">
-
-          <span class="info-icon">
-            03
-          </span>
-
-          <div>
-            <strong>
-              Tecnología y soporte
-            </strong>
-
-            <p>
-              Productos y servicios para tus necesidades.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CATÁLOGO NIVEL 1
-    ========================== -->
-
+    <!-- CATÁLOGO -->
     <section
       class="catalog-section"
       id="catalogo"
@@ -229,7 +144,7 @@
 
       <div class="container">
 
-        <div class="section-heading">
+        <div class="catalog-topbar">
 
           <div>
 
@@ -237,79 +152,32 @@
               CATÁLOGO
             </span>
 
-            <h2>
+            <h2 id="catalogTitle">
               Encuentra lo que necesitas
             </h2>
-
-            <p>
-              Selecciona una categoría para explorar sus productos.
-            </p>
 
           </div>
 
           <span
-            id="resultCount"
             class="result-count"
+            id="resultCount"
           >
-            9 categorías
+            10 categorías
           </span>
 
         </div>
 
 
         <div
-          id="catalogStatus"
           class="catalog-status hidden"
+          id="catalogStatus"
         ></div>
 
 
         <div
           id="catalog"
-          class="category-grid"
+          class="catalog-list"
         ></div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CTA
-    ========================== -->
-
-    <section class="cta-section">
-
-      <div class="container">
-
-        <div class="cta-card">
-
-          <div>
-
-            <span class="eyebrow">
-              NEXUS CALI
-            </span>
-
-            <h2>
-              ¿No sabes exactamente qué necesitas?
-            </h2>
-
-            <p>
-              Cuéntanos qué estás buscando y uno de
-              nuestros asesores te ayudará a encontrar
-              una opción adecuada.
-            </p>
-
-          </div>
-
-          <button
-            type="button"
-            class="primary-button"
-            id="ctaWhatsapp"
-          >
-            Consultar por WhatsApp
-          </button>
-
-        </div>
 
       </div>
 
@@ -318,64 +186,95 @@
   </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
+  <!-- FOOTER -->
   <footer class="site-footer">
 
     <div class="container footer-grid">
 
-      <div class="footer-brand">
+      <!-- NEXUS -->
+      <div class="footer-column footer-brand-column">
 
         <img
+          class="footer-logo"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmElgXb6F-1FWqLMwjW1ZTBxnz4Hy00DoAKXUufe6e7w&s=10"
-          alt="Nexus Cali"
+          alt="Nexus"
         >
 
         <p>
-          Tecnología, accesorios, gaming
-          y servicios técnicos.
+          Tecnología, accesorios, gaming y servicios técnicos
+          para diferentes necesidades.
         </p>
 
       </div>
 
 
+      <!-- HORARIO -->
       <div class="footer-column">
 
-        <span>
-          ATENCIÓN
+        <span class="footer-title">
+          HORARIO
         </span>
 
-        <p>
+        <strong>
           Lunes a sábado
-        </p>
+        </strong>
 
-        <p>
+        <span>
           9:00 a. m. — 6:00 p. m.
-        </p>
+        </span>
 
       </div>
 
 
+      <!-- CONTACTO -->
       <div class="footer-column">
 
-        <span>
-          COTIZACIONES
+        <span class="footer-title">
+          CONTACTO
         </span>
 
-        <p>
-          Solicita información directamente
-          con nuestros asesores.
-        </p>
+        <a
+          href="tel:+573228182311"
+        >
+          +57 322 818 2311
+        </a>
+
+        <a
+          href="tel:+573117161043"
+        >
+          +57 311 716 1043
+        </a>
 
         <button
+          class="footer-whatsapp"
           type="button"
           id="footerWhatsapp"
-          class="footer-link-button"
         >
           Contactar por WhatsApp
         </button>
+
+      </div>
+
+
+      <!-- UBICACIÓN -->
+      <div class="footer-column">
+
+        <span class="footer-title">
+          UBICACIÓN
+        </span>
+
+        <strong>
+          Nexus Cali
+        </strong>
+
+        <a
+          class="footer-location"
+          href="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x8e30a7f29313e393:0xdeb926ad2f00177e?entry=s&sa=X&ved=2ahUKEwiGi-HJqP2WAxX_p7AFHVxxMjAQ4kB6BAgcEAA&hl=es"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver ubicación en Google Maps
+        </a>
 
       </div>
 
@@ -395,91 +294,6 @@
     </div>
 
   </footer>
-
-
-  <!-- =========================
-       MODAL / NIVEL 2
-  ========================== -->
-
-  <div
-    class="catalog-modal"
-    id="catalogModal"
-    aria-hidden="true"
-  >
-
-    <div class="catalog-modal-inner">
-
-      <div class="modal-topbar">
-
-        <button
-          type="button"
-          class="back-button"
-          id="closeModal"
-        >
-          <span>←</span>
-          Volver al catálogo
-        </button>
-
-        <button
-          type="button"
-          class="modal-close"
-          id="modalCloseIcon"
-          aria-label="Cerrar"
-        >
-          ×
-        </button>
-
-      </div>
-
-
-      <div class="modal-header">
-
-        <span
-          class="eyebrow"
-          id="modalEyebrow"
-        >
-          NEXUS CALI
-        </span>
-
-        <h2 id="modalTitle">
-          Computadores
-        </h2>
-
-        <p id="modalDescription">
-          Explora las opciones disponibles.
-        </p>
-
-      </div>
-
-
-      <div
-        id="modalContent"
-        class="modal-content-grid"
-      ></div>
-
-    </div>
-
-  </div>
-
-
-  <div
-    class="modal-backdrop"
-    id="modalBackdrop"
-  ></div>
-
-
-  <!-- =========================
-       WHATSAPP FLOTANTE
-  ========================== -->
-
-  <button
-    class="whatsapp-float"
-    id="floatingWhatsapp"
-    type="button"
-    aria-label="Contactar Nexus por WhatsApp"
-  >
-    <span>WA</span>
-  </button>
 
 
   <script src="script.js"></script>
