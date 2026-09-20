@@ -1,46 +1,51 @@
 /* =========================================================
-   NEXUS CALI
-   CATÁLOGO DE DOS NIVELES
-========================================================= */
+   NEXUS - CATÁLOGO
+   ========================================================= */
 
 
 /* =========================================================
    WHATSAPP
+   60% ASESOR 1
+   40% ASESORA 2
 ========================================================= */
 
 const WHATSAPP_NUMBERS = [
-
   {
     name: "Asesor",
     number: "573228182311"
   },
-
   {
     name: "Asesora Nexus",
     number: "573117161043"
   }
-
 ];
 
 
 /* =========================================================
-   CATÁLOGO ORIGINAL
+   GOOGLE MAPS
+========================================================= */
+
+const GOOGLE_MAPS_URL =
+  "https://maps.google.com/maps/place//data=!4m2!3m1!1s0x8e30a7f29313e393:0xdeb926ad2f00177e?entry=s&sa=X&ved=2ahUKEwiGi-HJqP2WAxX_p7AFHVxxMjAQ4kB6BAgcEAA&hl=es";
+
+
+/* =========================================================
+   CATÁLOGO
 ========================================================= */
 
 const catalog = [
 
   /* =======================================================
-     COMPUTADORES
-  ======================================================== */
+     1. COMPUTADORES
+  ======================================================= */
 
   {
     name: "Computadores",
 
     description:
-      "Computadores, componentes, monitores y soluciones para diferentes necesidades.",
+      "Portátiles, torres, All in One y componentes para computadores.",
 
-    cover:
-      "https://refurbi.com.co/cdn/shop/files/nPeqtNAN7v.jpg?v=1760546728",
+    flat: true,
 
     groups: [
 
@@ -50,7 +55,7 @@ const catalog = [
         items: [
 
           {
-            name: "Portátil",
+            name: "Portátiles",
             image:
               "https://refurbi.com.co/cdn/shop/files/nPeqtNAN7v.jpg?v=1760546728"
           },
@@ -65,18 +70,10 @@ const catalog = [
             name: "All in One",
             image:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbkPt9FQcNfcF363V3TvjX8PIYMlYFdgCOjdnGdGIUZA&s=10"
-          },
-
-          {
-            name: "Gaming",
-            image:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLi1UqGDwIbmPSEtPn6HzNfC_Z3ICi0V2Xi6QT-dbq4Q&s=10"
           }
 
         ]
-
       },
-
 
       {
         name: "Componentes",
@@ -90,9 +87,9 @@ const catalog = [
           },
 
           {
-            name: "Tarjetas madre",
+            name: "Board",
             image:
-              "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEakxJ-gKEsCVDCidnbsvId8C92v6p12z4yRxO4NwtTiLnGWuwPvo_LnXhnEloifnXMpAGnLIYb2PFNvt0GAEh_yP0wT4A5m1BPzQAOH5w9g_C6_jJUXzYv5jusXqh9gmJa5_vm9qEA/s640/Tarjeta+Madre.png"
+              "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEakxJ-gKEsCVDCidynb0svId8C92v6p12z4yRxO4NwtTiLnGWuwPvo_LnXhnEloifnXMpAGnLIYb2PFNvt0GAEh_yP0wT4A5m1BPzQAOH5w9g_C6_jJUXzYv5jusXqh9gmJa5_vm9qEA/s640/Tarjeta+Madre.png"
           },
 
           {
@@ -120,9 +117,25 @@ const catalog = [
           }
 
         ]
+      }
 
-      },
+    ]
+  },
 
+
+  /* =======================================================
+     2. MONITORES Y TV
+  ======================================================= */
+
+  {
+    name: "Monitores y TV",
+
+    description:
+      "Monitores, monitores gaming y televisores.",
+
+    flat: true,
+
+    groups: [
 
       {
         name: "Monitores y TV",
@@ -144,21 +157,19 @@ const catalog = [
           {
             name: "TV",
             image:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU_dPbiIzR6yf6pwZpfFQhg8jhDH-A_J3X1I-uy_Wv2Q&s=10"
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU_dPbiIzR6yf6pwZpfFQhg8jhDH-A_JX3I-uy_Wv2Q&s=10"
           }
 
         ]
-
       }
 
     ]
-
   },
 
 
   /* =======================================================
-     GAMING
-  ======================================================== */
+     3. GAMING
+  ======================================================= */
 
   {
     name: "Gaming",
@@ -166,8 +177,7 @@ const catalog = [
     description:
       "Consolas, controles y accesorios para gaming.",
 
-    cover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEKGIFAzUWZ6tolR0uo8O7pXcvlr1-blLNv4yna8p8mg&s=10",
+    flat: true,
 
     groups: [
 
@@ -195,26 +205,21 @@ const catalog = [
           }
 
         ]
-
       }
 
     ]
-
   },
 
 
   /* =======================================================
-     PERIFÉRICOS
-  ======================================================== */
+     4. PERIFÉRICOS
+  ======================================================= */
 
   {
     name: "Periféricos",
 
     description:
       "Teclados, mouse, combos, audio, cámaras y accesorios.",
-
-    cover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBgoiMfort3NKseaja6N5UK70hHCJFW_VIsBkUJCLN0Q&s=10",
 
     groups: [
 
@@ -242,7 +247,6 @@ const catalog = [
           }
 
         ]
-
       },
 
 
@@ -270,7 +274,6 @@ const catalog = [
           }
 
         ]
-
       },
 
 
@@ -298,7 +301,6 @@ const catalog = [
           }
 
         ]
-
       },
 
 
@@ -326,7 +328,6 @@ const catalog = [
           }
 
         ]
-
       },
 
 
@@ -354,7 +355,6 @@ const catalog = [
           }
 
         ]
-
       },
 
 
@@ -376,7 +376,6 @@ const catalog = [
           }
 
         ]
-
       },
 
 
@@ -388,7 +387,7 @@ const catalog = [
           {
             name: "Cables USB",
             image:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpi-m3-tUKs1nkpcteyzTCszRZT9xzF2AtwzUnrN-PmA&s=10"
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpi-m3tUKs1nkpcteyzTCszRZT9xzF2AtwzUnrN-PmA&s=10"
           },
 
           {
@@ -422,7 +421,6 @@ const catalog = [
           }
 
         ]
-
       },
 
 
@@ -456,7 +454,6 @@ const catalog = [
           }
 
         ]
-
       },
 
 
@@ -478,7 +475,6 @@ const catalog = [
           }
 
         ]
-
       },
 
 
@@ -500,7 +496,6 @@ const catalog = [
           }
 
         ]
-
       },
 
 
@@ -522,7 +517,6 @@ const catalog = [
           }
 
         ]
-
       },
 
 
@@ -544,31 +538,28 @@ const catalog = [
           }
 
         ]
-
       }
 
     ]
-
   },
 
 
   /* =======================================================
-     ALMACENAMIENTO
-  ======================================================== */
+     5. ALMACENAMIENTO
+  ======================================================= */
 
   {
     name: "Almacenamiento",
 
     description:
-      "Memorias, discos y soluciones de almacenamiento.",
+      "Memorias, RAM, discos y tarjetas de almacenamiento.",
 
-    cover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIlID-0UCkmEZEx4IQYSB4l720vh5qlZgCkMRtkah_nA&s=10",
+    flat: true,
 
     groups: [
 
       {
-        name: "Memorias y Almacenamiento",
+        name: "Almacenamiento",
 
         items: [
 
@@ -579,47 +570,51 @@ const catalog = [
           },
 
           {
-            name: "Memoria RAM",
+            name: "RAM",
             image:
               "https://cdnx.jumpseller.com/tienda-gamer-medellin/image/47773192/resize/300/300?1713402658"
           },
 
           {
-            name: "Discos HDD",
+            name: "HDD",
             image:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkvaPfRSmQwtD5vtNYpG3ifpA7GZ3kDmQQ3mZxTNc5iQ&s=10"
           },
 
           {
-            name: "Discos SSD",
+            name: "SSD",
             image:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDMP6n3awyzmgrqdQ1eu7ynxckwpn92NLZ4KJ-kFJSew&s=10"
           },
 
           {
-            name: "Tarjetas MicroSD",
+            name: "SSD M.2",
+            image:
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDMP6n3awyzmgrqdQ1eu7ynxckwpn92NLZ4KJ-kFJSew&s=10"
+          },
+
+          {
+            name: "MicroSD",
             image:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcMkeFdwyH4dUIZsFeLAcuRBJbXrZBMxWDg5ij00ouyg&s=10"
           },
 
           {
-            name: "Tarjetas SD",
+            name: "SD",
             image:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxOIo9RkOxtQmPp9qQxoofwmDaVRzql1TuN299WzAtBA&s=10"
           }
 
         ]
-
       }
 
     ]
-
   },
 
 
   /* =======================================================
-     IMPRESORAS
-  ======================================================== */
+     6. IMPRESORAS
+  ======================================================= */
 
   {
     name: "Impresoras",
@@ -627,13 +622,12 @@ const catalog = [
     description:
       "Impresoras, multifuncionales y suministros.",
 
-    cover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4_Iy-24jYfVPpU0Mi_93Jht59z5BeTgYLZxJisLc6pw&s=10",
+    flat: true,
 
     groups: [
 
       {
-        name: "Impresoras y Suministros",
+        name: "Impresoras",
 
         items: [
 
@@ -692,17 +686,15 @@ const catalog = [
           }
 
         ]
-
       }
 
     ]
-
   },
 
 
   /* =======================================================
-     CELULARES
-  ======================================================== */
+     7. CELULARES
+  ======================================================= */
 
   {
     name: "Celulares",
@@ -710,13 +702,12 @@ const catalog = [
     description:
       "Celulares y accesorios para dispositivos móviles.",
 
-    cover:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
+    flat: true,
 
     groups: [
 
       {
-        name: "Celulares y Accesorios",
+        name: "Celulares",
 
         items: [
 
@@ -739,7 +730,7 @@ const catalog = [
           },
 
           {
-            name: "Fundas / Forros para celular",
+            name: "Fundas / Forros",
             image:
               "https://i.ebayimg.com/images/g/FaYAAOSwX-pkRsF5/s-l1200.webp"
           },
@@ -751,17 +742,15 @@ const catalog = [
           }
 
         ]
-
       }
 
     ]
-
   },
 
 
   /* =======================================================
-     SILLAS
-  ======================================================== */
+     8. SILLAS
+  ======================================================= */
 
   {
     name: "Sillas",
@@ -769,8 +758,7 @@ const catalog = [
     description:
       "Sillas gaming y soluciones para espacios de trabajo.",
 
-    cover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJY2CwTpFDZxEIienFiA_CBLBtr87ZgFHOoZssYlqjOw&s=10",
+    flat: true,
 
     groups: [
 
@@ -792,17 +780,15 @@ const catalog = [
           }
 
         ]
-
       }
 
     ]
-
   },
 
 
   /* =======================================================
-     ENERGÍA
-  ======================================================== */
+     9. ENERGÍA
+  ======================================================= */
 
   {
     name: "Energía",
@@ -810,8 +796,7 @@ const catalog = [
     description:
       "Protección eléctrica, UPS y reguladores.",
 
-    cover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8NuJkjD66X3YLf2LHdT0mTDFDTXBjlLE92LLyfh4zzA&s=10",
+    flat: true,
 
     groups: [
 
@@ -833,17 +818,15 @@ const catalog = [
           }
 
         ]
-
       }
 
     ]
-
   },
 
 
   /* =======================================================
-     SERVICIOS TÉCNICOS
-  ======================================================== */
+     10. SERVICIOS TÉCNICOS
+  ======================================================= */
 
   {
     name: "Servicios Técnicos",
@@ -851,8 +834,7 @@ const catalog = [
     description:
       "Mantenimiento, reparación e instalación de programas.",
 
-    cover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRv1NbZPj78y229SADhRen6c4pUgTxyzhBW9Gvr9wz_Q&s=10",
+    flat: true,
 
     groups: [
 
@@ -880,11 +862,9 @@ const catalog = [
           }
 
         ]
-
       }
 
     ]
-
   }
 
 ];
@@ -897,7 +877,6 @@ const catalog = [
 function escapeHtml(value) {
 
   return String(value)
-
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -914,228 +893,161 @@ function escapeHtml(value) {
 const catalogElement =
   document.getElementById("catalog");
 
-const searchInput =
-  document.getElementById("searchInput");
-
 const resultCount =
   document.getElementById("resultCount");
 
 const catalogStatus =
   document.getElementById("catalogStatus");
 
-let catalogModal =
-  document.getElementById("catalogModal");
+const catalogTitle =
+  document.getElementById("catalogTitle");
 
-let modalBackdrop =
-  document.getElementById("modalBackdrop");
+const searchInput =
+  document.getElementById("searchInput");
 
-let closeModal =
-  document.getElementById("closeModal");
+const brandHome =
+  document.getElementById("brandHome");
 
-let modalCloseIcon =
-  document.getElementById("modalCloseIcon");
-
-let modalTitle =
-  document.getElementById("modalTitle");
-
-let modalDescription =
-  document.getElementById("modalDescription");
-
-let modalContent =
-  document.getElementById("modalContent");
+const footerWhatsapp =
+  document.getElementById("footerWhatsapp");
 
 
 /* =========================================================
-   CREAR MODAL SI NO EXISTE
+   ESTADO
 ========================================================= */
 
-function ensureCatalogModal() {
-
-  if (
-    catalogModal &&
-    modalBackdrop &&
-    modalTitle &&
-    modalDescription &&
-    modalContent
-  ) {
-
-    return;
-
-  }
+let currentCategory = null;
+let currentGroup = null;
 
 
-  if (!modalBackdrop) {
+/* =========================================================
+   CONTADOR
+========================================================= */
 
-    modalBackdrop =
-      document.createElement("div");
+function getTotalItems() {
 
-    modalBackdrop.id =
-      "modalBackdrop";
+  return catalog.reduce(
+    (total, category) => {
 
-    modalBackdrop.className =
-      "modal-backdrop";
+      return total +
+        category.groups.reduce(
+          (groupTotal, group) =>
+            groupTotal + group.items.length,
+          0
+        );
 
-    document.body.appendChild(
-      modalBackdrop
-    );
-
-  }
-
-
-  if (!catalogModal) {
-
-    catalogModal =
-      document.createElement("div");
-
-    catalogModal.id =
-      "catalogModal";
-
-    catalogModal.className =
-      "catalog-modal";
-
-    catalogModal.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
-    catalogModal.setAttribute(
-      "role",
-      "dialog"
-    );
-
-    catalogModal.setAttribute(
-      "aria-modal",
-      "true"
-    );
-
-
-    catalogModal.innerHTML = `
-
-      <div class="catalog-modal-content catalog-modal-inner">
-
-        <div class="catalog-modal-header">
-
-          <div>
-
-            <span class="eyebrow">
-              NEXUS
-            </span>
-
-            <h2
-              class="catalog-modal-title"
-              id="modalTitle"
-            ></h2>
-
-            <p
-              class="catalog-modal-description"
-              id="modalDescription"
-            ></p>
-
-          </div>
-
-
-          <button
-            type="button"
-            class="catalog-modal-close"
-            id="modalCloseIcon"
-            aria-label="Cerrar catálogo"
-          >
-            ×
-          </button>
-
-        </div>
-
-
-        <div
-          class="catalog-modal-body modal-content-grid"
-          id="modalContent"
-        ></div>
-
-
-        <div class="catalog-modal-footer">
-
-          <button
-            type="button"
-            class="secondary-button"
-            id="closeModal"
-          >
-            Volver al catálogo
-          </button>
-
-        </div>
-
-      </div>
-
-    `;
-
-
-    document.body.appendChild(
-      catalogModal
-    );
-
-  }
-
-
-  modalTitle =
-    document.getElementById(
-      "modalTitle"
-    );
-
-  modalDescription =
-    document.getElementById(
-      "modalDescription"
-    );
-
-  modalContent =
-    document.getElementById(
-      "modalContent"
-    );
-
-  closeModal =
-    document.getElementById(
-      "closeModal"
-    );
-
-  modalCloseIcon =
-    document.getElementById(
-      "modalCloseIcon"
-    );
+    },
+    0
+  );
 
 }
 
 
 /* =========================================================
-   WHATSAPP 60 / 40
+   WHATSAPP 60/40
 ========================================================= */
+
+function createWhatsAppSequence() {
+
+  const sequence = [
+    WHATSAPP_NUMBERS[0].number,
+    WHATSAPP_NUMBERS[0].number,
+    WHATSAPP_NUMBERS[0].number,
+    WHATSAPP_NUMBERS[0].number,
+    WHATSAPP_NUMBERS[0].number,
+    WHATSAPP_NUMBERS[0].number,
+
+    WHATSAPP_NUMBERS[1].number,
+    WHATSAPP_NUMBERS[1].number,
+    WHATSAPP_NUMBERS[1].number,
+    WHATSAPP_NUMBERS[1].number
+  ];
+
+  return sequence.sort(
+    () => Math.random() - 0.5
+  );
+
+}
+
 
 function getWhatsAppNumber() {
 
-  return Math.random() < 0.6
-    ? WHATSAPP_NUMBERS[0].number
-    : WHATSAPP_NUMBERS[1].number;
+  const sequenceKey =
+    "nexusWhatsAppSequence";
+
+  const positionKey =
+    "nexusWhatsAppPosition";
+
+  let sequence;
+
+  try {
+
+    sequence = JSON.parse(
+      localStorage.getItem(sequenceKey) || "null"
+    );
+
+  } catch {
+
+    sequence = null;
+
+  }
+
+
+  let position =
+    Number(
+      localStorage.getItem(positionKey) || 0
+    );
+
+
+  if (
+    !Array.isArray(sequence) ||
+    sequence.length !== 10 ||
+    position >= 10
+  ) {
+
+    sequence = createWhatsAppSequence();
+
+    position = 0;
+
+    localStorage.setItem(
+      sequenceKey,
+      JSON.stringify(sequence)
+    );
+
+  }
+
+
+  const selectedNumber =
+    sequence[position];
+
+
+  localStorage.setItem(
+    positionKey,
+    String(position + 1)
+  );
+
+
+  return selectedNumber;
 
 }
 
 
-function openWhatsApp(
-  subject =
-    "información general sobre productos y servicios"
-) {
+function openWhatsApp(itemName = "información general sobre productos y servicios") {
 
-  const phone =
+  const phoneNumber =
     getWhatsAppNumber();
 
 
   const message =
-    `Hola, Nexus. Estoy interesado en ${subject}. ¿Me pueden brindar información y cotización?`;
+    `Hola, Nexus. Estoy interesado en ${itemName}. ¿Me pueden brindar información?`;
 
 
-  const url =
-    `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl =
+    `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
 
   window.open(
-    url,
+    whatsappUrl,
     "_blank",
     "noopener,noreferrer"
   );
@@ -1144,406 +1056,322 @@ function openWhatsApp(
 
 
 /* =========================================================
-   RENDER NIVEL 1
+   CARD DE COTIZACIÓN
 ========================================================= */
 
-function renderCategories(
-  categories = catalog
+function createItemCard(
+  item,
+  categoryName,
+  groupName
 ) {
 
-  if (!catalogElement) {
+  return `
+    <article class="subcategory-card">
 
-    console.error(
-      "Nexus: no se encontró #catalog en el HTML."
-    );
+      <div class="subcategory-image-wrap">
 
-    return;
+        <img
+          src="${escapeHtml(item.image)}"
+          alt="${escapeHtml(item.name)}"
+          loading="lazy"
+          onerror="this.style.display='none';"
+        >
 
-  }
+      </div>
 
 
-  catalogElement.innerHTML =
-    "";
+      <div class="subcategory-content">
 
+        <h4>
+          ${escapeHtml(item.name)}
+        </h4>
 
-  categories.forEach(
-    category => {
+        <button
+          class="quote-button"
+          type="button"
+          data-item="${escapeHtml(item.name)}"
+          data-category="${escapeHtml(categoryName)}"
+          data-group="${escapeHtml(groupName)}"
+        >
+          Cotizar
+        </button>
 
-      const card =
-        document.createElement(
-          "article"
-        );
+      </div>
 
-
-      card.className =
-        "category-card";
-
-
-      card.setAttribute(
-        "aria-label",
-        `Abrir categoría ${category.name}`
-      );
-
-
-      /*
-       * IMPORTANTE:
-       * Aquí se eliminaron:
-       * - Nexus Cali
-       * - la flecha →
-       *
-       * Y se reemplazaron por:
-       * - Conocer productos
-       *
-       * También se cambiaron las clases para
-       * que coincidan con el CSS nuevo.
-       */
-
-      card.innerHTML = `
-
-        <div class="category-image">
-
-          <img
-            src="${escapeHtml(category.cover)}"
-            alt="${escapeHtml(category.name)}"
-            loading="lazy"
-            decoding="async"
-          >
-
-        </div>
-
-
-        <div class="category-info">
-
-          <h3>
-            ${escapeHtml(category.name)}
-          </h3>
-
-
-          <p>
-            ${escapeHtml(category.description)}
-          </p>
-
-
-          <button
-            type="button"
-            class="explore-button"
-            aria-label="Conocer productos de ${escapeHtml(category.name)}"
-          >
-            Conocer productos
-          </button>
-
-        </div>
-
-      `;
-
-
-      const exploreButton =
-        card.querySelector(
-          ".explore-button"
-        );
-
-
-      /*
-       * Clic en toda la tarjeta
-       */
-
-      card.addEventListener(
-        "click",
-        event => {
-
-          if (
-            event.target.closest(
-              "button"
-            )
-          ) {
-
-            return;
-
-          }
-
-
-          openCategory(
-            category
-          );
-
-        }
-      );
-
-
-      /*
-       * Clic específico en
-       * "Conocer productos"
-       */
-
-      if (exploreButton) {
-
-        exploreButton.addEventListener(
-          "click",
-          event => {
-
-            event.preventDefault();
-
-            event.stopPropagation();
-
-            openCategory(
-              category
-            );
-
-          }
-        );
-
-      }
-
-
-      catalogElement.appendChild(
-        card
-      );
-
-    }
-  );
-
-
-  /*
-   * Contador
-   */
-
-  if (resultCount) {
-
-    resultCount.textContent =
-      `${categories.length} ${
-        categories.length === 1
-          ? "categoría"
-          : "categorías"
-      }`;
-
-  }
-
-
-  /*
-   * Estado de búsqueda
-   */
-
-  if (catalogStatus) {
-
-    if (
-      categories.length === 0
-    ) {
-
-      catalogStatus.textContent =
-        "No encontramos resultados para tu búsqueda.";
-
-      catalogStatus.classList.remove(
-        "hidden"
-      );
-
-    } else {
-
-      catalogStatus.classList.add(
-        "hidden"
-      );
-
-    }
-
-  }
+    </article>
+  `;
 
 }
 
 
 /* =========================================================
-   ABRIR NIVEL 2
+   CATEGORÍAS PRINCIPALES
 ========================================================= */
 
-function openCategory(
-  category
-) {
+function renderCategories() {
 
-  ensureCatalogModal();
+  currentCategory = null;
+  currentGroup = null;
 
-
-  if (
-    !catalogModal ||
-    !modalTitle ||
-    !modalDescription ||
-    !modalContent
-  ) {
-
-    console.error(
-      "Nexus: no se pudo preparar el segundo nivel del catálogo."
-    );
-
+  if (!catalogElement) {
     return;
-
   }
 
 
-  modalTitle.textContent =
+  catalogTitle.textContent =
+    "Encuentra lo que necesitas";
+
+
+  resultCount.textContent =
+    `${catalog.length} categorías`;
+
+
+  catalogStatus.classList.add("hidden");
+
+
+  const html = catalog.map(
+    (category, index) => {
+
+      const firstItem =
+        category.groups[0]?.items[0];
+
+
+      return `
+        <article
+          class="category-card"
+        >
+
+          <div class="category-image">
+
+            ${
+              firstItem
+                ? `
+                  <img
+                    src="${escapeHtml(firstItem.image)}"
+                    alt="${escapeHtml(category.name)}"
+                    loading="${index < 3 ? "eager" : "lazy"}"
+                    onerror="this.style.display='none';"
+                  >
+                `
+                : ""
+            }
+
+          </div>
+
+
+          <div class="category-info">
+
+            <h3>
+              ${escapeHtml(category.name)}
+            </h3>
+
+            <p>
+              ${escapeHtml(category.description)}
+            </p>
+
+
+            <button
+              type="button"
+              class="explore-button"
+              data-category="${escapeHtml(category.name)}"
+            >
+              Conocer productos
+            </button>
+
+          </div>
+
+        </article>
+      `;
+
+    }
+  ).join("");
+
+
+  catalogElement.innerHTML = `
+    <div class="category-grid">
+      ${html}
+    </div>
+  `;
+
+
+  bindCategoryButtons();
+
+}
+
+
+/* =========================================================
+   VISTA DE CATEGORÍA
+========================================================= */
+
+function renderCategory(categoryName) {
+
+  const category =
+    catalog.find(
+      item => item.name === categoryName
+    );
+
+
+  if (!category) {
+    return;
+  }
+
+
+  currentCategory = categoryName;
+  currentGroup = null;
+
+
+  window.scrollTo({
+    top: document.querySelector(".catalog-section").offsetTop - 20,
+    behavior: "smooth"
+  });
+
+
+  catalogTitle.textContent =
     category.name;
 
 
-  modalDescription.textContent =
-    category.description;
+  const totalItems =
+    category.groups.reduce(
+      (total, group) =>
+        total + group.items.length,
+      0
+    );
 
 
-  modalContent.innerHTML =
-    "";
+  resultCount.textContent =
+    `${totalItems} opciones`;
+
+
+  catalogStatus.classList.add("hidden");
+
+
+  let groupsHTML = "";
 
 
   category.groups.forEach(
     group => {
 
-      const groupElement =
-        document.createElement(
-          "section"
-        );
+      groupsHTML += `
 
+        <section class="catalog-group">
 
-      groupElement.className =
-        "catalog-group";
+          ${
+            category.groups.length > 1
+              ? `
+                <div class="catalog-group-header">
 
-
-      groupElement.innerHTML = `
-
-        <div class="catalog-group-header">
-
-          <h3>
-            ${escapeHtml(group.name)}
-          </h3>
-
-        </div>
-
-
-        <div class="subcategory-grid">
-
-          ${group.items.map(
-            item => `
-
-              <article class="subcategory-card">
-
-                <div class="subcategory-image">
-
-                  <img
-                    src="${escapeHtml(item.image)}"
-                    alt="${escapeHtml(item.name)}"
-                    loading="lazy"
-                    decoding="async"
-                    onerror="
-                      this.style.opacity='0.15';
-                    "
-                  >
+                  <h3>
+                    ${escapeHtml(group.name)}
+                  </h3>
 
                 </div>
+              `
+              : ""
+          }
 
 
-                <div class="subcategory-info">
+          <div class="subcategory-grid">
 
-                  <h4>
-                    ${escapeHtml(item.name)}
-                  </h4>
+            ${group.items.map(
+              item =>
+                createItemCard(
+                  item,
+                  category.name,
+                  group.name
+                )
+            ).join("")}
 
+          </div>
 
-                  <button
-                    type="button"
-                    class="quote-button"
-                    data-item="${escapeHtml(item.name)}"
-                    data-category="${escapeHtml(category.name)}"
-                    data-group="${escapeHtml(group.name)}"
-                  >
-                    Cotizar
-                  </button>
-
-                </div>
-
-              </article>
-
-            `
-          ).join("")}
-
-        </div>
+        </section>
 
       `;
-
-
-      modalContent.appendChild(
-        groupElement
-      );
 
     }
   );
 
 
-  /*
-   * Mostrar modal
-   */
+  catalogElement.innerHTML = `
 
-  catalogModal.classList.add(
-    "active"
-  );
+    <div class="category-view">
 
+      <div class="category-detail-heading">
 
-  if (modalBackdrop) {
-
-    modalBackdrop.classList.add(
-      "active"
-    );
-
-  }
+        <button
+          type="button"
+          class="back-button"
+          id="backToCatalog"
+        >
+          ← Volver al catálogo
+        </button>
 
 
-  catalogModal.setAttribute(
-    "aria-hidden",
-    "false"
-  );
+        <h2>
+          ${escapeHtml(category.name)}
+        </h2>
 
 
-  document.body.classList.add(
-    "modal-open"
-  );
+        <p>
+          ${escapeHtml(category.description)}
+        </p>
+
+      </div>
 
 
-  /*
-   * Activar botones Cotizar
-   */
+      ${groupsHTML}
+
+    </div>
+
+  `;
+
 
   bindQuoteButtons();
+
+
+  document
+    .getElementById("backToCatalog")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        renderCategories();
+
+      }
+    );
 
 }
 
 
 /* =========================================================
-   CERRAR NIVEL 2
+   BOTONES DE CATEGORÍAS
 ========================================================= */
 
-function closeCatalogModal() {
+function bindCategoryButtons() {
 
-  if (!catalogModal) {
-
-    return;
-
-  }
-
-
-  catalogModal.classList.remove(
-    "active"
-  );
-
-
-  if (modalBackdrop) {
-
-    modalBackdrop.classList.remove(
-      "active"
+  const buttons =
+    document.querySelectorAll(
+      ".explore-button"
     );
 
-  }
 
+  buttons.forEach(
+    button => {
 
-  catalogModal.setAttribute(
-    "aria-hidden",
-    "true"
-  );
+      button.addEventListener(
+        "click",
+        () => {
 
+          const categoryName =
+            button.dataset.category;
 
-  document.body.classList.remove(
-    "modal-open"
+          renderCategory(
+            categoryName
+          );
+
+        }
+      );
+
+    }
   );
 
 }
@@ -1564,31 +1392,13 @@ function bindQuoteButtons() {
   buttons.forEach(
     button => {
 
-      if (
-        button.dataset.bound === "true"
-      ) {
-
-        return;
-
-      }
-
-
-      button.dataset.bound =
-        "true";
-
-
       button.addEventListener(
         "click",
-        event => {
-
-          event.preventDefault();
-
-          event.stopPropagation();
-
+        () => {
 
           const item =
             button.dataset.item ||
-            "el producto";
+            "un producto";
 
 
           const category =
@@ -1601,15 +1411,18 @@ function bindQuoteButtons() {
             "";
 
 
-          const location =
-            group &&
-            group !== category
-              ? `${category}, ${group}`
-              : category;
+          const itemText =
+            [
+              item,
+              group,
+              category
+            ]
+            .filter(Boolean)
+            .join(" - ");
 
 
           openWhatsApp(
-            `información sobre ${item} de la categoría ${location}`
+            `cotizar ${itemText}`
           );
 
         }
@@ -1622,12 +1435,51 @@ function bindQuoteButtons() {
 
 
 /* =========================================================
-   BUSCADOR
+   BÚSQUEDA
 ========================================================= */
 
-function searchCatalog(
-  query
-) {
+function getAllItems() {
+
+  const items = [];
+
+
+  catalog.forEach(
+    category => {
+
+      category.groups.forEach(
+        group => {
+
+          group.items.forEach(
+            item => {
+
+              items.push({
+                ...item,
+                category:
+                  category.name,
+                group:
+                  group.name
+              });
+
+            }
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  return items;
+
+}
+
+
+const allItems =
+  getAllItems();
+
+
+function searchCatalog(query) {
 
   const normalized =
     query
@@ -1637,45 +1489,32 @@ function searchCatalog(
 
   if (!normalized) {
 
-    renderCategories(
-      catalog
-    );
+    renderCategories();
 
     return;
 
   }
 
 
-  const filtered =
-    catalog.filter(
-      category => {
+  currentCategory = null;
+  currentGroup = null;
 
-        const categoryText =
+
+  const results =
+    allItems.filter(
+      item => {
+
+        const searchable =
           [
-
-            category.name,
-
-            category.description,
-
-            ...category.groups.map(
-              group =>
-                group.name
-            ),
-
-            ...category.groups.flatMap(
-              group =>
-                group.items.map(
-                  item =>
-                    item.name
-                )
-            )
-
+            item.name,
+            item.category,
+            item.group
           ]
             .join(" ")
             .toLowerCase();
 
 
-        return categoryText.includes(
+        return searchable.includes(
           normalized
         );
 
@@ -1683,183 +1522,167 @@ function searchCatalog(
     );
 
 
-  renderCategories(
-    filtered
-  );
-
-}
+  catalogTitle.textContent =
+    "Resultados de búsqueda";
 
 
-/* =========================================================
-   BOTONES GENERALES WHATSAPP
-========================================================= */
+  resultCount.textContent =
+    `${results.length} ${
+      results.length === 1
+        ? "resultado"
+        : "resultados"
+    }`;
 
-function bindWhatsAppButton(
-  id
-) {
 
-  const button =
-    document.getElementById(
-      id
+  if (!results.length) {
+
+    catalogStatus.textContent =
+      "No encontramos resultados para tu búsqueda.";
+
+
+    catalogStatus.classList.remove(
+      "hidden"
     );
 
 
-  if (
-    !button ||
-    button.dataset.whatsappBound === "true"
-  ) {
+    catalogElement.innerHTML = "";
+
 
     return;
 
   }
 
 
-  button.dataset.whatsappBound =
-    "true";
-
-
-  button.addEventListener(
-    "click",
-    event => {
-
-      event.preventDefault();
-
-
-      openWhatsApp(
-        "información general sobre productos y servicios"
-      );
-
-    }
+  catalogStatus.classList.add(
+    "hidden"
   );
+
+
+  catalogElement.innerHTML = `
+
+    <div class="search-results">
+
+      ${results.map(
+        item => `
+
+          <article
+            class="search-result-card"
+          >
+
+            <div class="search-result-image">
+
+              <img
+                src="${escapeHtml(item.image)}"
+                alt="${escapeHtml(item.name)}"
+                loading="lazy"
+                onerror="this.style.display='none';"
+              >
+
+            </div>
+
+
+            <div class="search-result-content">
+
+              <small>
+                ${escapeHtml(item.category)}
+              </small>
+
+              <h3>
+                ${escapeHtml(item.name)}
+              </h3>
+
+
+              <button
+                type="button"
+                class="quote-button"
+                data-item="${escapeHtml(item.name)}"
+                data-category="${escapeHtml(item.category)}"
+                data-group="${escapeHtml(item.group)}"
+              >
+                Cotizar
+              </button>
+
+            </div>
+
+          </article>
+
+        `
+      ).join("")}
+
+    </div>
+
+  `;
+
+
+  bindQuoteButtons();
 
 }
 
 
 /* =========================================================
-   INICIALIZACIÓN
+   EVENTOS
+========================================================= */
+
+searchInput?.addEventListener(
+  "input",
+  event => {
+
+    searchCatalog(
+      event.target.value
+    );
+
+  }
+);
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+brandHome?.addEventListener(
+  "click",
+  event => {
+
+    event.preventDefault();
+
+    searchInput.value = "";
+
+    renderCategories();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+);
+
+
+/* =========================================================
+   FOOTER WHATSAPP
+========================================================= */
+
+footerWhatsapp?.addEventListener(
+  "click",
+  () => {
+
+    openWhatsApp(
+      "información general sobre productos y servicios"
+    );
+
+  }
+);
+
+
+/* =========================================================
+   INICIO
 ========================================================= */
 
 document.addEventListener(
   "DOMContentLoaded",
   () => {
 
-    /*
-     * Preparar modal
-     */
-
-    ensureCatalogModal();
-
-
-    /*
-     * Renderizar las 9 categorías
-     */
-
-    renderCategories(
-      catalog
-    );
-
-
-    /*
-     * Buscador
-     */
-
-    if (searchInput) {
-
-      searchInput.addEventListener(
-        "input",
-        event => {
-
-          searchCatalog(
-            event.target.value
-          );
-
-        }
-      );
-
-    }
-
-
-    /*
-     * WhatsApp
-     */
-
-    bindWhatsAppButton(
-      "headerWhatsapp"
-    );
-
-    bindWhatsAppButton(
-      "heroWhatsapp"
-    );
-
-    bindWhatsAppButton(
-      "ctaWhatsapp"
-    );
-
-    bindWhatsAppButton(
-      "footerWhatsapp"
-    );
-
-    bindWhatsAppButton(
-      "floatingWhatsapp"
-    );
-
-
-    /*
-     * Cerrar modal
-     */
-
-    if (closeModal) {
-
-      closeModal.addEventListener(
-        "click",
-        closeCatalogModal
-      );
-
-    }
-
-
-    if (modalCloseIcon) {
-
-      modalCloseIcon.addEventListener(
-        "click",
-        closeCatalogModal
-      );
-
-    }
-
-
-    if (modalBackdrop) {
-
-      modalBackdrop.addEventListener(
-        "click",
-        closeCatalogModal
-      );
-
-    }
-
-
-    /*
-     * Tecla ESC
-     */
-
-    document.addEventListener(
-      "keydown",
-      event => {
-
-        if (
-          event.key === "Escape" &&
-          catalogModal &&
-          catalogModal.classList.contains(
-            "active"
-          )
-        ) {
-
-          closeCatalogModal();
-
-        }
-
-      }
-    );
+    renderCategories();
 
   }
 );
