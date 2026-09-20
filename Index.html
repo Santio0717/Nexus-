@@ -1,138 +1,488 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus - Tienda de Tecnología</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Nexus Cali - Tecnología, computadores, gaming, periféricos, almacenamiento, impresoras, celulares y servicios técnicos."
+  >
+
+  <title>Nexus Cali | Tecnología</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <img src="https://via.placeholder.com/50?text=NEXUS" alt="Nexus Logo">
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar productos...">
-            </div>
-        </div>
-    </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h1>Encuentra lo que necesitas</h1>
-            <p>Explora nuestras principales categorías de tecnología.</p>
-        </section>
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-        <!-- Features Section -->
-        <section class="features">
-            <div class="feature-item">
-                <div class="feature-icon">
-                    <span class="icon-text">🎯</span>
-                </div>
-                <h3>Asesoría personalizada</h3>
-                <p>Te ayudamos a encontrar lo que necesitas.</p>
-            </div>
+  <header class="site-header">
 
-            <div class="feature-item">
-                <div class="feature-icon">
-                    <span class="icon-text">📦</span>
-                </div>
-                <h3>Amplio catálogo</h3>
-                <p>Computadores, gaming, accesorios y más.</p>
-            </div>
+    <div class="container header-inner">
 
-            <div class="feature-item">
-                <div class="feature-icon">
-                    <span class="icon-text">💬</span>
-                </div>
-                <h3>Cotización directa</h3>
-                <p>Habla con nuestros asesores por WhatsApp.</p>
-            </div>
+      <a
+        href="#inicio"
+        class="brand"
+        aria-label="Nexus Cali"
+      >
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmElgXb6F-1FWqLMwjW1ZTBxnz4Hy00DoAKXUufe6e7w&s=10"
+          alt="Nexus Cali"
+        >
+      </a>
 
-            <div class="feature-item">
-                <div class="feature-icon">
-                    <span class="icon-text">🛠️</span>
-                </div>
-                <h3>Soporte técnico</h3>
-                <p>También te ayudamos con tus equipos.</p>
-            </div>
-        </section>
+      <div class="header-search">
 
-        <!-- Categories Section -->
-        <section class="categories-section">
-            <h2>CATEGORÍAS</h2>
-            <button class="btn-primary" id="openCatalog">Ver catálogo</button>
-        </section>
-    </main>
+        <span class="search-icon" aria-hidden="true">
+          ⌕
+        </span>
 
-    <!-- Modal Catálogo -->
-    <div class="modal" id="catalogModal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            
-            <!-- Featured Product -->
-            <div class="featured-product">
-                <div class="featured-text">
-                    <h2>Última tecnología en accesorios</h2>
-                    <button class="btn-primary">Explorar ahora</button>
-                </div>
-                <div class="featured-image">
-                    <img src="https://via.placeholder.com/300x200?text=Featured+Product" alt="Producto destacado">
-                </div>
-            </div>
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Buscar tecnología..."
+          autocomplete="off"
+        >
 
-            <!-- Category Tabs -->
-            <div class="category-tabs">
-                <button class="tab-btn active" data-category="computadores">
-                    💻 Computadores
-                </button>
-                <button class="tab-btn" data-category="gaming">
-                    🎮 Gaming
-                </button>
-                <button class="tab-btn" data-category="accesorios">
-                    🎧 Accesorios
-                </button>
-                <button class="tab-btn" data-category="tablets">
-                    📱 Tablets
-                </button>
-            </div>
+      </div>
 
-            <!-- Products Grid -->
-            <div class="products-section">
-                <h3>Ofertas Destacadas</h3>
-                <div class="products-grid" id="productsGrid">
-                    <!-- Los productos se cargan con JS -->
-                </div>
-            </div>
+      <button
+        class="header-whatsapp"
+        id="headerWhatsapp"
+        type="button"
+      >
+        WhatsApp
+      </button>
 
-            <!-- Benefits -->
-            <div class="benefits">
-                <div class="benefit-item">
-                    <span>🚚</span>
-                    <h4>Envío Gratis</h4>
-                    <p>En compras mayores a $50</p>
-                </div>
-                <div class="benefit-item">
-                    <span>🔒</span>
-                    <h4>Pago Seguro</h4>
-                    <p>Métodos seguros y encriptados</p>
-                </div>
-                <div class="benefit-item">
-                    <span>↩️</span>
-                    <h4>Devoluciones</h4>
-                    <p>7 días fácil y sin problemas</p>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- Overlay -->
-    <div class="modal-overlay" id="modalOverlay"></div>
+  </header>
 
-    <script src="script.js"></script>
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+
+  <main id="inicio">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+
+          <span class="eyebrow">
+            NEXUS CALI
+          </span>
+
+          <h1>
+            Tecnología para lo que necesitas.
+          </h1>
+
+          <p>
+            Explora nuestro catálogo de productos,
+            accesorios, gaming y servicios técnicos.
+            Selecciona una categoría para conocer todo
+            lo que tenemos disponible.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              href="#catalogo"
+              class="primary-button"
+            >
+              Explorar catálogo
+            </a>
+
+            <button
+              type="button"
+              class="secondary-button"
+              id="heroWhatsapp"
+            >
+              Hablar con un asesor
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+          <div class="hero-logo-card">
+
+            <div class="hero-logo-glow"></div>
+
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmElgXb6F-1FWqLMwjW1ZTBxnz4Hy00DoAKXUufe6e7w&s=10"
+              alt="Nexus Cali Tecnología"
+            >
+
+            <div class="hero-logo-text">
+              <strong>NEXUS</strong>
+              <span>Soluciones Tecnológicas</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- INFORMACIÓN -->
+
+    <section class="info-strip">
+
+      <div class="container info-grid">
+
+        <div class="info-item">
+
+          <span class="info-icon">
+            01
+          </span>
+
+          <div>
+            <strong>
+              Atención personalizada
+            </strong>
+
+            <p>
+              Te ayudamos a encontrar lo que necesitas.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <span class="info-icon">
+            02
+          </span>
+
+          <div>
+            <strong>
+              Cotizaciones por WhatsApp
+            </strong>
+
+            <p>
+              Solicita información directamente con un asesor.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="info-item">
+
+          <span class="info-icon">
+            03
+          </span>
+
+          <div>
+            <strong>
+              Tecnología y soporte
+            </strong>
+
+            <p>
+              Productos y servicios para tus necesidades.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATÁLOGO NIVEL 1
+    ========================== -->
+
+    <section
+      class="catalog-section"
+      id="catalogo"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="eyebrow">
+              CATÁLOGO
+            </span>
+
+            <h2>
+              Encuentra lo que necesitas
+            </h2>
+
+            <p>
+              Selecciona una categoría para explorar sus productos.
+            </p>
+
+          </div>
+
+          <span
+            id="resultCount"
+            class="result-count"
+          >
+            9 categorías
+          </span>
+
+        </div>
+
+
+        <div
+          id="catalogStatus"
+          class="catalog-status hidden"
+        ></div>
+
+
+        <div
+          id="catalog"
+          class="category-grid"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta-section">
+
+      <div class="container">
+
+        <div class="cta-card">
+
+          <div>
+
+            <span class="eyebrow">
+              NEXUS CALI
+            </span>
+
+            <h2>
+              ¿No sabes exactamente qué necesitas?
+            </h2>
+
+            <p>
+              Cuéntanos qué estás buscando y uno de
+              nuestros asesores te ayudará a encontrar
+              una opción adecuada.
+            </p>
+
+          </div>
+
+          <button
+            type="button"
+            class="primary-button"
+            id="ctaWhatsapp"
+          >
+            Consultar por WhatsApp
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-grid">
+
+      <div class="footer-brand">
+
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmElgXb6F-1FWqLMwjW1ZTBxnz4Hy00DoAKXUufe6e7w&s=10"
+          alt="Nexus Cali"
+        >
+
+        <p>
+          Tecnología, accesorios, gaming
+          y servicios técnicos.
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <span>
+          ATENCIÓN
+        </span>
+
+        <p>
+          Lunes a sábado
+        </p>
+
+        <p>
+          9:00 a. m. — 6:00 p. m.
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <span>
+          COTIZACIONES
+        </span>
+
+        <p>
+          Solicita información directamente
+          con nuestros asesores.
+        </p>
+
+        <button
+          type="button"
+          id="footerWhatsapp"
+          class="footer-link-button"
+        >
+          Contactar por WhatsApp
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+      <span>
+        © 2026 Nexus Cali. Todos los derechos reservados.
+      </span>
+
+      <span>
+        Precios y disponibilidad se confirman con un asesor.
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       MODAL / NIVEL 2
+  ========================== -->
+
+  <div
+    class="catalog-modal"
+    id="catalogModal"
+    aria-hidden="true"
+  >
+
+    <div class="catalog-modal-inner">
+
+      <div class="modal-topbar">
+
+        <button
+          type="button"
+          class="back-button"
+          id="closeModal"
+        >
+          <span>←</span>
+          Volver al catálogo
+        </button>
+
+        <button
+          type="button"
+          class="modal-close"
+          id="modalCloseIcon"
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="modal-header">
+
+        <span
+          class="eyebrow"
+          id="modalEyebrow"
+        >
+          NEXUS CALI
+        </span>
+
+        <h2 id="modalTitle">
+          Computadores
+        </h2>
+
+        <p id="modalDescription">
+          Explora las opciones disponibles.
+        </p>
+
+      </div>
+
+
+      <div
+        id="modalContent"
+        class="modal-content-grid"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="modal-backdrop"
+    id="modalBackdrop"
+  ></div>
+
+
+  <!-- =========================
+       WHATSAPP FLOTANTE
+  ========================== -->
+
+  <button
+    class="whatsapp-float"
+    id="floatingWhatsapp"
+    type="button"
+    aria-label="Contactar Nexus por WhatsApp"
+  >
+    <span>WA</span>
+  </button>
+
+
+  <script src="script.js"></script>
+
 </body>
 </html>
