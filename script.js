@@ -1,5 +1,26 @@
+```javascript
 /* =========================================================
    NEXUS CALI - CATÁLOGO
+   ========================================================= */
+
+
+/* =========================================================
+   GOOGLE ANALYTICS
+   ========================================================= */
+
+function trackEvent(eventName, eventData = {}) {
+
+  if (typeof gtag === "function") {
+
+    gtag("event", eventName, eventData);
+
+  }
+
+}
+
+
+/* =========================================================
+   CONFIGURACIÓN
    ========================================================= */
 
 const IMAGE_BASE = "Nexus_Imagenes/";
@@ -12,6 +33,7 @@ const LOGO_URL = imagePath("Logo.jpg");
 const WHATSAPP_ADVISOR = "573228182311";
 const WHATSAPP_ADVISOR_2 = "573117161043";
 
+
 /* =========================================================
    DATOS DEL CATÁLOGO
    ========================================================= */
@@ -22,8 +44,11 @@ const makeItems = (items) =>
     image: imagePath(file)
   }));
 
+
 const catalogData = [
+
   /* 1. COMPUTADORES */
+
   {
     name: "Computadores",
     image: imagePath("Computadores.jpg"),
@@ -40,7 +65,9 @@ const catalogData = [
     ])
   },
 
+
   /* 2. MONITORES Y TV */
+
   {
     name: "Monitores y TV",
     image: imagePath("Monitores y TV.jpg"),
@@ -51,7 +78,9 @@ const catalogData = [
     ])
   },
 
+
   /* 3. GAMING */
+
   {
     name: "Gaming",
     image: imagePath("Gaming.jpg"),
@@ -62,7 +91,9 @@ const catalogData = [
     ])
   },
 
+
   /* 4. PERIFÉRICOS */
+
   {
     name: "Periféricos",
     image: imagePath("Perifericos.jpg"),
@@ -89,7 +120,9 @@ const catalogData = [
     ])
   },
 
+
   /* 5. CABLES */
+
   {
     name: "Cables",
     image: imagePath("Cable Usb.jpg"),
@@ -105,7 +138,9 @@ const catalogData = [
     ])
   },
 
+
   /* 6. ADAPTADORES Y REDES */
+
   {
     name: "Adaptadores y Redes",
     image: imagePath("Wi-Fi.jpg"),
@@ -121,7 +156,9 @@ const catalogData = [
     ])
   },
 
+
   /* 7. ALMACENAMIENTO */
+
   {
     name: "Almacenamiento",
     image: imagePath("Almacenamiento.jpg"),
@@ -136,7 +173,9 @@ const catalogData = [
     ])
   },
 
+
   /* 8. IMPRESORAS */
+
   {
     name: "Impresoras",
     image: imagePath("Impresoras.jpg"),
@@ -153,7 +192,9 @@ const catalogData = [
     ])
   },
 
+
   /* 9. CELULARES */
+
   {
     name: "Celulares",
     image: imagePath("Celulares categoria.jpg"),
@@ -166,7 +207,9 @@ const catalogData = [
     ])
   },
 
+
   /* 10. SILLAS */
+
   {
     name: "Sillas",
     image: imagePath("Sillas Categoria.jpg"),
@@ -176,7 +219,9 @@ const catalogData = [
     ])
   },
 
+
   /* 11. ENERGÍA */
+
   {
     name: "Energía",
     image: imagePath("Energia.jpg"),
@@ -186,7 +231,9 @@ const catalogData = [
     ])
   },
 
+
   /* 12. SERVICIOS TÉCNICOS */
+
   {
     name: "Servicios Técnicos",
     image: imagePath("Servicios Tecnicos.jpg"),
@@ -196,103 +243,153 @@ const catalogData = [
       ["Instalación de programas y configuración", "Instalacion de Programas y Configuracion.jpg"]
     ])
   }
+
 ];
+
 
 /* =========================================================
    ELEMENTOS DEL HTML
    ========================================================= */
 
-const catalogElement = document.getElementById("catalog");
-const catalogTitle = document.getElementById("catalogTitle");
-const catalogCount = document.getElementById("catalogCount");
-const searchStatus = document.getElementById("searchStatus");
-const searchForm = document.getElementById("searchForm");
-const searchInput = document.getElementById("searchInput");
-const infoBanner = document.getElementById("infoBanner");
-const footerElement = document.getElementById("contacto");
-const brandLink = document.querySelector(".brand");
-const footerWhatsapp = document.getElementById("footerWhatsapp");
+const catalogElement =
+  document.getElementById("catalog");
 
-/* LOGO LOCAL */
-const brandLogo = brandLink?.querySelector(".brand-logo");
+const catalogTitle =
+  document.getElementById("catalogTitle");
+
+const catalogCount =
+  document.getElementById("catalogCount");
+
+const searchStatus =
+  document.getElementById("searchStatus");
+
+const searchForm =
+  document.getElementById("searchForm");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const infoBanner =
+  document.getElementById("infoBanner");
+
+const footerElement =
+  document.getElementById("contacto");
+
+const brandLink =
+  document.querySelector(".brand");
+
+const footerWhatsapp =
+  document.getElementById("footerWhatsapp");
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+const brandLogo =
+  brandLink?.querySelector(".brand-logo");
 
 if (brandLogo) {
   brandLogo.src = LOGO_URL;
 }
 
-/* ESTADO */
+
+/* =========================================================
+   ESTADO
+   ========================================================= */
+
 let currentCategory = null;
 let currentSearch = "";
+
 
 /* =========================================================
    FUNCIONES GENERALES
    ========================================================= */
 
 function normalizeText(text) {
+
   return String(text || "")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .trim();
+
 }
+
 
 function escapeHTML(text) {
-  const div = document.createElement("div");
+
+  const div =
+    document.createElement("div");
+
   div.textContent = text;
+
   return div.innerHTML;
+
 }
+
 
 function getCategory(categoryName) {
+
   return catalogData.find(
-    (category) => category.name === categoryName
+    (category) =>
+      category.name === categoryName
   );
+
 }
 
+
 function setFooterVisible(visible) {
+
   if (!footerElement) return;
 
   footerElement.classList.toggle(
     "is-hidden",
     !visible
   );
+
 }
 
+
 function setBannerVisible(visible) {
+
   if (!infoBanner) return;
 
   infoBanner.hidden = !visible;
+
 }
 
+
 function updateSearchStatus(text = "") {
+
   if (!searchStatus) return;
 
   searchStatus.textContent = text;
+
 }
+
 
 /* =========================================================
    WHATSAPP - 60% / 40%
    ========================================================= */
 
 function getWhatsAppNumber() {
+
   return Math.random() < 0.60
     ? WHATSAPP_ADVISOR
     : WHATSAPP_ADVISOR_2;
+
 }
+
 
 /* =========================================================
    MENSAJES DE COTIZACIÓN
    ========================================================= */
 
-/*
-   Convierte el nombre de la subcategoría en un mensaje
-   natural para WhatsApp.
-
-   La categoría principal NO se envía.
-*/
-
 function getQuoteMessage(product) {
+
   const messages = {
-    /* COMPUTADORES */
+
     "Portátiles": "un portátil",
     "Torres": "una torre",
     "All in One": "un computador All in One",
@@ -303,17 +400,14 @@ function getQuoteMessage(product) {
     "Chasis": "un chasis",
     "Refrigeración": "un sistema de refrigeración",
 
-    /* MONITORES Y TV */
     "Monitores": "un monitor",
     "Monitores Gaming": "un monitor gaming",
     "TV": "un televisor",
 
-    /* GAMING */
     "Consolas": "una consola",
     "Controles": "un control",
     "Accesorios Gaming": "un accesorio gaming",
 
-    /* PERIFÉRICOS */
     "Teclados Gaming": "un teclado gaming",
     "Teclados Cableados": "un teclado cableado",
     "Teclados Inalámbricos": "un teclado inalámbrico",
@@ -332,19 +426,20 @@ function getQuoteMessage(product) {
     "Soportes para monitor": "un soporte para monitor",
     "Soportes para portátil": "un soporte para portátil",
     "Bases para portátil": "una base para portátil",
-    "Bases refrigerantes con ventilador": "una base refrigerante para portátil",
+    "Bases refrigerantes con ventilador":
+      "una base refrigerante para portátil",
 
-    /* CABLES */
     "Cables USB": "un cable USB",
     "Cables HDMI": "un cable HDMI",
     "Cables de red": "un cable de red",
     "Cables de audio": "un cable de audio",
     "Cables para celular": "un cable para celular",
     "Cables para computador": "un cable para computador",
-    "Cargadores para PC / portátil": "un cargador para PC o portátil",
-    "Cargadores para celular": "un cargador para celular",
+    "Cargadores para PC / portátil":
+      "un cargador para PC o portátil",
+    "Cargadores para celular":
+      "un cargador para celular",
 
-    /* ADAPTADORES Y REDES */
     "Adaptadores USB": "un adaptador USB",
     "Adaptadores HDMI": "un adaptador HDMI",
     "Adaptadores de video": "un adaptador de video",
@@ -354,7 +449,6 @@ function getQuoteMessage(product) {
     "Lectores": "un lector",
     "Accesorios internos": "un accesorio interno",
 
-    /* ALMACENAMIENTO */
     "Memorias USB": "una memoria USB",
     "RAM": "una memoria RAM",
     "HDD": "un disco HDD",
@@ -363,111 +457,156 @@ function getQuoteMessage(product) {
     "MicroSD": "una memoria MicroSD",
     "SD": "una memoria SD",
 
-    /* IMPRESORAS */
-    "Multifuncionales": "una impresora multifuncional",
-    "Fotocopiadoras": "una fotocopiadora",
-    "Impresoras térmicas": "una impresora térmica",
-    "Impresoras de tinta": "una impresora de tinta",
-    "Impresoras láser": "una impresora láser",
-    "Impresoras Wi-Fi": "una impresora Wi-Fi",
-    "Tintas": "tinta para impresora",
-    "Cartuchos": "un cartucho para impresora",
-    "Tóner": "un tóner",
+    "Multifuncionales":
+      "una impresora multifuncional",
+    "Fotocopiadoras":
+      "una fotocopiadora",
+    "Impresoras térmicas":
+      "una impresora térmica",
+    "Impresoras de tinta":
+      "una impresora de tinta",
+    "Impresoras láser":
+      "una impresora láser",
+    "Impresoras Wi-Fi":
+      "una impresora Wi-Fi",
+    "Tintas":
+      "tinta para impresora",
+    "Cartuchos":
+      "un cartucho para impresora",
+    "Tóner":
+      "un tóner",
 
-    /* CELULARES */
     "Celulares": "un celular",
     "Cargadores": "un cargador para celular",
-    "Vidrios templados": "un vidrio templado",
-    "Fundas / Forros": "una funda para celular",
+    "Vidrios templados":
+      "un vidrio templado",
+    "Fundas / Forros":
+      "una funda para celular",
 
-    /* SILLAS */
     "Sillas Gaming": "una silla gaming",
     "Sillas de oficina": "una silla de oficina",
 
-    /* ENERGÍA */
     "UPS": "una UPS",
-    "Reguladores de voltaje": "un regulador de voltaje",
+    "Reguladores de voltaje":
+      "un regulador de voltaje",
 
-    /* SERVICIOS */
-    "Mantenimiento": "un servicio de mantenimiento",
-    "Reparación": "un servicio de reparación",
+    "Mantenimiento":
+      "un servicio de mantenimiento",
+    "Reparación":
+      "un servicio de reparación",
     "Instalación de programas y configuración":
       "un servicio de instalación y configuración"
+
   };
+
 
   const productText =
     messages[product] ||
     `un ${product.toLowerCase()}`;
 
+
   return `Hola, quiero cotizar ${productText}.`;
+
 }
+
 
 /* =========================================================
    WHATSAPP GENERAL
    ========================================================= */
 
 function openWhatsApp(productName = "") {
-  const number = getWhatsAppNumber();
+
+  const number =
+    getWhatsAppNumber();
 
   let message;
 
+
   if (productName) {
-    message = getQuoteMessage(productName);
+
+    message =
+      getQuoteMessage(productName);
+
   } else {
+
     message =
       "Hola, quiero recibir información sobre un producto del catálogo de Nexus.";
+
   }
+
 
   const url =
     `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+
 
   window.open(
     url,
     "_blank",
     "noopener,noreferrer"
   );
+
 }
+
 
 /* =========================================================
    ERROR DE IMAGEN
    ========================================================= */
 
 function handleImageError(image) {
+
   if (!image) return;
 
   image.onerror = null;
+
   image.style.display = "none";
 
-  const wrapper = image.parentElement;
+  const wrapper =
+    image.parentElement;
 
   if (wrapper) {
-    wrapper.classList.add("image-error");
+
+    wrapper.classList.add(
+      "image-error"
+    );
+
   }
+
 }
+
 
 /* =========================================================
    TARJETAS DE CATEGORÍAS
    ========================================================= */
 
 function createCategoryCard(category) {
-  const previewItems = category.items
-    ? category.items.slice(0, 5)
-    : [];
 
-  const previewListHTML = previewItems
-    .map(
-      (item) =>
-        `<li class="popover-item">${escapeHTML(item.name)}</li>`
-    )
-    .join("");
+  const previewItems =
+    category.items
+      ? category.items.slice(0, 5)
+      : [];
+
+
+  const previewListHTML =
+    previewItems
+      .map(
+        (item) =>
+          `<li class="popover-item">${escapeHTML(item.name)}</li>`
+      )
+      .join("");
+
 
   return `
+
     <article class="category-card">
 
       <div class="category-preview-popover">
-        <div class="popover-title">Incluye:</div>
+
+        <div class="popover-title">
+          Incluye:
+        </div>
 
         <ul class="popover-list">
+
           ${previewListHTML}
 
           ${
@@ -475,25 +614,35 @@ function createCategoryCard(category) {
               ? `<li class="popover-item" style="font-style: italic; opacity: 0.8;">y más...</li>`
               : ""
           }
+
         </ul>
+
       </div>
 
+
       <div class="category-content">
+
         <h3 class="category-title">
           ${escapeHTML(category.name)}
         </h3>
+
       </div>
 
+
       <div class="category-image-wrap">
+
         <img
           src="${category.image}"
           alt="${escapeHTML(category.name)}"
           loading="lazy"
           onerror="handleImageError(this)"
         >
+
       </div>
 
+
       <div class="category-actions">
+
         <button
           type="button"
           class="explore-button"
@@ -501,34 +650,48 @@ function createCategoryCard(category) {
         >
           Conocer productos
         </button>
+
       </div>
 
     </article>
+
   `;
+
 }
+
 
 /* =========================================================
    TARJETAS DE SUBCATEGORÍAS
    ========================================================= */
 
-function createItemCard(item, categoryName) {
+function createItemCard(
+  item,
+  categoryName
+) {
+
   return `
+
     <article class="subcategory-card">
 
       <h3 class="subcategory-title">
         ${escapeHTML(item.name)}
       </h3>
 
+
       <div class="subcategory-image-wrap">
+
         <img
           src="${item.image}"
           alt="${escapeHTML(item.name)}"
           loading="lazy"
           onerror="handleImageError(this)"
         >
+
       </div>
 
+
       <div class="subcategory-actions">
+
         <button
           type="button"
           class="quote-button"
@@ -537,88 +700,133 @@ function createItemCard(item, categoryName) {
         >
           Cotizar
         </button>
+
       </div>
 
     </article>
+
   `;
+
 }
+
 
 /* =========================================================
    RENDER DE CATEGORÍAS
    ========================================================= */
 
 function renderCategories(options = {}) {
+
   const {
     updateHistory = true,
     scroll = false
   } = options;
 
+
   currentCategory = null;
 
+
   setBannerVisible(true);
+
   setFooterVisible(true);
 
+
   if (catalogTitle) {
-    catalogTitle.textContent = "CATÁLOGO";
+
+    catalogTitle.textContent =
+      "CATÁLOGO";
+
   }
+
 
   updateSearchStatus("");
 
-  const query = normalizeText(currentSearch);
 
-  let filteredCategories = catalogData;
+  const query =
+    normalizeText(currentSearch);
+
+
+  let filteredCategories =
+    catalogData;
+
 
   if (query) {
+
     filteredCategories =
-      catalogData.filter((category) => {
+      catalogData.filter(
+        (category) => {
 
-        const categoryMatch =
-          normalizeText(category.name)
-            .includes(query);
+          const categoryMatch =
+            normalizeText(category.name)
+              .includes(query);
 
-        const itemMatch =
-          category.items.some((item) =>
-            normalizeText(item.name)
-              .includes(query)
+
+          const itemMatch =
+            category.items.some(
+              (item) =>
+                normalizeText(item.name)
+                  .includes(query)
+            );
+
+
+          return (
+            categoryMatch ||
+            itemMatch
           );
 
-        return categoryMatch || itemMatch;
-      });
+        }
+      );
+
   }
+
 
   if (catalogCount) {
-    catalogCount.textContent = query
-      ? `${filteredCategories.length} ${
-          filteredCategories.length === 1
-            ? "categoría"
-            : "categorías"
-        }`
-      : "12 categorías";
+
+    catalogCount.textContent =
+      query
+        ? `${filteredCategories.length} ${
+            filteredCategories.length === 1
+              ? "categoría"
+              : "categorías"
+          }`
+        : "12 categorías";
+
   }
 
+
   if (query) {
+
     updateSearchStatus(
       `Resultados para “${currentSearch}”`
     );
+
   }
 
+
   catalogElement.style.opacity = "0";
+
   catalogElement.style.transition =
     "opacity 0.2s ease";
+
 
   setTimeout(() => {
 
     if (!filteredCategories.length) {
 
       catalogElement.innerHTML = `
+
         <div class="empty-state">
-          <h3>No encontramos una categoría relacionada</h3>
+
+          <h3>
+            No encontramos una categoría relacionada
+          </h3>
 
           <p>
             Prueba con otro término o selecciona
             una categoría cercana a lo que estás buscando.
           </p>
+
         </div>
+
       `;
 
     } else {
@@ -627,86 +835,133 @@ function renderCategories(options = {}) {
         filteredCategories
           .map(createCategoryCard)
           .join("");
+
     }
 
-    catalogElement.style.opacity = "1";
+
+    catalogElement.style.opacity =
+      "1";
+
 
   }, 150);
 
+
   if (updateHistory) {
+
     history.pushState(
       { page: "home" },
       "",
       window.location.pathname
     );
+
   }
 
+
   if (scroll) {
+
     document
       .getElementById("catalogSection")
       ?.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
+
   }
+
 }
+
 
 /* =========================================================
    RENDER DE SUBCATEGORÍAS
    ========================================================= */
 
-function renderCategory(categoryName, options = {}) {
+function renderCategory(
+  categoryName,
+  options = {}
+) {
 
   const {
     updateHistory = true,
     scroll = true
   } = options;
 
+
   const category =
     getCategory(categoryName);
 
+
   if (!category) {
+
     renderCategories({
       updateHistory: false,
       scroll: false
     });
 
     return;
+
   }
 
-  currentCategory = category.name;
+
+  currentCategory =
+    category.name;
+
+
+  /* ANALYTICS */
+
+  trackEvent(
+    "view_category",
+    {
+      category_name: category.name
+    }
+  );
+
 
   setBannerVisible(false);
+
   setFooterVisible(false);
 
+
   if (catalogTitle) {
+
     catalogTitle.textContent =
       category.name;
+
   }
+
 
   const query =
     normalizeText(currentSearch);
 
+
   let filteredItems =
     category.items;
 
+
   if (query) {
+
     filteredItems =
-      category.items.filter((item) =>
-        normalizeText(item.name)
-          .includes(query)
+      category.items.filter(
+        (item) =>
+          normalizeText(item.name)
+            .includes(query)
       );
+
   }
 
+
   if (catalogCount) {
-    catalogCount.textContent = query
-      ? `${filteredItems.length} ${
-          filteredItems.length === 1
-            ? "opción"
-            : "opciones"
-        }`
-      : `${category.items.length} opciones`;
+
+    catalogCount.textContent =
+      query
+        ? `${filteredItems.length} ${
+            filteredItems.length === 1
+              ? "opción"
+              : "opciones"
+          }`
+        : `${category.items.length} opciones`;
+
   }
+
 
   updateSearchStatus(
     query
@@ -714,11 +969,14 @@ function renderCategory(categoryName, options = {}) {
       : ""
   );
 
+
   let content = "";
+
 
   if (!filteredItems.length) {
 
     content += `
+
       <div class="empty-state">
 
         <h3>
@@ -732,27 +990,34 @@ function renderCategory(categoryName, options = {}) {
         </p>
 
       </div>
+
     `;
 
   } else {
 
     content += `
+
       <div class="subcategory-grid">
 
         ${filteredItems
-          .map((item) =>
-            createItemCard(
-              item,
-              category.name
-            )
+          .map(
+            (item) =>
+              createItemCard(
+                item,
+                category.name
+              )
           )
           .join("")}
 
       </div>
+
     `;
+
   }
 
+
   content += `
+
     <div class="back-button-wrap">
 
       <button
@@ -763,18 +1028,27 @@ function renderCategory(categoryName, options = {}) {
       </button>
 
     </div>
+
   `;
 
-  catalogElement.style.opacity = "0";
+
+  catalogElement.style.opacity =
+    "0";
+
 
   setTimeout(() => {
 
-    catalogElement.innerHTML = content;
-    catalogElement.style.opacity = "1";
+    catalogElement.innerHTML =
+      content;
+
+    catalogElement.style.opacity =
+      "1";
 
   }, 150);
 
+
   if (updateHistory) {
+
     history.pushState(
       {
         page: "category",
@@ -783,58 +1057,80 @@ function renderCategory(categoryName, options = {}) {
       "",
       window.location.pathname
     );
+
   }
 
+
   if (scroll) {
+
     document
       .getElementById("catalogSection")
       ?.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
+
   }
+
 }
+
 
 /* =========================================================
    VOLVER AL CATÁLOGO
    ========================================================= */
 
-function goBackToCatalog(options = {}) {
+function goBackToCatalog(
+  options = {}
+) {
 
   const {
     updateHistory = true,
     scroll = true
   } = options;
 
+
   currentCategory = null;
+
   currentSearch = "";
 
+
   if (searchInput) {
+
     searchInput.value = "";
+
   }
 
+
   if (updateHistory) {
+
     history.pushState(
       { page: "home" },
       "",
       window.location.pathname
     );
+
   }
+
 
   renderCategories({
     updateHistory: false,
     scroll: false
   });
 
+
   if (scroll) {
+
     document
       .getElementById("catalogSection")
       ?.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
+
   }
+
 }
+
 
 /* =========================================================
    BÚSQUEDA
@@ -844,8 +1140,22 @@ function performSearch() {
 
   if (!searchInput) return;
 
+
   currentSearch =
     searchInput.value.trim();
+
+
+  if (currentSearch) {
+
+    trackEvent(
+      "search_catalog",
+      {
+        search_term: currentSearch
+      }
+    );
+
+  }
+
 
   if (currentCategory) {
 
@@ -865,7 +1175,9 @@ function performSearch() {
         scroll: false
       }
     );
+
   }
+
 
   document
     .getElementById("catalogSection")
@@ -873,7 +1185,9 @@ function performSearch() {
       behavior: "smooth",
       block: "start"
     });
+
 }
+
 
 searchForm?.addEventListener(
   "submit",
@@ -882,8 +1196,10 @@ searchForm?.addEventListener(
     event.preventDefault();
 
     performSearch();
+
   }
 );
+
 
 /* =========================================================
    EVENTOS DEL CATÁLOGO
@@ -893,11 +1209,14 @@ catalogElement?.addEventListener(
   "click",
   (event) => {
 
+
     /* VOLVER AL CATÁLOGO */
+
     const backButton =
       event.target.closest(
         ".back-to-catalog"
       );
+
 
     if (backButton) {
 
@@ -906,56 +1225,86 @@ catalogElement?.addEventListener(
       goBackToCatalog();
 
       return;
+
     }
 
+
     /* ENTRAR A CATEGORÍA */
+
     const categoryButton =
       event.target.closest(
         ".explore-button"
       );
 
+
     if (categoryButton) {
 
       event.preventDefault();
 
+
       const categoryName =
         categoryButton.dataset.category;
+
+
+      trackEvent(
+        "select_category",
+        {
+          category_name: categoryName
+        }
+      );
+
 
       renderCategory(
         categoryName
       );
 
+
       return;
+
     }
 
+
     /* COTIZAR */
+
     const quoteButton =
       event.target.closest(
         ".quote-button"
       );
 
+
     if (quoteButton) {
 
       event.preventDefault();
 
+
       const product =
         quoteButton.dataset.product;
+
+
+      const category =
+        quoteButton.dataset.category;
+
+
+      trackEvent(
+        "quote_click",
+        {
+          product_name: product,
+          category_name: category
+        }
+      );
+
 
       const number =
         getWhatsAppNumber();
 
-      /*
-        IMPORTANTE:
-        Solo usamos el producto.
-        NO enviamos la categoría principal
-        ni la subcategoría.
-      */
 
       const message =
         getQuoteMessage(product);
 
+
       const url =
         `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+
 
       window.open(
         url,
@@ -963,10 +1312,14 @@ catalogElement?.addEventListener(
         "noopener,noreferrer"
       );
 
+
       return;
+
     }
+
   }
 );
+
 
 /* =========================================================
    LOGO → VOLVER AL INICIO
@@ -980,13 +1333,19 @@ brandLink?.addEventListener(
 
     currentSearch = "";
 
+
     if (searchInput) {
+
       searchInput.value = "";
+
     }
 
+
     goBackToCatalog();
+
   }
 );
+
 
 /* =========================================================
    BOTÓN WHATSAPP DEL FOOTER
@@ -995,9 +1354,42 @@ brandLink?.addEventListener(
 footerWhatsapp?.addEventListener(
   "click",
   () => {
+
+    trackEvent(
+      "whatsapp_advisor_click",
+      {
+        location: "footer"
+      }
+    );
+
+
     openWhatsApp();
+
   }
 );
+
+
+/* =========================================================
+   GOOGLE MAPS
+   ========================================================= */
+
+const mapLink =
+  document.querySelector(
+    ".map-link"
+  );
+
+
+mapLink?.addEventListener(
+  "click",
+  () => {
+
+    trackEvent(
+      "google_maps_click"
+    );
+
+  }
+);
+
 
 /* =========================================================
    HEADER DINÁMICO AL HACER SCROLL
@@ -1012,7 +1404,9 @@ window.addEventListener(
         ".header"
       );
 
+
     if (!header) return;
+
 
     if (window.scrollY > 40) {
 
@@ -1029,9 +1423,12 @@ window.addEventListener(
 
       header.style.padding =
         "1rem 1.5rem";
+
     }
+
   }
 );
+
 
 /* =========================================================
    BOTÓN ATRÁS DEL NAVEGADOR
@@ -1043,6 +1440,7 @@ window.addEventListener(
 
     const state =
       event.state;
+
 
     if (
       state &&
@@ -1059,14 +1457,21 @@ window.addEventListener(
       );
 
       return;
+
     }
+
 
     currentCategory = null;
+
     currentSearch = "";
 
+
     if (searchInput) {
+
       searchInput.value = "";
+
     }
+
 
     renderCategories(
       {
@@ -1074,8 +1479,10 @@ window.addEventListener(
         scroll: false
       }
     );
+
   }
 );
+
 
 /* =========================================================
    INICIALIZACIÓN
@@ -1085,3 +1492,4 @@ renderCategories({
   updateHistory: false,
   scroll: false
 });
+```
